@@ -1,0 +1,88 @@
+一、Windows本地安装Git
+参阅：https://www.cnblogs.com/java-maowei/p/5950930.html
+
+二、配置本地Git SSH服务
+
+1、生成秘钥SSH KEY——Generating a new SSH key
+参见：https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/
+Open Git Bash.（打开Git bash）
+命令：ssh-keygen -t rsa -C "你的邮箱地址"
+例如：ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
+回车后，采用默认位置在其位置下生成id_rsa等秘钥文件
+输入密码（两次，输入时不出现任何字符），回车后出现“The key's randomart image is:”表示OK。
+
+*查看SSH服务是否运行：Ensure the ssh-agent is running:# start the ssh-agent in the background
+命令：eval $(ssh-agent -s)
+运行结果之一：Agent pid 59566
+
+2、复制SSH KEY（秘钥）到剪贴板
+命令：clip < ~/.ssh/id_rsa.pub
+
+3、登录Github账户，新增SSH Key
+官方说明：Adding a new SSH key to your GitHub account，参见：
+https://help.github.com/articles/adding-a-new-ssh-key-to-your-github-account/
+需要把上一步复制到剪贴板的SSH Key粘贴到Github账户中。
+
+三、配置本地全局用户名和邮箱
+进入Git Bash后运行如下命令：
+git config --global user.name  "你的用户名"
+git config --global user.email "你的邮箱" 
+例如：
+git config --global user.name "lovechubby"
+git config --global user.email "lyf19820422@163.com"
+
+
+四、集成开发环境IDEAL的配置Git
+参见：https://www.cnblogs.com/java-maowei/p/5950930.html
+
+五、新建远程仓库
+进入Github账户，新建仓库（仓库名可以与本地ideal项目名一样），仓库为public的
+
+六、配置远程仓库
+进入仓库后，点击“Settings”选项卡，然后找到“GitHub Pages”列表项，在“Source”下拉列表选择“master branch”，然后点击“save”按钮。（默认是None，必须配置才能与本地仓库同步）
+
+
+七、本地项目同步到远程仓库
+例如：Wanshun是IDEAL的本地项目目录，操作如下：
+
+选中Wanshun项目目录，点击鼠标右键，在弹出的快捷菜单中选“git bash here”
+弹出的黑窗口，依次输入如下命令：
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/sbftxgq/Wanshun.git
+git push  -u origin master
+
+如果不出错误，首次提交会弹出提示框，提示输入用户名，密码。成功后提示如下：
+Enumerating objects: 93, done.
+Counting objects: 100% (93/93), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (88/88), done.
+Writing objects: 100% (92/92), 1.97 MiB | 184.00 KiB/s, done.
+Total 92 (delta 14), reused 0 (delta 0)
+remote: Resolving deltas: 100% (14/14), done.
+To https://github.com/sbftxgq/Wanshun.git
+   83ad94a..483ee25  master -> master
+Branch 'master' set up to track remote branch 'master' from 'origin'.
+
+成功后可以登录Github账户，进入该远程仓库查看同步结果。
+
+八、报错解决：
+
+1、GitHub报错master->master（fetch first)的解决方法参见：https://blog.csdn.net/ITxiaodong/article/details/51399333
+
+出现这个原因是仓库中的代码和本地中的代码不一致，需要先将仓库里的代码pull下来，命令：
+git pull --rebase https://github.com/sbftxgq/Wanshun.git
+然后再add，再commit，接着push
+git add .
+git commit -m "second commit"
+git push https://github.com/sbftxgq/Wanshun.git master
+
+
+2、git报错：'fatal:remote origin already exists'怎么处理？附上git常用操作以及说明，参见：https://www.cnblogs.com/leaf930814/p/6664706.html
+只要两步：
+（1）先删除
+$ git remote rm origin
+（2）再次执行添加就可以了
+
+3、Github官方帮助：https://help.github.com/
