@@ -1,0 +1,82 @@
+@charset "utf-8";
+/*
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}*/
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+    width: 100%;
+}
+table tr td, table tr th {
+    border: 1px solid #999;
+    padding: .4em 0em;/*上下0.4em,左右无padding*/
+    text-align: center;
+    white-space: nowrap;
+}
+
+.table-first tr th, .table-first tr td {
+    background: #F4F4F4;
+    font-weight: bold;
+}
+
+.table-container table tr td, .table-container table tr th {
+    border: 0;
+    border-bottom: 1px solid #999;
+    border-right: 1px solid #999;
+    text-align: center;
+    padding: .4em 0em;
+}
+
+.table-container table {
+
+    border: 1px solid #999;
+    border-left: 0;
+    width: 180%;
+    table-layout: fixed;
+    white-space:nowrap;
+}
+
+.table-two {
+    position: relative;
+}
+
+/*左边内容是表头名的宽度，根据实际情况而定,你也可以使用百分比*/
+.table-first {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 6em; /*width:20%; 102px*/
+}
+
+/*距离左边表头的内容宽度*/
+.table-second {
+    padding-left: 6em; /*width:20%*/
+}
+
+/*超出部分出现滚动条*/
+.table-container {
+    width: 100%;
+    overflow-x: scroll;
+    /*
+    overflow-y: auto;
+    _overflow: auto;
+    margin: 0 0 1em;*/
+}
+
+/*IOS滚动条*/
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid #fff;
+    background-color: rgba(0, 0, 0, .3);
+}

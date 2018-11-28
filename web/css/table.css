@@ -1,0 +1,29 @@
+.table-container {
+    /*border: 1px solid #0a8ddf;*/
+    width: 100%;
+    /*overflow-y: hidden;*/
+    overflow-x: scroll;
+}
+
+table {
+    width: 160%;
+    table-layout: fixed;
+    white-space:nowrap;
+}
+
+table td, table th {
+    border:1px solid #999;
+    padding: 0.4em 0.1em;/*防止下拉列表后出现上下滚动*/
+    text-align: center;
+}
+
+.table-container::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+}
+.table-container::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    border: 3px solid #fff;
+    background-color: rgba(0, 0, 0, .3);
+}
