@@ -72,25 +72,12 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">进货单号</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="系统自动生成" readonly>
+                                                    <input type="text" id="inBillNo" placeholder="系统自动生成" readonly>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    <!-- Text inputs 商品类别，Ajax获取-->
-                                    <li>
-                                        <div class="item-content">
-                                            <div class="item-media"></div>
-                                            <div class="item-inner">
-                                                <div class="item-title label">商品类别</div>
-                                                <div class="item-input">
-                                                    <!--value值作为查询数据库关键字，Ajax获取-->
-                                                    <select id="incategorysel" name="incategorysel">
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    <!-- Text inputs 商品类别，Ajax获取，移到表格-->
                                     <!-- Date 进货日期-->
                                     <li>
                                         <div class="item-content">
@@ -139,7 +126,7 @@
                                                             <tr id="inspecrow">
                                                                 <td>
                                                                     <div class="item-input">
-                                                                        <select id="inspeclst" name="inspeclst" class="specSelectedFlag">
+                                                                        <select id="inspeclst" name="inspeclst">
                                                                         </select>
                                                                     </div>
                                                                 </td>
@@ -172,7 +159,7 @@
                                                                     <!--单位-->
                                                                     <td>
                                                                         <div class="item-input">
-                                                                            <select id="inunit" name="inunit" class="unitSelectedFlag">
+                                                                            <select id="inunit" name="inunit" class="inUnitSelectedFlag">
                                                                                 <option value="piece">片</option>
                                                                                 <option value="bunch5">把(5根/把)</option>
                                                                                 <option value="bunch4">把(4根/把)</option>
@@ -206,7 +193,7 @@
                                                                     </td>
                                                                     <td>
                                                                         <input type="button"
-                                                                               class="button button-fill button-warning del"
+                                                                               class="button button-fill button-warning inDel"
                                                                                value="删除"/>
                                                                     </td>
                                                                 </tr>
@@ -232,9 +219,9 @@
                                     <li class="item-content">
                                         <div class="item-media"></div>
                                         <div class="item-inner">
-                                            <input type="button"
+                                            <input type="button" id="inAddRowBtn"
                                                    class="button button-fill button-success"
-                                                   value="添加商品规格" onclick="addRow()"/>
+                                                   value="添加商品规格"/>
                                         </div>
                                     </li>
                                     <!--用程序生成，选择了商品类型后，规格自动更新为该类型下的规格-->
@@ -466,7 +453,7 @@
                                                             <tr id="specrow">
                                                                 <td>
                                                                     <div class="item-input">
-                                                                        <select id="speclst" name="speclst" class="specSelectedFlag">
+                                                                        <select id="speclst" name="speclst">
                                                                         </select>
                                                                     </div>
                                                                 </td>
@@ -560,9 +547,9 @@
                                     <li class="item-content">
                                         <div class="item-media"></div>
                                         <div class="item-inner">
-                                            <input type="button"
+                                            <input type="button" id="outAddRowBtn"
                                                    class="button button-fill button-success"
-                                                   value="添加商品规格" onclick="addRow()"/>
+                                                   value="添加商品规格"/>
                                         </div>
                                     </li>
                                 </ul>
@@ -763,6 +750,7 @@
 
 <!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
 <script>$.init()</script>
-<script type='text/javascript' src='js/outlibUIAndData.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/utils.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/initialAndDataBind.js' charset='utf-8'></script>
 </body>
 </html>
