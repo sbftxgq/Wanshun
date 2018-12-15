@@ -8,7 +8,7 @@ public class Incomingtbl {
     //入库单单号，单号唯一
     private String billNo;
     //该单的总金额（进货成本），是各个规格进货成本总和
-    private float totalPrice;
+    private String totalPrice;
     //进货日期（唯一标识该批货，通过厂家ID,规格ID,进货日期三个字段唯一标识商品）
     private String inLibDate;
     //进货装卸方式
@@ -26,11 +26,11 @@ public class Incomingtbl {
         this.billNo = billNo;
     }
 
-    public float getTotalPrice() {
+    public String getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
     }
 

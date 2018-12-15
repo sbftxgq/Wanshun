@@ -13,9 +13,9 @@ public class Incomedetails {
     //该规格的数量
     private String counts;
     //该规格的单价
-    private float unitPrice;
+    private String unitPrice;
     //该规格的成本（进货成本）
-    private float price;
+    private String price;
 
     //getters And setters
     public String getBillNo() {
@@ -58,19 +58,19 @@ public class Incomedetails {
         this.counts = counts;
     }
 
-    public float getUnitPrice() {
+    public String getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(float unitPrice) {
+    public void setUnitPrice(String unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public float getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

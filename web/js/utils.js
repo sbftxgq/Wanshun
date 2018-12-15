@@ -1,3 +1,9 @@
+//正则表达式常量
+//两位小数
+var REGEXPR_DBDECIMAL_NUM = /^-?\d+\.?\d{0,2}$/;
+//正整数
+var REGEXPR_INTEGER = /^\d+$/;
+
 //执行删除操作通用函数，删除删除按钮所在的行
 function doOperator(delBtnClassStr,delLftTblIdStr,delRgtTblIdStr,speclstIdStr,unitIdStr,mufUnitdescIdStr,isOut) {
     //取得删除按钮DOM对象，两个表格处于同一行上只有一个删除按钮，此按钮删除2个表格上的同一行
@@ -32,7 +38,7 @@ function doOperator(delBtnClassStr,delLftTblIdStr,delRgtTblIdStr,speclstIdStr,un
                     var $lftDataRows = $(delLftTblIdStr).find(".dataRowFstFlag");
                     //右表数据行
                     var $rgtDataRows = $(delRgtTblIdStr).find(".dataRowFstFlag");
-
+                    //重新编号
                     //先修改其ID和name，包括其孩子中输入元素的id和name，之后id和name末尾全部是1,2,3递增
                     batchUpdateDataRowIdAndName($lftDataRows);
                     batchUpdateDataRowIdAndName($rgtDataRows);
@@ -66,6 +72,35 @@ function doOperator(delBtnClassStr,delLftTblIdStr,delRgtTblIdStr,speclstIdStr,un
                             }
                         });
 
+                        //数量输入框焦点失去事件重新注册（首行有class）
+                        $(".countsFousFlag").each(function (index) {
+                            //除首行外，其它行重新注册事件
+                            if(0!=index){
+                                $(this).off("focusout");
+                                //console.log(this.id);//unit1,unit2,unit3
+                                //再注册新的事件，此时不需要index+1，因为排除了首行
+                                $(this).on("focusout",function () {
+                                    //console.log(this.id);
+                                    updatePriceValue(index,isOut);
+                                    caculateTotalPrice(isOut);//计算总额
+                                });
+                            }
+                        });
+                        //单价输入框失去焦点事件
+                        $(".uPriceFousFlag").each(function (index) {
+                            //除首行外，其它行重新注册事件
+                            if(0!=index){
+                                $(this).off("focusout");
+                                //console.log(this.id);//unit1,unit2,unit3
+                                //再注册新的事件，此时不需要index+1，因为排除了首行
+                                $(this).on("focusout",function () {
+                                    //console.log(this.id);
+                                    updatePriceValue(index,isOut);
+                                    caculateTotalPrice(isOut);//计算总额
+                                });
+                            }
+                        });
+
                     }else{
                         //入库时
                         //这个index从0开始，首行已经排除（class未在首行出现）
@@ -89,7 +124,39 @@ function doOperator(delBtnClassStr,delLftTblIdStr,delRgtTblIdStr,speclstIdStr,un
                                 })
                             }
                         });
+
+                        //入库表数量输入框焦点失去事件重新注册（首行有class）
+                        $(".inCountsFousFlag").each(function (index) {
+                            //除首行外，其它行重新注册事件
+                            if(0!=index){
+                                $(this).off("focusout");
+                                //console.log(this.id);//unit1,unit2,unit3
+                                //再注册新的事件，此时不需要index+1，因为排除了首行
+                                $(this).on("focusout",function () {
+                                    //console.log(this.id);
+                                    updatePriceValue(index,isOut);
+                                    caculateTotalPrice(isOut);//计算总额
+                                });
+                            }
+                        });
+                        //入库明细表单价输入框失去焦点事件
+                        $(".inUpriceFousFlag").each(function (index) {
+                            //除首行外，其它行重新注册事件
+                            if(0!=index){
+                                $(this).off("focusout");
+                                //console.log(this.id);//unit1,unit2,unit3
+                                //再注册新的事件，此时不需要index+1，因为排除了首行
+                                $(this).on("focusout",function () {
+                                    //console.log(this.id);
+                                    updatePriceValue(index,isOut);
+                                    caculateTotalPrice(isOut);//计算总额
+                                });
+                            }
+                        });
+
                     }
+                    //点击删除按钮后，更新总价
+                    caculateTotalPrice(isOut);//计算总价
                     //更新木方单位说明显示
                     if (isShowUnitdesc(isOut)) {
                         $(mufUnitdescIdStr).show();//显示单位说明
@@ -154,6 +221,19 @@ function addRow(delBtnClassStr,lftTblIdStr,rgtTblIdStr,leftTblFstRowIdStr,rightT
     $(unitIdStr + (len-1)).on("change", function () {
         regUnitChangeEvent.call(this,speclstIdStr,mufUnitdescIdStr,(len-1),isOut);
     });
+
+    //注册出/入库单价、数量下拉列表失去焦点事件20181211,OK
+    $("#inunitprice"+(len-1)+","+"#incounts"+(len-1)).on("focusout",function () {
+        updatePriceValue((len-1),isOut);
+        caculateTotalPrice(isOut);//计算总额
+    });
+    $("#unitprice"+(len-1)+","+"#counts"+(len-1)).on("focusout",function () {
+        updatePriceValue((len-1),isOut);
+        caculateTotalPrice(isOut);//计算总额事件注册
+    });
+    //新增按钮后，清零各输入框，更新总价
+    clearPrice((len-1), isOut);
+    caculateTotalPrice(isOut);//计算总价
 }
 
 //某一行上的所有列Cols集合（td）内的input元素遍历操作，此处不区分左右表
@@ -262,4 +342,93 @@ function getNowFormatDate(seperator) {
 //解析后前导补0函数，参数1：数字，参数2：数字个数
 function prefixInteger(num, length) {
     return (Array(length).join('0') + num).slice(-length);
+}
+
+//价格计算（木方和模板价格计算均使用此函数）
+// unit——计量单位，
+// counts——数量，
+// unitPrice——单价
+// var dLen = new Decimal(length)
+//length——木方长度（2.5/3/3.5/4）或者是模板厚度（7/8/9，但不参与计算）；
+function caculatePrice(unit,counts,unitPrice,length) {
+    //非空判断，数据合法性判断
+    var isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
+    var isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
+    //if(""!=counts && ""!=unitPrice){
+    if(isCountsInputPassed && isUnitPriceInputPassed){
+        var x = new Decimal(counts);
+        switch (unit) {
+            //5根每把：length*5得到1把的米数*把数counts，从而得到总米数
+            //单价仍按米填入
+            case "bunch5":
+                return (x.times(unitPrice).times(5).times(length)).toString();
+            //4根每把：length*4得到1把的米数*把数counts=总米数
+            //单价仍按米填入
+            case "bunch4":
+                return (x.times(unitPrice).times(4).times(length)).toString();
+            //其它情况（计量单位直接输入的是米数或者立方米数）
+            default:
+                //x是数量（米数/立方数），unitPrice是每米/每立方米的单价
+                return (x.times(unitPrice)).toString();
+        }
+    }else {
+        //$.alert("数量和单价输入必须是数字！")
+        return 0;
+    }
+}
+
+//入库数据输入正则验证
+function inLibInputDataCheck() {
+    //var isPassed = false;
+    //表格所有行(除去前2行：标题行和首行)，后续行ID后面自增1
+    var dataRows = $("#infirstcolumn").find("tr").length-2;
+    var counts = $("#incounts").val();
+    var unitPrice = $("#inunitprice").val();
+    var isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
+    var isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
+    if (!isCountsInputPassed) {
+        $.toast("数量必须输入且只能输入数字！");
+        $("#incounts").focus();//获得焦点
+        return false;
+    }
+
+    if (!isUnitPriceInputPassed) {
+        $.toast("单价必须输入且只能输入数字！")
+        $("#inunitprice").focus();//获得焦点
+        return false;
+    }
+
+    for(var index=1; index<=dataRows; index++){
+        counts = $("#incounts"+index).val();
+        unitPrice = $("#inunitprice"+index).val();
+        isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
+        isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
+        if (!isCountsInputPassed) {
+            $.toast("数量必须输入且只能输入数字！");
+            $("#incounts"+index).focus();//获得焦点
+            return false;
+        }
+        if (!isUnitPriceInputPassed) {
+            $.toast("单价必须输入且只能输入数字！");
+            $("#inunitprice"+index).focus();//获得焦点
+            return false;
+        }
+    }
+
+    //运费验证
+    var inTransitFare = $("#inTransitFare").val();
+    if(!REGEXPR_INTEGER.test(inTransitFare)){
+        $.toast("运费必须输入且只能输入数字！");
+        $("#inTransitFare").focus();
+        return false;
+    }
+
+    //装卸费验证
+    var inShipFare = $("#inShipFare").val();
+    if(!REGEXPR_INTEGER.test(inShipFare)){
+        $.toast("装卸费必须输入且只能输入数字！");
+        $("#inShipFare").focus();
+        return false;
+    }
+    return true;
 }

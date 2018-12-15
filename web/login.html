@@ -73,22 +73,43 @@
 
 <script type="text/javascript">
     //$.init();
+    //完善后用ajax提交给控制器，控制器跳转到首页
     function login(e) {
         var userName = $("input[name='userName']").val();
         var passWord = $("input[name='pwd']").val();
         if(""!=userName && ""!=passWord){
             userName = hex_md5(userName);
             passWord = hex_md5(passWord);
-            e.currentTarget.href = "CheckUser?userName="+userName+"&pwd="+passWord;
+            //e.currentTarget.href = "CheckUser?userName="+userName+"&pwd="+passWord;
+            $.ajax({
+                url: "CheckUser",    //请求的url地址
+                dataType: "json",   //返回格式为json
+                async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+                data:{
+                    "userName":userName,
+                    "pwd":passWord
+                },    //请求参数值
+                type: "POST",
+                success:function(data){
+                        //console.log(typeof data.isSuccess);//string
+                        if("true"==data.isSuccess){
+                            // var tmpHref = window.location.href;
+                            // var index = tmpHref.lastIndexOf("/");
+                            // //后面增加：GetDetailData
+                            // var newHref = tmpHref.substring(0,index+1);
+                            // //alert(newHref);//http://localhost:8080/Wanshun/
+                            // var newUrl = newHref+"html/main.html";
+                            window.location.href = "main.html";
+                            //window.open(newUrl,"_self");
+                        }else{
+                            window.location.href = "register.html";
+                        }
+                }
+            });
         }else{
             $.alert("用户名和密码必须输入正确！");
             e.preventDefault();//不发生跳转
         }
-        /*alert(e.target);
-        alert(userName);
-        alert(passWord);
-        */
-        //e.preventDefault();//不发生跳转
     }
 </script>
 </body>

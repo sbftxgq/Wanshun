@@ -72,7 +72,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">进货单号</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="inBillNo" placeholder="系统自动生成" readonly>
+                                                    <input type="text" id="inBillNo" name="inBillNo" placeholder="系统自动生成" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -172,7 +172,7 @@
                                                                     <td>
                                                                         <div class="item-input">
                                                                             <input type="text" id="incounts" name="incounts"
-                                                                                   placeholder="输入">
+                                                                                   placeholder="输入" class="inCountsFousFlag">
                                                                         </div>
                                                                     </td>
                                                                     <!--单价-->
@@ -180,14 +180,14 @@
                                                                         <div class="item-input">
                                                                             <input type="text" id="inunitprice"
                                                                                    name="inunitprice"
-                                                                                   placeholder="输入">
+                                                                                   placeholder="输入" class="inUpriceFousFlag">
                                                                         </div>
                                                                     </td>
                                                                     <!--售价-->
                                                                     <td>
                                                                         <div class="item-input">
                                                                             <input type="text" id="inprice" name="inprice"
-                                                                                   readonly
+                                                                                   readonly class="inCaculateTotalPriceFlag"
                                                                                    placeholder="自动算">
                                                                         </div>
                                                                     </td>
@@ -241,7 +241,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">进货总额</div>
                                                 <div class="item-input">
-                                                    <input type="text" readonly placeholder="不用输入，自动计算">
+                                                    <input type="text" id="inTotalPrice" name="inTotalPrice"
+                                                           readonly placeholder="不用输入，自动计算">
                                                 </div>
                                             </div>
                                         </div>
@@ -253,7 +254,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">运输费用</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入运费，纯数字">
+                                                    <input type="text" id="inTransitFare" name="inTransitFare" placeholder="输入运费，纯数字">
                                                 </div>
                                             </div>
                                         </div>
@@ -265,9 +266,9 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">装卸方式</div>
                                                 <div class="item-input">
-                                                    <select>
-                                                        <option>叉车</option>
-                                                        <option>人工</option>
+                                                    <select id="inLibWay" name="inLibWay">
+                                                        <option value="叉车">叉车</option>
+                                                        <option value="人工">人工</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -280,7 +281,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">装卸费用</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入装卸费，纯数字">
+                                                    <input type="text" id="inShipFare" name="inShipFare" placeholder="输入装卸费，纯数字">
                                                 </div>
                                             </div>
                                         </div>
@@ -291,7 +292,7 @@
                     </div>
                     <div class="row">
                         <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
-                        <div class="col-50"><a href="#" class="button button-big button-fill button-success">入库</a>
+                        <div class="col-50"><a class="button button-big button-fill button-success" onclick="inLibOper()">入库</a>
                         </div>
                     </div>
                 </div>
@@ -499,7 +500,7 @@
                                                                     <td>
                                                                         <div class="item-input">
                                                                             <input type="text" id="counts" name="counts"
-                                                                                   placeholder="输入">
+                                                                                   placeholder="输入" class="countsFousFlag">
                                                                         </div>
                                                                     </td>
                                                                     <!--单价-->
@@ -507,14 +508,14 @@
                                                                         <div class="item-input">
                                                                             <input type="text" id="unitprice"
                                                                                    name="unitprice"
-                                                                                   placeholder="输入">
+                                                                                   placeholder="输入" class="uPriceFousFlag">
                                                                         </div>
                                                                     </td>
                                                                     <!--售价-->
                                                                     <td>
                                                                         <div class="item-input">
                                                                             <input type="text" id="price" name="price"
-                                                                                   readonly
+                                                                                   readonly class="caculateTotalPriceFlag"
                                                                                    placeholder="自动算">
                                                                         </div>
                                                                     </td>
@@ -606,7 +607,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">销售总额</div>
                                                 <div class="item-input">
-                                                    <input type="text" readonly placeholder="不用输入，自动计算">
+                                                    <input type="text" id="totalPrice" name="totalPrice"
+                                                           readonly placeholder="不用输入，自动计算">
                                                 </div>
                                             </div>
                                         </div>
@@ -750,7 +752,9 @@
 
 <!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
 <script>$.init()</script>
+<script type='text/javascript' src='js/decimal.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/utils.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/initialAndDataBind.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/communicateToServer.js' charset='utf-8'></script>
 </body>
 </html>

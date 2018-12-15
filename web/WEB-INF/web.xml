@@ -7,4 +7,12 @@
     <welcome-file-list>
         <welcome-file>login.html</welcome-file>
     </welcome-file-list>
+    <filter>
+        <filter-name>RefererFilter</filter-name>
+        <filter-class>com.lyf.filter.RefererFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>RefererFilter</filter-name>
+        <url-pattern>/main.html</url-pattern>
+    </filter-mapping>
 </web-app>

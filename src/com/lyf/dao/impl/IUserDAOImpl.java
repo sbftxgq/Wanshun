@@ -43,6 +43,7 @@ public class IUserDAOImpl implements IUserDAO {
 				flag = true;
 			}
 		}catch(Exception e){
+			flag = false;
 			throw e;
 		}finally {
 			if(null!=rs) {

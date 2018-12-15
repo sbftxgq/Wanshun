@@ -55,13 +55,15 @@ $("#inAddRowBtn").on("click", function () {
 
 //页面加载后注册按钮监听
 onload = function () {
-
+    //取得最新的入库单号
     getLatestBillNo();
     //doOperator();
-    //出库：执行删除操作注册监听,参数1：删除按钮的class名，参数2：左表ID，参数3：右表ID，参数4：木方单位说明ID
-    doOperator(".del", "#firstcolumn", "#goodstbl", "#speclst", "#unit", "#mufunitdesc");
+    //出库：执行删除操作注册监听,
+    // 参数1：删除按钮的class名，参数2：左表ID，参数3：右表ID，
+    // 参数4：规格下拉列表ID,参数5：单位下拉列表ID,参数6：木方单位说明ID,参数7：出/入库标志，出库为true
+    doOperator(".del", "#firstcolumn", "#goodstbl", "#speclst", "#unit", "#mufunitdesc",true);
     //入库
-    doOperator(".inDel", "#infirstcolumn", "#ingoodstbl", "#inspeclst", "#inunit", "#inmufunitdesc");
+    doOperator(".inDel", "#infirstcolumn", "#ingoodstbl", "#inspeclst", "#inunit", "#inmufunitdesc",false);
 }
 
 //Ajax请求，动态构商品规格建选择列表，进货和销售的规格列表均使用此函数获取
@@ -149,6 +151,9 @@ $("#speclst").on("change", function () {
 });
 //销售管理单位下拉列表选择事件（改变类型时，判断单位是否合法，符合规格类型）
 $("#unit").on("change", function () {
+    //单位下拉列表改变事件，this代表了regUnitChangeEvent方法当前调用者，此处就是$("#unit")的子集元素；
+    // 参数1：当前行的规格下拉列表字符串ID，参数2：木方单位说明字符串ID；
+    // 参数3：行索引号（首行为空串），参数4：出/入库标志，出库为true
     regUnitChangeEvent.call(this, "#speclst", "#mufunitdesc", "",true);
 });
 //进货管理商品规格下拉列表事件（改变类型，自动改变计量单位），false标识入库
@@ -160,9 +165,48 @@ $("#inunit").on("change", function () {
     regUnitChangeEvent.call(this, "#inspeclst", "#inmufunitdesc", "",false);
 });
 
+//入库单价、数量输入失去焦点后触发事件，false标识入库
+$("#inunitprice,#incounts").on("focusout",function () {
+    updatePriceValue("",false);
+    caculateTotalPrice(false);//计算总额
+});
+
+//出库单价、数量输入失去焦点后触发事件，true表示出库
+$("#unitprice,#counts").on("focusout",function () {
+    updatePriceValue("",true);
+    caculateTotalPrice(true);//计算总额
+});
+
+function updatePriceValue(eleIndex,isOut) {
+    if(isOut){
+        $("#price"+eleIndex).val(caculatePrice($("#unit"+eleIndex).val(),$("#counts"+eleIndex).val(),$("#unitprice"+eleIndex).val(),$("#speclst"+eleIndex).find("option:checked").attr("plength")));
+    }else {
+        $("#inprice"+eleIndex).val(caculatePrice($("#inunit"+eleIndex).val(),$("#incounts"+eleIndex).val(),$("#inunitprice"+eleIndex).val(),$("#inspeclst"+eleIndex).find("option:checked").attr("plength")));
+    }
+}
+
+function caculateTotalPrice(isOut) {
+    var totalPrice = 0;
+    //出库
+    if (isOut){
+        //遍历表格中所有的销售金额列
+        $(".caculateTotalPriceFlag").each(function () {
+            totalPrice+=parseFloat($(this).val());
+        });
+        $("#totalPrice").val(totalPrice);
+    } else{
+        //入库
+        //遍历表格中所有的进货金额列
+        $(".inCaculateTotalPriceFlag").each(function () {
+            totalPrice+=parseFloat($(this).val());
+        });
+        $("#inTotalPrice").val(totalPrice);
+    }
+}
+
 //注册产品改变change事件，参数1：单位id字符串、参数2：木方单位描述ID，参数3：行索引，参数4：是否是出库
 function regProductChangeEvent(unitIdStr, mufUnitdescIdStr, eleIndex, isOut) {
-    var currentSelect = this;//选中的商品下拉列表
+    var currentSelect = this;//选中的商品规格下拉列表
     //console.log(currentSelect.id);
     //找到选中的项option
     var checkedOption = $(currentSelect).find("option:checked");
@@ -202,6 +246,9 @@ function regProductChangeEvent(unitIdStr, mufUnitdescIdStr, eleIndex, isOut) {
             //显示单位说明
             $(mufUnitdescIdStr).show();//显示单位说明
     }
+    //不论模板还是木方，改变就清空价格（要传递index索引）
+    clearPrice(eleIndex, isOut);
+    caculateTotalPrice(isOut);//计算总价
     //$.alert($unitSelectedObj.val());
 }
 
@@ -243,10 +290,16 @@ function regUnitChangeEvent(speclstIdStr, mufUnitdescIdStr, eleIndex,isOut) {
             //单位是木方计量单位，利用case穿透，这些选择均正确
             case "bunch5":
             case "bunch4":
+                //更新价格
+                updatePriceValue(eleIndex,isOut);
+                caculateTotalPrice(isOut);
                 $(mufUnitdescIdStr).show();//显示单位说明
                 break;
             case "meter":
             case "stere":
+                //更新价格
+                updatePriceValue(eleIndex,isOut);
+                caculateTotalPrice(isOut);
                 if (isShowUnitdesc(isOut)) {
                     $(mufUnitdescIdStr).show();//显示单位说明
                 } else {
@@ -307,4 +360,21 @@ function isShowUnitdesc(isOut) {
         });
     }
     return flag;
+}
+//console.log(caculatePrice(937.5,3.8));
+//console.log(caculatePrice("meter",85,41,null));
+
+//清空价格相关的输入
+function clearPrice(eleIndex, isOut) {
+    //销售管理页
+    if(isOut){
+        $("#counts"+eleIndex).val("");//清空数量
+        $("#unitprice"+eleIndex).val("");//清空单价
+        $("#price"+eleIndex).val("0");//清0计算的价格
+    }else {
+        //进货管理页
+        $("#incounts"+eleIndex).val("");//清空数量
+        $("#inunitprice"+eleIndex).val("");//清空单价
+        $("#inprice"+eleIndex).val("0");//清0价格
+    }
 }

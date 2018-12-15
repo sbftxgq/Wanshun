@@ -14,14 +14,14 @@ public class DatabaseConnection {
     private Connection connection;
     private static String DRIVER;
     private static String URL;
-    
+
     //供外部类（例如JavaBackupMysql类）获取
     public static String USERNAME;
     public static String PASSWD;
-    
+
     //公共的数据成员（供外部访问，例如JavaBackupMysql类）
     //public static String DATABASENAME;//数据库名
-    
+
     //静态代码块，读取属性文件，获得数据库连接信息
     static {
         Properties pp = new Properties();
@@ -78,7 +78,7 @@ public class DatabaseConnection {
     public Connection getConnection() {
         return connection;
     }
-    
+
     public void close() {
         if (null != connection) {
             try {
@@ -90,8 +90,32 @@ public class DatabaseConnection {
         }
     }
 /*
-    public static void main(String[] args) {
-        System.out.println(new DatabaseConnection().getConnection()+"---object");
+    public static String testPinjie() {
+        //明细表插入执行根据前端明细表格行数决定执行多少次
+        String insertIncomedetailsSQL = "INSERT INTO incomedetailtbl(billNo,specificationId,manufacturerId,measurements,counts,unitPrice,price) VALUES";
+        String firstParamSQLStr = "(?,?,?,?,?,?,?),";
+        String lastParamSQLStr = "(?,?,?,?,?,?,?)";
+
+        //字符串拼接，多个数据就有多个(?,?,?,?,?,?,?)
+        for (int i = 0; i < 2; i++) {
+            //不是最后一个
+            if (i != 2 - 1) {
+                insertIncomedetailsSQL = insertIncomedetailsSQL + firstParamSQLStr;
+            } else {
+                //最后一个字符串
+                insertIncomedetailsSQL = insertIncomedetailsSQL + lastParamSQLStr;
+            }
+        }
+
+        return insertIncomedetailsSQL;
+
     }
- */
+*/
+/*
+    public static void main(String[] args) {
+        //System.out.println(new DatabaseConnection().getConnection() + "---object");
+        //System.out.println(testPinjie());
+        System.out.println(3*7);
+    }
+*/
 }

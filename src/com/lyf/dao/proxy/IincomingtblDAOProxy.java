@@ -4,6 +4,10 @@ import com.lyf.dao.IincomingtblDAO;
 import com.lyf.dao.impl.IincomingtblDAOImpl;
 import com.lyf.dbc.DatabaseConnection;
 import com.lyf.util.SqlHelperNew;
+import com.lyf.vo.Incomedetails;
+import com.lyf.vo.Incomingtbl;
+
+import java.util.List;
 
 public class IincomingtblDAOProxy implements IincomingtblDAO {
 
@@ -31,5 +35,14 @@ public class IincomingtblDAOProxy implements IincomingtblDAO {
         }
 
         return billNo;
+    }
+
+    @Override
+    public boolean inLibOperation(Incomingtbl incomeData, List<Incomedetails> detailRowsData) {
+        try{
+            return this.dao.inLibOperation(incomeData,detailRowsData);
+        }finally {
+            this.dbc.close();
+        }
     }
 }
