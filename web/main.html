@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>主页</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="img/logo.ico">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
@@ -19,7 +19,7 @@
 <body>
 <!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
 <div class="page-group">
-    <!-- 单个page ,第一个.page默认被展示-->
+    <!-- 单个page ,第一个进货管理.page默认被展示-->
     <div id="incomediv" class="page page-current">
         <!-- 你的html代码 -->
         <!-- 标题栏 -->
@@ -85,8 +85,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">进货日期</div>
                                                 <div class="item-input">
-                                                    <input type="date" id="inLibDate" name="inLibDate"
-                                                           placeholder="选择进货日期">
+                                                    <input type="date" id="inLibDate" name="inLibDate" />
                                                 </div>
                                             </div>
                                         </div>
@@ -211,7 +210,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">单位说明</div>
                                                 <div class="item-text">
-                                                    木方计量单位为“把”时，其数量按把输入、单价仍按米输入。
+                                                    木方单位为“把”时，数量为把、单价为元/米。
                                                 </div>
                                             </div>
                                         </div>
@@ -364,7 +363,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">销售单号</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入送货单号，方便备查">
+                                                    <input type="text" id="billNo" name="billNo" placeholder="系统自动生成" readonly/>
                                                 </div>
                                             </div>
                                         </div>
@@ -376,7 +375,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">客户名称</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入客户姓名或单位名称">
+                                                    <input type="text" id="guestName" name="guestName" placeholder="输入客户姓名或单位名称" />
                                                 </div>
                                             </div>
                                         </div>
@@ -388,7 +387,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">销售地点</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入送货地点">
+                                                    <input type="text" id="destLocation" name="destLocation" placeholder="输入送货地点" />
                                                 </div>
                                             </div>
                                         </div>
@@ -400,7 +399,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">送货日期</div>
                                                 <div class="item-input">
-                                                    <input type="date" name="outLibDate" id="outLibDate">
+                                                    <input type="date" name="outLibDate" id="outLibDate" />
                                                 </div>
                                             </div>
                                         </div>
@@ -412,7 +411,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">送货人</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入送货人姓名" value="陈艳飞">
+                                                    <input type="text" id="outLibMan" name="outLibMan" placeholder="输入送货人姓名" value="陈艳飞">
                                                 </div>
                                             </div>
                                         </div>
@@ -540,7 +539,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">单位说明</div>
                                                 <div class="item-text">
-                                                    木方计量单位为“把”时，其数量按把输入、单价仍按米输入。
+                                                    木方单位为“把”时，数量为把、单价为元/米。
                                                 </div>
                                             </div>
                                         </div>
@@ -554,7 +553,6 @@
                                         </div>
                                     </li>
                                 </ul>
-
                             </div>
                             <!--列表：费用编辑-->
                             <div class="content-block-title">编辑费用</div>
@@ -583,7 +581,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">运输费用</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入运费，纯数字">
+                                                    <input type="text" id="transitFare" name="transitFare" placeholder="输入运费，纯数字">
                                                 </div>
                                             </div>
                                         </div>
@@ -595,7 +593,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">装卸费用</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入装卸费，纯数字">
+                                                    <input type="text" id="shipFare" name="shipFare" placeholder="无装卸费时请输入0">
                                                 </div>
                                             </div>
                                         </div>
@@ -639,7 +637,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">实付总额</div>
                                                 <div class="item-input">
-                                                    <input type="text" placeholder="输入实收总金额">
+                                                    <input type="text" id="actualTotalPrice" name="actualTotalPrice" placeholder="输入实收总金额" />
                                                 </div>
                                             </div>
                                         </div>
@@ -651,7 +649,7 @@
                     <div class="row">
                         <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a>
                         </div>
-                        <div class="col-50"><a href="#" class="button button-big button-fill button-success">出库</a>
+                        <div class="col-50"><a class="button button-big button-fill button-success" onclick="outLibOper()">出库</a>
                         </div>
                     </div>
                 </div>

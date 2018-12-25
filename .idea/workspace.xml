@@ -6,24 +6,34 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73651a88-24b1-4cfb-83fc-80188216ee3f" name="Default" comment="入库单号自动增1，编写Ajax及其后台控制器。修改了数据库的表结构，入库和出库分别设置出/入库表和相应的明细表。">
-      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/InlibController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/lyf/filter/RefererFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/communicateToServer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/decimal.min.js" afterDir="false" />
+    <list default="true" id="73651a88-24b1-4cfb-83fc-80188216ee3f" name="Default" comment="修改登录逻辑，使用Ajax完成登录和数据库入库；增加过滤器；完成入库前、后端代码。">
+      <change afterPath="$PROJECT_DIR$/web/img/logo.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/Wanshun_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/Wanshun_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/InlibController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/InlibController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/OutLibController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/OutLibController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/impl/IUserDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/impl/IUserDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/dbc/DatabaseConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dbc/DatabaseConnection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/vo/Incomedetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/vo/Incomedetails.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/vo/Incomingtbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/vo/Incomingtbl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/sm.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/sm.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/communicateToServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/communicateToServer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/js/initialAndDataBind.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/initialAndDataBind.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/jquery-1.12.4.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/js/regvalidcheck.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/regvalidcheck.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/js/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/utils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/main.html" afterDir="false" />
@@ -49,52 +59,6 @@
     <expand />
     <select />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/web/main.html">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-1989">
-                    <caret line="70" selection-start-line="70" selection-end-line="70" />
-                    <folding>
-                      <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#header#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#nav#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#td#2;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#li#2;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#li#5;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/web/js/communicateToServer.js">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-2188">
-                    <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="ErrorTreeViewConfiguration">
     <option name="hideWarnings" value="true" />
     <option name="HIDE_WARNINGS" value="true" />
@@ -103,24 +67,24 @@
     <session id="-891586271">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="21" />
+          <entry key="project.closed" value="28" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="4" />
           <entry key="project.open.time.24" value="2" />
-          <entry key="project.open.time.25" value="2" />
-          <entry key="project.open.time.26" value="1" />
+          <entry key="project.open.time.25" value="3" />
+          <entry key="project.open.time.26" value="2" />
           <entry key="project.open.time.27" value="3" />
-          <entry key="project.open.time.28" value="2" />
+          <entry key="project.open.time.28" value="3" />
           <entry key="project.open.time.29" value="3" />
-          <entry key="project.open.time.30" value="1" />
-          <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.30" value="3" />
+          <entry key="project.open.time.33" value="3" />
           <entry key="project.open.time.35" value="3" />
-          <entry key="project.open.time.36" value="1" />
+          <entry key="project.open.time.36" value="2" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.41" value="1" />
           <entry key="project.open.time.46" value="1" />
-          <entry key="project.opened" value="28" />
+          <entry key="project.opened" value="36" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -140,13 +104,13 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="CSS" value="16" />
-          <entry key="HTML" value="29" />
-          <entry key="Image" value="7" />
-          <entry key="JAVA" value="100" />
+          <entry key="CSS" value="21" />
+          <entry key="HTML" value="35" />
+          <entry key="Image" value="11" />
+          <entry key="JAVA" value="132" />
           <entry key="JSP" value="2" />
-          <entry key="JavaScript" value="30" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="JavaScript" value="37" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="TypeScript" value="1" />
           <entry key="XML" value="3" />
         </counts>
@@ -162,11 +126,11 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="739" />
-          <entry key="HTML" value="13635" />
-          <entry key="JAVA" value="5164" />
-          <entry key="JavaScript" value="9228" />
-          <entry key="PLAIN_TEXT" value="76" />
+          <entry key="CSS" value="756" />
+          <entry key="HTML" value="14037" />
+          <entry key="JAVA" value="6615" />
+          <entry key="JavaScript" value="10838" />
+          <entry key="PLAIN_TEXT" value="135" />
           <entry key="XML" value="16" />
         </counts>
       </usages-collector>
@@ -179,72 +143,57 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Incomedetails.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/main.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="588">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="-256">
+              <caret line="30" selection-start-line="30" selection-end-line="30" />
               <folding>
-                <element signature="e#462#463#0" expanded="true" />
+                <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#header#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#nav#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#0;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#1;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#2;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#li#3;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
+                <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/js/initialAndDataBind.js">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/web/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="199">
-              <caret line="432" selection-start-line="432" selection-end-line="432" />
-              <folding>
-                <element signature="n#!!doc" expanded="true" />
-                <element signature="n#!!block;n#doOperator#0" />
-                <element signature="n#!!block;n#addRow#0" />
-                <element signature="n#!!block;n#batchEdtInputIdAndNameAttr#0" />
-                <element signature="n#!!block;n#batchUpdateDataRowIdAndName#0" />
-                <element signature="n#!!block;n#getDomObj#0" />
-                <element signature="n#!!block;n#getNowFormatDate#0" />
-                <element signature="n#!!block;n#prefixInteger#0" />
-                <element signature="n#!!block;n#caculatePrice#0" />
-              </folding>
+            <state relative-caret-position="756">
+              <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/InlibController.java">
+        <entry file="file://$PROJECT_DIR$/web/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2632">
-              <caret line="110" column="60" selection-start-line="110" selection-start-column="60" selection-end-line="110" selection-end-column="60" />
+            <state relative-caret-position="2464">
+              <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
-              <folding>
-                <element signature="e#730#731#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1764">
-              <caret line="71" selection-start-line="71" selection-end-line="71" />
             </state>
           </provider>
         </entry>
@@ -263,14 +212,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>batchEdtIdAndNameAttr</find>
-      <find>batchUpdateIdAndName</find>
-      <find>doOperator</find>
-      <find>specSelectedFlag</find>
-      <find>isShowUnitdesc</find>
-      <find>batchEdtInputIdAndNameAttr</find>
-      <find>batchUpdateRowIdAndName</find>
-      <find>batchUpdateDataRowIdAndName</find>
       <find>inSpecSelectedFlag</find>
       <find>SpecSelectedFlag</find>
       <find>addRow</find>
@@ -289,10 +230,18 @@
       <find>isCountsInputPassed</find>
       <find>caculatePrice</find>
       <find>updatePriceValue</find>
-      <find>getLatestBillNo</find>
       <find>main.html</find>
       <find>inBillNo</find>
       <find>test</find>
+      <find>getLatestInLibBillNo</find>
+      <find>len</find>
+      <find>getLatestBillNo</find>
+      <find>入库</find>
+      <find>出库</find>
+      <find>getTableData</find>
+      <find>table</find>
+      <find>单位说明</find>
+      <find>src</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -312,26 +261,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/test.html" />
-        <option value="$PROJECT_DIR$/web/register.html" />
-        <option value="$PROJECT_DIR$/web/statisticsmanage.html" />
-        <option value="$PROJECT_DIR$/web/settingsmanage.html" />
-        <option value="$PROJECT_DIR$/web/css/sm.min.css" />
-        <option value="$PROJECT_DIR$/web/outcomemanage.html" />
-        <option value="$PROJECT_DIR$/web/js/sm.js" />
-        <option value="$PROJECT_DIR$/src/com/lyf/vo/Categorytbl.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/vo/Specificationtbl.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/vo/Manufacturerstbl.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/ISpecificationtblDAO.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/ISpecificationtblDAOProxy.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/ISpecificationtblDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/IManufacturerstblDAO.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/IManufacturerstblDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/IManufacturerstblDAOProxy.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/GetManufactureLst.java" />
         <option value="$PROJECT_DIR$/web/maintablefix.html" />
         <option value="$PROJECT_DIR$/web/css/table.css" />
-        <option value="$PROJECT_DIR$/web/css/style.css" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/ICategorytblDAO.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/ICategorytblDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/ICategorytblDAOProxy.java" />
@@ -342,27 +277,41 @@
         <option value="$PROJECT_DIR$/web/mainnew.html" />
         <option value="$PROJECT_DIR$/web/js/outlibUIAndData.js" />
         <option value="$PROJECT_DIR$/web/js/utilsbak.js" />
-        <option value="$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/controller.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestBillNoController.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/vo/Incomingtbl.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/vo/Incomedetails.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/IUserDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" />
-        <option value="$PROJECT_DIR$/web/login.html" />
         <option value="$PROJECT_DIR$/web/WEB-INF/web.xml" />
         <option value="$PROJECT_DIR$/src/com/lyf/filter/RefererFilter.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dbc/DatabaseConnection.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/controller/InlibController.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" />
-        <option value="$PROJECT_DIR$/web/main.html" />
-        <option value="$PROJECT_DIR$/web/js/initialAndDataBind.js" />
-        <option value="$PROJECT_DIR$/web/js/communicateToServer.js" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNo.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" />
+        <option value="$PROJECT_DIR$/web/js/regvalidcheck.js" />
         <option value="$PROJECT_DIR$/web/js/utils.js" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/OutLibCOntroller.java" />
+        <option value="$PROJECT_DIR$/web/js/communicateToServer.js" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/InlibController.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/OutLibController.java" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
+        <option value="$PROJECT_DIR$/web/js/initialAndDataBind.js" />
+        <option value="$PROJECT_DIR$/web/css/logincenter.css" />
+        <option value="C:/WanshunApp/Wanshun/www/index.html" />
+        <option value="C:/WanshunApp/Wanshun/www/js/index.js" />
+        <option value="$PROJECT_DIR$/web/login.html" />
+        <option value="$PROJECT_DIR$/web/main.html" />
       </list>
     </option>
   </component>
@@ -385,11 +334,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="17" />
-    <option name="y" value="13" />
-    <option name="width" value="1775" />
-    <option name="height" value="1028" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="100" />
+    <option name="y" value="-5" />
+    <option name="width" value="1790" />
+    <option name="height" value="1030" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -397,7 +346,25 @@
       <flattenPackages ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Wanshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wanshun" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wanshun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -406,33 +373,33 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1544875897813" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545365535130" />
     <property name="extract.method.default.visibility" value="private" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.5.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.20055197" />
+    <property name="project.structure.side.proportion" value="0.22873563" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WebUI\Wanshun\web\js" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WebUI\Wanshun\web" />
+      <recent name="D:\WebUI\Wanshun\web\html" />
       <recent name="D:\WebUI\Wanshun\web\css" />
-      <recent name="D:\WebUI\Wanshun\web\WEB-INF" />
-      <recent name="D:\WebUI\Wanshun\web\img" />
+      <recent name="D:\WebUI\Wanshun" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.lyf.controller" />
       <recent name="com.lyf.dao.proxy" />
       <recent name="com.lyf.dao.impl" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WebUI\Wanshun\web\img" />
+      <recent name="D:\WebUI\Wanshun\web\js" />
       <recent name="D:\WebUI\Wanshun\web" />
-      <recent name="D:\WebUI\Wanshun\web\html" />
       <recent name="D:\WebUI\Wanshun\web\css" />
-      <recent name="D:\WebUI\Wanshun" />
+      <recent name="D:\WebUI\Wanshun\web\WEB-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -726,7 +693,15 @@
       <workItem from="1544538191463" duration="10075000" />
       <workItem from="1544685313908" duration="13365000" />
       <workItem from="1544747475782" duration="33944000" />
-      <workItem from="1544876012207" duration="5248000" />
+      <workItem from="1544876012207" duration="6761000" />
+      <workItem from="1545009629068" duration="29000" />
+      <workItem from="1545011063211" duration="7621000" />
+      <workItem from="1545031182770" duration="16960000" />
+      <workItem from="1545098673325" duration="1605000" />
+      <workItem from="1545226116175" duration="5129000" />
+      <workItem from="1545307049626" duration="14220000" />
+      <workItem from="1545567307654" duration="2830000" />
+      <workItem from="1545701713949" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="修改进货入库界面，增加明细表格。">
       <created>1543916242826</created>
@@ -742,11 +717,18 @@
       <option name="project" value="LOCAL" />
       <updated>1544323765926</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="修改登录逻辑，使用Ajax完成登录和数据库入库；增加过滤器；完成入库前、后端代码。">
+      <created>1544884532609</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1544884532610</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="402284000" />
+    <option name="totallyTimeSpent" value="452506000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -758,21 +740,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="80" y="-4" width="1432" height="824" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.77577317" weight="0.4010025" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.767341" visible="true" weight="0.22707424" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.21954674" side_tool="true" weight="0.19369973" />
       <window_info id="Nl-Palette" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.2242268" side_tool="true" weight="0.17828418" />
+      <window_info id="Web" order="7" sideWeight="0.23265895" side_tool="true" weight="0.3133188" />
       <window_info anchor="bottom" id="Thumbnails" order="0" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.67644596" visible="true" weight="0.29036826" />
+      <window_info anchor="bottom" id="Find" order="2" weight="0.32577905" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.67644596" weight="0.4248555" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.16005665" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -781,11 +763,11 @@
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.3243626" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.32355407" side_tool="true" weight="1.0" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32577905" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.27157003" />
+      <window_info anchor="bottom" id="Version Control" order="12" weight="0.18985507" />
       <window_info anchor="bottom" id="Messages" order="13" weight="0.5410765" />
       <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info active="true" anchor="right" content_ui="combo" id="Hierarchy" order="1" visible="true" weight="0.107238606" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.107238606" />
       <window_info anchor="right" id="Palette" order="2" />
       <window_info anchor="right" id="Properties" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
@@ -796,42 +778,6 @@
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
-    <layout-to-restore>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.77577317" visible="true" weight="0.16085792" />
-      <window_info id="Designer" order="1" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="UI Designer" order="3" />
-      <window_info id="Capture Tool" order="4" />
-      <window_info id="Favorites" order="5" sideWeight="0.21954674" side_tool="true" weight="0.19369973" />
-      <window_info id="Nl-Palette" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.2242268" side_tool="true" weight="0.17828418" />
-      <window_info anchor="bottom" id="Thumbnails" order="0" weight="0.3286119" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.67644596" visible="true" weight="0.28470254" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32719547" />
-      <window_info anchor="bottom" id="Application Servers" order="8" weight="0.32577905" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3243626" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.32355407" side_tool="true" weight="1.0" />
-      <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.32577905" />
-      <window_info anchor="bottom" id="Version Control" order="12" weight="0.27157003" />
-      <window_info anchor="bottom" id="Messages" order="13" weight="0.5410765" />
-      <window_info anchor="bottom" id="Database Changes" order="14" show_stripe_button="false" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.25" />
-      <window_info anchor="right" id="Palette" order="2" />
-      <window_info anchor="right" id="Properties" order="3" />
-      <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Structure" order="5" weight="0.2533512" />
-      <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
-      <window_info anchor="right" id="Maven Projects" order="8" side_tool="true" weight="0.32932073" />
-      <window_info anchor="right" id="Palette&#9;" order="9" />
-      <window_info anchor="right" id="Theme Preview" order="10" />
-    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -878,7 +824,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改进货入库界面，增加明细表格。" />
     <MESSAGE value="入库单号自动增1，编写Ajax及其后台控制器。修改了数据库的表结构，入库和出库分别设置出/入库表和相应的明细表。" />
-    <option name="LAST_COMMIT_MESSAGE" value="入库单号自动增1，编写Ajax及其后台控制器。修改了数据库的表结构，入库和出库分别设置出/入库表和相应的明细表。" />
+    <MESSAGE value="修改登录逻辑，使用Ajax完成登录和数据库入库；增加过滤器；完成入库前、后端代码。" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改登录逻辑，使用Ajax完成登录和数据库入库；增加过滤器；完成入库前、后端代码。" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -893,126 +840,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetManufactureLst.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/mainBak.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-12222">
-          <caret line="381" column="72" selection-start-line="381" selection-start-column="72" selection-end-line="381" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://D:/00_WSJC/relative-responsive-table/relative-responsive-table/table.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="59" column="34" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/ISpecificationtblDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="10" column="66" selection-start-line="10" selection-start-column="34" selection-end-line="10" selection-end-column="66" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/ISpecificationtblDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="69" column="106" selection-start-line="69" selection-start-column="87" selection-end-line="69" selection-end-column="106" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/apache-tomcat-8.0.39/lib/servlet-api.jar!/javax/servlet/http/HttpServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2053">
-          <caret line="82" column="5" selection-start-line="82" selection-start-column="5" selection-end-line="82" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/proxy/ISpecificationtblDAOProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="364">
-          <caret line="34" column="33" lean-forward="true" selection-start-line="26" selection-start-column="8" selection-end-line="34" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Categorytbl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetSpecListByCategoryID.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="19" column="85" selection-start-line="19" selection-start-column="62" selection-end-line="19" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GitDesc.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1344" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/sm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="36148">
-          <caret line="1296" column="16" selection-start-line="1296" selection-start-column="16" selection-end-line="1296" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/table.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="4" column="23" selection-start-line="4" selection-start-column="23" selection-end-line="4" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/mainOld.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="18284">
-          <caret line="920" column="40" selection-start-line="920" selection-start-column="36" selection-end-line="920" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/initialAndDataBindBak.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="6" column="33" selection-start-line="6" selection-start-column="33" selection-end-line="6" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2107">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1148">
-          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Specificationtbl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
@@ -1052,23 +879,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="20" column="69" selection-start-line="20" selection-start-column="54" selection-end-line="20" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Incomingtbl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="728">
-          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestBillNoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="35" column="51" lean-forward="true" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -1079,25 +889,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/img/info.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/img/error.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/img/ok.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/img/img.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="363">
           <caret line="43" column="54" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="54" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1129,20 +927,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="101" column="60" selection-start-line="101" selection-start-column="52" selection-end-line="101" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetSpecList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-280">
           <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1160,27 +948,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="623">
-          <caret line="219" column="9" lean-forward="true" selection-start-line="219" selection-start-column="9" selection-end-line="219" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/js/utilsbak.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28">
@@ -1188,92 +955,246 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Incomedetails.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Incomingtbl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="588">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="e#462#463#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="607">
+          <caret line="32" column="36" selection-start-line="32" selection-start-column="36" selection-end-line="32" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/initialAndDataBind.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/InlibController.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Incomedetails.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2632">
-          <caret line="110" column="60" selection-start-line="110" selection-start-column="60" selection-end-line="110" selection-end-column="60" />
+        <state relative-caret-position="420">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="37" column="62" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="42" column="20" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="12" column="89" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="91" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10164" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/register.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2595">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/regvalidcheck.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="29" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2121">
+          <caret line="219" column="17" selection-start-line="219" selection-start-column="17" selection-end-line="219" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="364">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2515">
+          <caret line="99" column="29" lean-forward="true" selection-start-line="99" selection-start-column="29" selection-end-line="99" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="42" column="19" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1097">
+          <caret line="44" column="96" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="96" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/communicateToServer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="70" column="51" lean-forward="true" selection-start-line="70" selection-start-column="51" selection-end-line="70" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1064">
+          <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/OutLibController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2296">
+          <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/InlibController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="2632">
+          <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
           <folding>
-            <element signature="e#730#731#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java">
+    <entry file="file://$PROJECT_DIR$/web/js/initialAndDataBind.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1764">
-          <caret line="71" selection-start-line="71" selection-end-line="71" />
+        <state relative-caret-position="308">
+          <caret line="339" column="42" selection-start-line="339" selection-start-column="42" selection-end-line="339" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/img/error.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/img/img.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/img/info.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/img/logo.ico">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/sm.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="77531" selection-start-line="5" selection-start-column="77531" selection-end-line="5" selection-end-column="77531" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/logincenter.css" />
+    <entry file="file://C:/WanshunApp/Wanshun/www/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/WanshunApp/Wanshun/www/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-377">
+          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/Wanshun/jdbcConnConfig.propertites">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2464">
+          <caret line="88" column="45" selection-start-line="88" selection-start-column="45" selection-end-line="88" selection-end-column="45" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1989">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="-256">
+          <caret line="30" selection-start-line="30" selection-end-line="30" />
           <folding>
+            <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#table#0;n#div#0;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#header#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#nav#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#td#2;n#tr#1;n#tbody#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#0;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#1;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#2;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#5;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#3;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/communicateToServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2188">
-          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="432" selection-start-line="432" selection-end-line="432" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-            <element signature="n#!!block;n#doOperator#0" />
-            <element signature="n#!!block;n#addRow#0" />
-            <element signature="n#!!block;n#batchEdtInputIdAndNameAttr#0" />
-            <element signature="n#!!block;n#batchUpdateDataRowIdAndName#0" />
-            <element signature="n#!!block;n#getDomObj#0" />
-            <element signature="n#!!block;n#getNowFormatDate#0" />
-            <element signature="n#!!block;n#prefixInteger#0" />
-            <element signature="n#!!block;n#caculatePrice#0" />
+            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
           </folding>
         </state>
       </provider>
@@ -1283,12 +1204,19 @@
     <states>
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
-          <artifact-editor />
+          <artifact-editor>
+            <show-content>
+              <type id="library" />
+              <type id="javaee-facet-resources" />
+              <type id="artifact" />
+              <type id="jpa-descriptors" />
+            </show-content>
+          </artifact-editor>
           <last-edited>Wanshun:war exploded</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
-                <option value="0.20055197" />
+                <option value="0.22873563" />
                 <option value="0.5" />
               </list>
             </option>

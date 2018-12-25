@@ -170,7 +170,7 @@ public class SqlHelperNew {
 
     //封装一个用于执行CRUD操作事务（增、删、改）的方法，此方法能接收多条SQL语句，SQL语句中的参数?的个数没有限制
     //通常多条SQL语句是为了完成一个整体操作，如事务的处理等，这个方法就是为事务处理准备的
-    public boolean executeUpdateSQLs(String[] sql, String[][] parameters) {
+    public boolean executeUpdateSQLs(String[] sql, String[][] parameters) throws Exception{
         boolean flag = false;
         PreparedStatement ps = null;
         try {
@@ -188,12 +188,10 @@ public class SqlHelperNew {
                 //执行SQL语句，置于循环体内，每拿出一条SQL语句，在给？赋值之后，就执行一条SQL语句。
                 //下句不能放在循环体外，否则只能执行String[] sql字符串数组中最后一条SQL语句了，设置一组，执行一组
                 ps.executeUpdate();
-
                 //故意设置的除零异常，测试事务是否有效
                 //int k=9/0;//若下面的Catch语句是捕获SQLException e，则此运行时异常不被下面的Catch子句捕获，直接转到fianlly子句。				
             }
 			//ps.executeUpdate();//error，放在循环体外，只执行SQL组中最后一条SQL语句
-
             //提交事务，放在循环体外，最后提交。也可以放在第一层循环体内最后，每次循环完毕，提交一次，但是这样效率低一些
             ct.commit();
             flag = true;
@@ -205,14 +203,15 @@ public class SqlHelperNew {
             } catch (SQLException e1) {
                 e1.printStackTrace();
             }
-            e.printStackTrace();
-            throw new RuntimeException(e.getMessage());
+            //e.printStackTrace();
+            throw e;
         } finally {
             //释放资源
             if (null != ps) {
                 try {
                     ps.close();
                     ps = null;
+                    return flag;
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }

@@ -3,6 +3,10 @@
 var REGEXPR_DBDECIMAL_NUM = /^-?\d+\.?\d{0,2}$/;
 //正整数
 var REGEXPR_INTEGER = /^\d+$/;
+//是否是他送
+var IS_TASONG = false;
+//是否已付
+var IS_PAYED = false;
 
 //执行删除操作通用函数，删除删除按钮所在的行
 function doOperator(delBtnClassStr,delLftTblIdStr,delRgtTblIdStr,speclstIdStr,unitIdStr,mufUnitdescIdStr,isOut) {
@@ -375,60 +379,4 @@ function caculatePrice(unit,counts,unitPrice,length) {
         //$.alert("数量和单价输入必须是数字！")
         return 0;
     }
-}
-
-//入库数据输入正则验证
-function inLibInputDataCheck() {
-    //var isPassed = false;
-    //表格所有行(除去前2行：标题行和首行)，后续行ID后面自增1
-    var dataRows = $("#infirstcolumn").find("tr").length-2;
-    var counts = $("#incounts").val();
-    var unitPrice = $("#inunitprice").val();
-    var isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
-    var isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
-    if (!isCountsInputPassed) {
-        $.toast("数量必须输入且只能输入数字！");
-        $("#incounts").focus();//获得焦点
-        return false;
-    }
-
-    if (!isUnitPriceInputPassed) {
-        $.toast("单价必须输入且只能输入数字！")
-        $("#inunitprice").focus();//获得焦点
-        return false;
-    }
-
-    for(var index=1; index<=dataRows; index++){
-        counts = $("#incounts"+index).val();
-        unitPrice = $("#inunitprice"+index).val();
-        isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
-        isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
-        if (!isCountsInputPassed) {
-            $.toast("数量必须输入且只能输入数字！");
-            $("#incounts"+index).focus();//获得焦点
-            return false;
-        }
-        if (!isUnitPriceInputPassed) {
-            $.toast("单价必须输入且只能输入数字！");
-            $("#inunitprice"+index).focus();//获得焦点
-            return false;
-        }
-    }
-
-    //运费验证
-    var inTransitFare = $("#inTransitFare").val();
-    if(!REGEXPR_INTEGER.test(inTransitFare)){
-        $.toast("运费必须输入且只能输入数字！");
-        $("#inTransitFare").focus();
-        return false;
-    }
-
-    //装卸费验证
-    var inShipFare = $("#inShipFare").val();
-    if(!REGEXPR_INTEGER.test(inShipFare)){
-        $.toast("装卸费必须输入且只能输入数字！");
-        $("#inShipFare").focus();
-        return false;
-    }
-    return true;
 }

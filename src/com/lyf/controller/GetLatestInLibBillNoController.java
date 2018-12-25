@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "GetLatestBillNoController",urlPatterns = {"/GetLatestBillNo"})
-public class GetLatestBillNoController extends HttpServlet {
+@WebServlet(name = "GetLatestInLibBillNoController", urlPatterns = {"/GetLatestInLibBillNo"})
+public class GetLatestInLibBillNoController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doGet(request,response);
+        this.doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//回传JSON数据给FileGenPage.html页面
+        //回传JSON数据给FileGenPage.html页面
         response.setContentType("application/json;charset=utf-8");
         PrintWriter out = response.getWriter();
         //浏览器不缓存数据
@@ -32,9 +32,9 @@ public class GetLatestBillNoController extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        if(null!=billNo) {
-            out.print("{\"billNo\":\""+billNo+"\"}");
-        }else {
+        if (null != billNo) {
+            out.print("{\"billNo\":\"" + billNo + "\"}");
+        } else {
             //没有查询到数据，回传empty字符串
             out.print("{\"billNo\":\"null\"}");
             //System.out.println("empty");

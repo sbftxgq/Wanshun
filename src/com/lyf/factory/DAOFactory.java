@@ -34,5 +34,10 @@ public class DAOFactory {
 		return new IincomingtblDAOProxy();
 	}
 
+	//返回接口实例，出库表
+	public static IOutcomingtblDAO getIOutcomingtblDAOInstance(){
+		return new IOutcomingtblDAOProxy();
+	}
+
 
 }

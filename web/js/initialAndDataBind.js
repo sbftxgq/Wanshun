@@ -7,39 +7,54 @@ $("#outLibDate").val(getNowFormatDate("-"));
 $("#inLibDate").val(getNowFormatDate("-"));
 $("#transitItem").hide();
 $("#shipItem").hide();
+$("#transitFare").val("0");//出库运费默认填写为0
+$("#shipFare").val("0");//出库装卸费默认填写为0
 $("#actualTotalItem").hide();//默认隐藏实付总额
+$("#actualTotalPrice").val("0");//实收总额默认为0
 $("#mufunitdesc").hide();//默认隐藏单位说明
 $("#inmufunitdesc").hide();//默认隐藏单位说明
 //运输方式下拉列表change事件，自送模式下，隐藏显示运输和装卸费
 $("#outLibWay").on("change", function () {
     //alert(this.selectedIndex);//0-自送,1-他送,2-自提
     switch (this.selectedIndex) {
-        // 他送，显示运费和装卸费
+        // 他送，显示运费和装卸费，要求用户输入，清空默认0
         case 1:
             $("#transitItem").show();
+            $("#transitFare").val("");//运费清空
             $("#shipItem").show();
+            $("#shipFare").val("");//装卸费清空
+            IS_TASONG = true;//标识他送为true
             break;
         //自提,隐藏运费和装卸费,case穿透
         case 2:
-        //缺省为0-自送，隐藏运费和装卸费
+        //缺省为0-自送，隐藏运费和装卸费，且值默认填入0
         default:
             $("#transitItem").hide();
+            $("#transitFare").val("0");//运费默认填写为0
             $("#shipItem").hide();
+            $("#shipFare").val("0");//装卸费默认填写为0
+            IS_TASONG = false;//标识他送为false
             break;
     }
 });
 //是否已付按钮切换事件
 $("#isPayed").on("click", function () {
+    //已付，则打开显示，要求输入已付金额
     if (this.checked) {
         //alert("checked。。")
         $("#actualTotalItem").show();
+        //清空默认的0
+        $("#actualTotalPrice").val("");//实收总额清空
+        IS_PAYED = true;
     } else {
-        //alert("dsds")
+        //alert("dsds")未付，默认填入0
         $("#actualTotalItem").hide();
+        $("#actualTotalPrice").val("0");//实收总额默认为0
+        IS_PAYED = false;
     }
 });
 
-//销售管理添加商品明细的按钮事件注册,true标识是出库操作，传入isOut参数值为true
+//销售管理添加商品明细的按钮事件注册,true标识是出库操作，最后一个参数isOut传入参数值为true
 $("#outAddRowBtn").on("click", function () {
     addRow(".del", "#firstcolumn", "#goodstbl", "#specrow", "#detailrow",
         "specrow", "#firstcolumnbody", "detailrow", "#goodstblbody",
@@ -55,8 +70,10 @@ $("#inAddRowBtn").on("click", function () {
 
 //页面加载后注册按钮监听
 onload = function () {
-    //取得最新的入库单号
-    getLatestBillNo();
+    //取得最新的入库单号和出库单号
+    //参数1：请求的URL地址，参数2：界面显示控件的ID字符串
+    getLatestBillNo("GetLatestInLibBillNo","#inBillNo");//入库
+    getLatestBillNo("GetLatestOutLibBillNo","#billNo");//出库
     //doOperator();
     //出库：执行删除操作注册监听,
     // 参数1：删除按钮的class名，参数2：左表ID，参数3：右表ID，
@@ -112,9 +129,9 @@ $.ajax({
 });
 
 //取得进货单编号最新值（该方法在页面加载完成后执行一次，然后入库成功后执行一次，更新显示单号）
-function getLatestBillNo(){
+function getLatestBillNo(url,billNoIdStr){
     var gettings = {
-        url: "GetLatestBillNo",    //请求的url地址
+        url: url,    //请求的url地址
         dataType: "json",   //返回格式为json
         async: true,//请求是否异步，默认为异步，这也是ajax重要特性
         //data:{"id":"value"},    //请求参数值
@@ -126,17 +143,18 @@ function getLatestBillNo(){
                 //第一次请求，数据库中billNo为null，进货单号自动填写为年月日+001
                 //进货单号默认日期+3位自增数字,首先读取数据库得到单号，然后最后三位数自增1填入该输入框
                 //例如进货单号：20181208001，前8位为日期2018-12-08，后3位流水号001，流水号自增1，每入库一单增1
-                $("#inBillNo").val(getNowFormatDate("")+"001");
+                //20181217修改为“年+7位数字流水”，一共11位
+                $(billNoIdStr).val(new Date().getFullYear()+"0000001");
             }else {
                 //表明有billNo数据，且是数据库中最新的，进货单号为年月日+billNo+1
                 //取得数据库billNo
                 var billNo = data.billNo;
-                //截取后3个字符串
-                billNo = billNo.substr(8,3);//一共11位数字字符串，截取索引为8开始的后面3个字符串
+                //截取后7个字符串
+                billNo = billNo.substr(4,7);//一共11位数字字符串，截取索引为4开始的后面7个字符串
                 //转换为整数然后自增1，之后再前补零
                 var newBillNo = parseInt(billNo,10)+1;//转换为10进制整数，再加1
                 //prefixInteger函数参数1为待补零数字，参数2为数字位数，即3位流水号
-                $("#inBillNo").val(getNowFormatDate("")+prefixInteger(newBillNo,3));
+                $(billNoIdStr).val(new Date().getFullYear()+prefixInteger(newBillNo,7));
             }
         }
     };
@@ -317,6 +335,9 @@ function regUnitChangeEvent(speclstIdStr, mufUnitdescIdStr, eleIndex,isOut) {
                     $currentSelect.find("option[value='bunch5']").prop("selected", "selected");
                     $(mufUnitdescIdStr).show();//显示单位说明
                 }
+                //更新价格
+                updatePriceValue(eleIndex,isOut);
+                caculateTotalPrice(isOut);
         }
     }
 }
@@ -363,7 +384,6 @@ function isShowUnitdesc(isOut) {
 }
 //console.log(caculatePrice(937.5,3.8));
 //console.log(caculatePrice("meter",85,41,null));
-
 //清空价格相关的输入
 function clearPrice(eleIndex, isOut) {
     //销售管理页

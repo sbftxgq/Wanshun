@@ -36,7 +36,7 @@ table tr td, table tr th {
 
     border: 1px solid #999;
     border-left: 0;
-    width: 180%;
+    width: 230%;
     table-layout: fixed;
     white-space:nowrap;
 }

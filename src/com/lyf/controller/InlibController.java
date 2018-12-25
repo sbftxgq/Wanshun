@@ -21,10 +21,10 @@ import java.util.List;
 /*
 接收Ajax提交的数据，存入数据库，写入数据库的同时回传消息给客户端界面（true/false）
  */
-@WebServlet(name = "InlibController",urlPatterns = {"/InlibController"})
+@WebServlet(name = "InlibController", urlPatterns = {"/InlibController"})
 public class InlibController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doGet(request,response);
+        this.doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -54,13 +54,13 @@ public class InlibController extends HttpServlet {
         String inLibWay = request.getParameter("inLibWay");
         //装卸费用
         String inShipFare = request.getParameter("inShipFare");
-
         //--入库单明细--
         //每一行就是一个Incomedetailtbl类的实例（记录），行中的列就是该类的成员属性
         //单号同前
-        //取得表格数据行数，然后遍历每行数据，插入数据库，行数决定插入次数
-        String len = request.getParameter("dataRows");
-        //--以下是首行数据--
+        /*
+        //取得表格数据行数，然后遍历每行数据，插入数据库，行数决定插入次数（GSON库已经封装）
+        //String len = request.getParameter("dataRows");
+        //--以下是首行数据，因数据全部装入数组tableData被接收而来，故注释这段代码
         //规格ID——左表
         String specificationId = request.getParameter("inspeclst");//规格下拉列表值
         //--下面几条数据来自右表--
@@ -74,13 +74,12 @@ public class InlibController extends HttpServlet {
         String unitPrice = request.getParameter("inunitprice");
         //该行（规格）金额
         String price = request.getParameter("inprice");
-
-        System.out.println("单号："+billNo+"入库日期："+inLibDate+"进货总额："+inTotalPrice+"运输费用："+inTransitFare
-        +"装卸方式："+inLibWay+"装卸费用："+inShipFare+"数据行数："+len);
-
-        //后续行数据，参数name值从1开始递增，（首行为0，没有数字）第二行为1，第三行为2，以此类推
+        */
+//        System.out.println("单号："+billNo+"入库日期："+inLibDate+"进货总额："+inTotalPrice+"运输费用："+inTransitFare
+//        +"装卸方式："+inLibWay+"装卸费用："+inShipFare+"数据行数："+len);
+        //表格数据，包含所有明细数据（首行+其它序号行，序号从1开始）
         String tableData = request.getParameter("tableData");
-        System.out.println("表格数据字符串："+tableData);
+        //System.out.println("表格数据字符串："+tableData);
         //收到的结果示例：
         //[{"inspeclst":"007","inmanuflst":"hy","inunit":"piece","incounts":"100","inunitprice":"41","inprice":"4100"},
         // {"inspeclst":"008","inmanuflst":"hy","inunit":"piece","incounts":"100","inunitprice":"43","inprice":"4300"},
@@ -92,14 +91,13 @@ public class InlibController extends HttpServlet {
         //将JSON的String 转成一个JsonArray对象
         JsonArray jsonArray = parser.parse(tableData).getAsJsonArray();
 
-
-        //客户端传递的JSON字符串转换为JSON数组，然后添加到链表
+        //客户端传递的JSON字符串转换为JSON数组，然后添加到链表，注意JSON字符串的name（key）应该与VO属性名一致
         List<Incomedetails> incomedetailsLst = new ArrayList<Incomedetails>();
-        for (JsonElement obj : jsonArray){
-            Incomedetails rowData = gson.fromJson(obj,Incomedetails.class);
+        for (JsonElement obj : jsonArray) {
+            Incomedetails rowData = gson.fromJson(obj, Incomedetails.class);
             incomedetailsLst.add(rowData);
         }
-        //构建数据库传入对象
+        //构建数据库传入对象，可视情况增加二次验证
         Incomingtbl curInLibData = new Incomingtbl();
         curInLibData.setBillNo(billNo);
         curInLibData.setInLibDate(inLibDate);
@@ -108,18 +106,21 @@ public class InlibController extends HttpServlet {
         curInLibData.setTransitFare(inTransitFare);
         curInLibData.setShipFare(inShipFare);
         //int arraySize = jsonArray.size();
-        if (DAOFactory.getIincomingtblDAOInstance().inLibOperation(curInLibData,incomedetailsLst)){
-            //入库成功
-            out.print("{\"insertResult\":\"true\"}");
-        }else {
+        //封装入库
+        try {
+            boolean flag = DAOFactory.getIincomingtblDAOInstance().inLibOperation(curInLibData, incomedetailsLst);
+            if (flag) {
+                //入库成功
+                out.print("{\"insertResult\":\"true\"}");
+            } else {
+                //入库失败
+                out.print("{\"insertResult\":\"false\"}");
+            }
+        } catch (Exception e) {
             //入库失败
             out.print("{\"insertResult\":\"false\"}");
+            e.printStackTrace();
         }
-        //二次验证
-
-        //封装入库
-
-
 
     }
 }

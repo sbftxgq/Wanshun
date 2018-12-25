@@ -15,7 +15,7 @@ public class IincomingtblDAOProxy implements IincomingtblDAO {
     private DatabaseConnection dbc = null;
     private SqlHelperNew sqlTool = null;
 
-    public IincomingtblDAOProxy(){
+    public IincomingtblDAOProxy() {
         this.sqlTool = new SqlHelperNew();//实例化工具类
         this.dao = new IincomingtblDAOImpl(this.sqlTool);//实例化要代理的对象
         this.dbc = this.sqlTool.getDbc();//获得连接对象dbc
@@ -27,22 +27,26 @@ public class IincomingtblDAOProxy implements IincomingtblDAO {
         String billNo = null;
         try {
             billNo = this.dao.getLatestBillNO();
-        }catch (Exception e){
+        } catch (Exception e) {
             billNo = null;
             throw e;
-        }finally {
+        } finally {
             this.dbc.close();
         }
-
         return billNo;
     }
 
     @Override
-    public boolean inLibOperation(Incomingtbl incomeData, List<Incomedetails> detailRowsData) {
-        try{
-            return this.dao.inLibOperation(incomeData,detailRowsData);
-        }finally {
+    public boolean inLibOperation(Incomingtbl incomeData, List<Incomedetails> detailDataRows) throws Exception {
+        boolean flag = false;
+        try {
+            flag = this.dao.inLibOperation(incomeData, detailDataRows);
+        } catch (Exception e) {
+            flag = false;
+            throw e;
+        } finally {
             this.dbc.close();
         }
+        return flag;
     }
 }

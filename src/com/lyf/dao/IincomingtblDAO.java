@@ -14,6 +14,6 @@ public interface IincomingtblDAO {
     public String getLatestBillNO() throws Exception;
 
     //入库操作（入库表和入库明细表入库操作，使用事务操作）
-    public boolean inLibOperation(Incomingtbl incomeData, List<Incomedetails> detailRowsData);
+    public boolean inLibOperation(Incomingtbl incomeData, List<Incomedetails> detailDataRows) throws Exception;
 
 }

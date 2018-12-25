@@ -4,6 +4,7 @@ import com.lyf.dao.IincomingtblDAO;
 import com.lyf.util.SqlHelperNew;
 import com.lyf.vo.Incomedetails;
 import com.lyf.vo.Incomingtbl;
+import jdk.jfr.events.ExceptionThrownEvent;
 
 import java.sql.ResultSet;
 import java.util.List;
@@ -21,7 +22,7 @@ public class IincomingtblDAOImpl implements IincomingtblDAO {
 
         String billNo = null;
         //选择最大的billNO，降序排列，取出第一条
-        String sql = "SELECT billNo FROM incomingtbl ORDER BY billNo desc LIMIT 1";
+        String sql = "SELECT billNo FROM incomingtbl ORDER BY billNo+0 desc LIMIT 1";
         ResultSet rs = null;
         try {
             rs = this.sqlTool.executeQuerySQL(sql, null);
@@ -42,7 +43,7 @@ public class IincomingtblDAOImpl implements IincomingtblDAO {
 
     //入库操作
     @Override
-    public boolean inLibOperation(Incomingtbl incomeData, List<Incomedetails> detailDataRows) {
+    public boolean inLibOperation(Incomingtbl incomeData, List<Incomedetails> detailDataRows) throws Exception{
 
         boolean flag = false;
         int len = detailDataRows.size();//获取到链表中的数据数量
@@ -94,8 +95,13 @@ public class IincomingtblDAOImpl implements IincomingtblDAO {
         String[] sqls = {insertIncomingtblSQL,insertIncomedetailsSQL};
         String[][] pars = {inComeingtblPars,incomedetailtblPars};
 
-        //原来的情况，pars是一个数组
-        flag = this.sqlTool.executeUpdateSQLs(sqls,pars);
+        //pars是一个二维数组
+        try {
+            flag = this.sqlTool.executeUpdateSQLs(sqls,pars);
+        }catch (Exception e){
+            flag = false;
+            throw e;
+        }
         return flag;
     }
 }

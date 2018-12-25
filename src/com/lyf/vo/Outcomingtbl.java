@@ -11,8 +11,8 @@ public class Outcomingtbl {
     private String outLibWay;//送货方式
     private String transitFare;//运输费，整数值，用字符串填入后存数据库时再做转换
     private String shipFare;//装卸费，整数值
-    private float totalPrice;//该单的理论销售总额，包含各个规格商品销售额
-    private float actualTotalPrice;//该单的已付总额，即实际销售总额
+    private String totalPrice;//该单的理论销售总额，包含各个规格商品销售额
+    private String actualTotalPrice;//该单的已付总额，即实际销售总额
 
     public String getBillNo() {
         return billNo;
@@ -86,19 +86,19 @@ public class Outcomingtbl {
         this.shipFare = shipFare;
     }
 
-    public float getTotalPrice() {
+    public String getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(float totalPrice) {
+    public void setTotalPrice(String totalPrice) {
         this.totalPrice = totalPrice;
     }
 
-    public float getActualTotalPrice() {
+    public String getActualTotalPrice() {
         return actualTotalPrice;
     }
 
-    public void setActualTotalPrice(float actualTotalPrice) {
+    public void setActualTotalPrice(String actualTotalPrice) {
         this.actualTotalPrice = actualTotalPrice;
     }
 }

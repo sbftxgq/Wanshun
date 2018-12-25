@@ -98,9 +98,6 @@ function safeTest(str){
 }
 
 //确认密码验证
-
-
-
 $('input').name('confirm_pass').bind('focus',function(){
 	$('.confirm_put').css('display','block');
 	$('.confirm_error').css('display','none');
