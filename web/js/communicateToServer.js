@@ -12,17 +12,20 @@ function inLibOper() {
         var tableData = getTableData(inBillNo, "#infirstcolumn", false);
         var dataLen = tableData.length;
         tableData = JSON.stringify(tableData);
-        //显示预加载进度条
-        $.showPreloader('入库中...');
-        //2秒钟后消失
-        setTimeout(function () {
-            $.hidePreloader();
-        }, 2000);
         //发送数据到服务器（Tomcat）
         $.ajax({
             url: "InlibController",    //请求的url地址
+            timeout: 5000,
             dataType: "json",   //返回格式为json
             async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+            beforeSend: function () {
+                //显示预加载进度条
+                $.showPreloader('入库中...');
+                //2秒钟后消失
+                setTimeout(function () {
+                    $.hidePreloader();
+                }, 2000);
+            },
             //请求参数值（发送的数据位于请求对象request中，这些值就是请求参数值，又叫发送的数据）
             data: {
                 "inBillNo": inBillNo,
@@ -49,8 +52,11 @@ function inLibOper() {
                         window.location.reload(true);
                     }, 4000);
                 } else {
-                    $.toast("入库失败！");
+                    $.toast("服务器返回异常，入库失败！");
                 }
+            },
+            error: function () {
+                $.alert("服务器未响应，入库失败！");
             }
         });
     }
@@ -73,38 +79,41 @@ function outLibOper() {
         if (IS_PAYED) {
             isPayed = "1";//1标识已付
         }
-        var actualTotalPrice= $("#actualTotalPrice").val();//实付总额
+        var actualTotalPrice = $("#actualTotalPrice").val();//实付总额
         //出库明细表格数据，参数1：进货单号，参数2：进货明细表格ID，参数3：出库标志，true标识出库
         var tableData = getTableData(billNo, "#firstcolumn", true);
         var dataLen = tableData.length;
         tableData = JSON.stringify(tableData);
-        //显示预加载进度条
-        $.showPreloader('出库中...');
-        //2秒钟后消失
-        setTimeout(function () {
-            $.hidePreloader();
-        }, 2000);
         //测试OK
         //console.log(isPayed+"运费："+transitFare+"装卸费："+shipFare+"实收总额："+actualTotalPrice);
         //console.log(tableData);
         //发送数据到服务器（Tomcat）
         $.ajax({
             url: "OutLibController",    //请求的url地址
+            timeout: 5000,//请求时间
             dataType: "json",   //返回格式为json
             async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+            beforeSend: function () {
+                //显示预加载进度条
+                $.showPreloader('出库中...');
+                //2秒钟后消失
+                setTimeout(function () {
+                    $.hidePreloader();
+                }, 2000);
+            },
             //请求参数值（发送的数据位于请求对象request中，这些值就是请求参数值，又叫发送的数据）
             data: {
                 "billNo": billNo,
-                "guestName":guestName,
-                "destLocation":destLocation,
+                "guestName": guestName,
+                "destLocation": destLocation,
                 "outLibDate": outLibDate,
-                "outLibMan":outLibMan,
-                "outLibWay":outLibWay,
-                "transitFare":transitFare,
-                "shipFare":shipFare,
+                "outLibMan": outLibMan,
+                "outLibWay": outLibWay,
+                "transitFare": transitFare,
+                "shipFare": shipFare,
                 "totalPrice": totalPrice,
-                "isPayed":isPayed,
-                "actualTotalPrice":actualTotalPrice,
+                "isPayed": isPayed,
+                "actualTotalPrice": actualTotalPrice,
                 "tableData": tableData,
                 "dataRows": dataLen
             },
@@ -123,12 +132,19 @@ function outLibOper() {
                         window.location.reload(true);
                     }, 4000);
                 } else {
-                    $.toast("出库失败！");
+                    $.toast("服务器返回异常，出库失败！");
                 }
+            },
+            error: function () {
+                $.alert("服务器未响应，出库失败！");
             }
         });
 
     }
+}
+
+function queryDetail(obj) {
+    $.alert(obj.cells[0].innerText);//打印出billNo的值
 }
 
 //获取明细表中的数据，参数1：单号，参数2：明细表格ID，参数3：出/入库标志，false标识入库
@@ -341,3 +357,25 @@ function outLibInputDataCheck() {
     return true;
 }
 
+//起始结束日期顺序验证
+function dateSequenceCheck() {
+    //日期字符串中的“-”替换成“/”目的是为了兼容IE11
+    var startDate = $("#inQryLibDateStrt").val();
+    var endDate = $("#inQryLibDateEnd").val();
+    //$.alert(startDate+"--"+endDate);
+    startDate = startDate.replace("-", "/").replace("-", "/");
+    endDate = endDate.replace("-", "/").replace("-", "/");
+    //$.alert(startDate+"--"+endDate);
+    if (Date.parse(startDate) > Date.parse(endDate)) {
+        $.toast("起始日期不能在结束日期后面！");
+        $("#inQryLibDateStrt").focus();
+        return false;
+    }
+    //日期顺序校验通过
+    return true;
+}
+
+
+//页面初始化执行，在main.html最后执行了一句$.init()，下面的滚动代码才生效！
+//即以下自定义的代码必须都放在$.init()前面执行滚动才有效，监听滚动的容器是page
+$.toast("pageInit");//页面加载一次（刷新一次），就执行一次

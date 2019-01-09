@@ -12,16 +12,17 @@ table {
     border: 0;
     width: 100%;
 }
+
 table tr td, table tr th {
     border: 1px solid #999;
-    padding: .4em 0em;/*上下0.4em,左右无padding*/
+    padding: .4em 0em; /*上下0.4em,左右无padding*/
     text-align: center;
-    white-space: nowrap;
 }
 
 .table-first tr th, .table-first tr td {
     background: #F4F4F4;
     font-weight: bold;
+    white-space: nowrap;
 }
 
 .table-container table tr td, .table-container table tr th {
@@ -30,6 +31,7 @@ table tr td, table tr th {
     border-right: 1px solid #999;
     text-align: center;
     padding: .4em 0em;
+    white-space: nowrap;
 }
 
 .table-container table {
@@ -38,7 +40,7 @@ table tr td, table tr th {
     border-left: 0;
     width: 230%;
     table-layout: fixed;
-    white-space:nowrap;
+    white-space: nowrap;
 }
 
 .table-two {
@@ -67,6 +69,30 @@ table tr td, table tr th {
     _overflow: auto;
     margin: 0 0 1em;*/
 }
+
+.singleTable {
+    padding-top: .5rem;
+    padding-right: .4rem;
+    padding-bottom:  .5rem;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.singleTable table tr th{
+    /*首行不换行*/
+    white-space: nowrap;
+    background: #F4F4F4;/*增加灰底色*/
+}
+
+.singleTable table tr td {
+    /*表格内换行*/
+    white-space: normal;
+    word-break:break-all;/*其它行字符串自动换行*/
+    word-wrap:break-word;
+    text-align: left;
+    padding: .4em .2em; /*上下0.4em,左右0.2*/
+}
+
 
 /*IOS滚动条*/
 .table-container::-webkit-scrollbar {

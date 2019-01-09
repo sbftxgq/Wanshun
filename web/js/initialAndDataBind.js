@@ -5,6 +5,10 @@
 $("#outLibDate").val(getNowFormatDate("-"));
 //进货日期填写默认值为当前系统时间
 $("#inLibDate").val(getNowFormatDate("-"));
+//查询日期控件初始填写
+$("#inQryLibDateStrt").val(getNowFormatDate("-"));
+$("#inQryLibDateEnd").val(getNowFormatDate("-"));
+
 $("#transitItem").hide();
 $("#shipItem").hide();
 $("#transitFare").val("0");//出库运费默认填写为0
@@ -13,6 +17,84 @@ $("#actualTotalItem").hide();//默认隐藏实付总额
 $("#actualTotalPrice").val("0");//实收总额默认为0
 $("#mufunitdesc").hide();//默认隐藏单位说明
 $("#inmufunitdesc").hide();//默认隐藏单位说明
+$("#inQrySpecItem").hide();//默认隐藏商品规格查询字段（下拉列表）
+//参数1：查询方式，参数2：PAGENOW，初始为0（SQL语句LIMIT 0,PAGE_SIZE）参数3：PAGE_SIZE
+queryInLibBill(IN_QUERY_WAY,0,PAGE_SIZE);//初始加载所有ALL，前PAGE_SIZE页,PAGE_SIZE决定初始显示项数
+
+
+//入库查询起始、结束日期改变、规格下拉列表规格改变change事件(有3个对象)
+//移动到点击查询按钮事件中统一置零
+$(".forChange").on("change",function () {
+    //查询字段值改变
+    //$.alert("change事件后的值："+$(this).val());//OK
+    //PAGE_NOW置零
+    //PAGE_NOW = 0;
+    // 注销无限加载事件，以防别的选项监听还在发生不必要的加载
+    $.detachInfiniteScroll($('.infinite-scroll'));
+    // 隐藏加载提示符
+    $('.infinite-scroll-preloader').hide();
+
+});
+
+//入库单据查询字段下拉列表事件
+$("#inQueryWay").on("change",function () {
+
+    //改变查询方式时，PAGE_NOW置零
+    //PAGE_NOW = 0;//移动到点击查询按钮后统一置零
+    //重新注册滚动事件加载监听(规格改变也要注册)，统一移动到点击查询按钮事件中注册
+    //$.attachInfiniteScroll($('.infinite-scroll'));
+
+    switch (this.selectedIndex) {
+        //进货日期
+        case 0:
+            //$.alert(this.value);
+            IN_QUERY_WAY = this.value;//默认DTR(DaTe Range)
+            //隐藏规格
+            $("#inQrySpecItem").hide();
+            //显示日期
+            $(".forHide").show();
+            $("#btnForHide").show();
+            // 注销无限加载事件，以防别的选项监听还在发生不必要的加载
+            $.detachInfiniteScroll($('.infinite-scroll'));
+            // 隐藏加载提示符
+            $('.infinite-scroll-preloader').hide();
+            break;
+        //商品规格
+        case 1:
+            //$.alert(this.value);
+            IN_QUERY_WAY = this.value;//SID
+            //显示商品规格
+            $("#inQrySpecItem").show();
+            //隐藏起始、结束日期
+            $(".forHide").hide();
+            $("#btnForHide").show();
+            // 注销无限加载事件，以防别的选项监听还在发生不必要的加载
+            $.detachInfiniteScroll($('.infinite-scroll'));
+            // 隐藏加载提示符
+            $('.infinite-scroll-preloader').hide();
+            break;
+        //所有，全部隐藏
+        default:
+            //$.alert(this.value);
+            IN_QUERY_WAY = this.value;//ALL
+            //隐藏
+            $("#inQrySpecItem").hide();
+            //隐藏
+            $(".forHide").hide();
+            $("#btnForHide").hide();
+            //发起检索所有（发送Ajax）
+            //查询前清空表格行（除了首行）
+            $("#inQryIncometblbody").empty();
+
+            PAGE_NOW = 0;//这样发起了查询，置零
+            //重新注册监听
+            $.attachInfiniteScroll($('.infinite-scroll'));
+            // 显示加载提示符
+            $('.infinite-scroll-preloader').show();
+            queryInLibBill(IN_QUERY_WAY,PAGE_NOW,PAGE_SIZE);
+    }
+});
+
 //运输方式下拉列表change事件，自送模式下，隐藏显示运输和装卸费
 $("#outLibWay").on("change", function () {
     //alert(this.selectedIndex);//0-自送,1-他送,2-自提
@@ -68,6 +150,40 @@ $("#inAddRowBtn").on("click", function () {
         "#inspeclst", "#inunit", "#inmufunitdesc",false);
 });
 
+
+//发起入库单查询按钮事件
+$("#inQryBtn").on("click",function () {
+
+    //console.log("单击查询按钮事件前的PAGE_NOW值："+PAGE_NOW);
+    //可在点击事件中将PAGE_NOW置零，这样就不用在输入改变事件中置零了
+    PAGE_NOW = 0;
+    //console.log("单击查询按钮事件中PAGE_NOW置零：PAGE_NOW="+PAGE_NOW);
+    //重新注册滚动事件加载监听(规格改变也要注册)
+    $.attachInfiniteScroll($('.infinite-scroll'));
+    // 显示加载提示符
+    $('.infinite-scroll-preloader').show();
+
+    //取得IN_QUERY_WAY 的值(IN_QUERY_WAY默认为ALL,而实际默认显示日期范围，)
+    //inQueryWay这个下拉列表默认是日期范围，因此需要更新IN_QUERY_WAY的值
+    //防止未点击下拉列表更改IN_QUERY_WAY而直接滚动更新
+    IN_QUERY_WAY = $("#inQueryWay").val();
+    //console.log("IN_QUERY_WAY的值："+IN_QUERY_WAY);
+
+    //如果是日期范围，则校验日期顺序，初始为ALL了
+    if (IN_QUERY_WAY == "DTR") {
+        //日期顺序校验成功才能查询
+        if (dateSequenceCheck()) {
+            //查询前清空表格行
+            $("#inQryIncometblbody").empty();
+            queryInLibBill(IN_QUERY_WAY,PAGE_NOW,PAGE_SIZE);
+        }
+    }else{
+        $("#inQryIncometblbody").empty();
+        //其它情况，无需校验发起查询
+        queryInLibBill(IN_QUERY_WAY,PAGE_NOW,PAGE_SIZE);
+    }
+});
+
 //页面加载后注册按钮监听
 onload = function () {
     //取得最新的入库单号和出库单号
@@ -103,6 +219,8 @@ $.ajax({
         $("#speclst").append(optionStr);
         //2018-12-05新增，进货中的规格列表
         $("#inspeclst").append(optionStr);
+        //2018-12-26新增，进货单管理页的规格列表
+        $("#inQrySpecId").append(optionStr);
     }
 });
 

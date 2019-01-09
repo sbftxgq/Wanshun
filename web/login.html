@@ -94,8 +94,11 @@
                         // var newUrl = newHref+"html/main.html";
                         window.location.href = "main.html";
                         //window.open(newUrl,"_self");
-                    } else {
+                    } else if("false" == data.isSuccess){
                         window.location.href = "register.html";
+                    } else{
+                        //发生数据库异常
+                        $.alert("数据库服务异常，请检查数据库服务！");
                     }
                 },
                 error:function () {

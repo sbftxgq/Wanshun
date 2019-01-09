@@ -39,18 +39,22 @@ public class GetSpecList extends HttpServlet {
         try {
             //拿到所有的商品规格数据（未分页）
             specificationtbls = DAOFactory.getISpecificationtblDAOInstance().getAllSpecification();
+            Gson gson = new Gson();
+            String jsonResult = gson.toJson(specificationtbls);
+            //System.out.println(jsonResult);
+            //向客户端回送JSON格式数据
+            if(null!=specificationtbls && specificationtbls.size() > 0) {
+                out.print(jsonResult);
+            }
+//            out.flush();
+//            out.close();
         } catch (Exception e) {
             e.printStackTrace();
+        }finally {
+            out.flush();
+            out.close();
         }
 
-        Gson gson = new Gson();
-        String jsonResult = gson.toJson(specificationtbls);
-        //System.out.println(jsonResult);
-        //向客户端回送JSON格式数据
-        if(null!=specificationtbls && specificationtbls.size() > 0) {
-            out.print(jsonResult);
-        }
-        out.flush();
-        out.close();
+
     }
 }

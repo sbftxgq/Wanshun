@@ -49,4 +49,46 @@ public class IincomingtblDAOProxy implements IincomingtblDAO {
         }
         return flag;
     }
+
+    @Override
+    public List<Incomingtbl> getBillsByField(String qryWay, String[] fieldValues, int pageNow, int pageSize) throws Exception {
+        List<Incomingtbl> results = null;
+        try {
+            results = this.dao.getBillsByField(qryWay,fieldValues,pageNow,pageSize);
+        } catch (Exception e) {
+            results = null;
+            throw e;
+        } finally {
+            this.dbc.close();
+        }
+        return results;
+    }
+
+    @Override
+    public List<Incomingtbl> getBillsByField(String qryWay, String[] fieldValues) throws Exception {
+        List<Incomingtbl> results = null;
+        try {
+            results = this.dao.getBillsByField(qryWay,fieldValues);
+        } catch (Exception e) {
+            results = null;
+            throw e;
+        } finally {
+            this.dbc.close();
+        }
+        return results;
+    }
+
+    @Override
+    public String getCountsByField(String qryWay, String[] fieldValues) throws Exception {
+        String counts = null;
+        try {
+            counts = this.dao.getCountsByField(qryWay,fieldValues);
+        } catch (Exception e) {
+            counts = null;
+            throw e;
+        } finally {
+            this.dbc.close();
+        }
+        return counts;
+    }
 }

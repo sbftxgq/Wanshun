@@ -33,8 +33,9 @@ public class CheckUserController extends HttpServlet {
         Users user = new Users();
         user.setUserName(userName);
         user.setUserPasswd(pwd);
+        boolean flag = false;
         try {
-            boolean flag = DAOFactory.getIUserDAOInstance().checkUser(user);
+            flag = DAOFactory.getIUserDAOInstance().checkUser(user);
             if(flag) {
                 //request.getRequestDispatcher("main.html").forward(request, response);
                 //回写true
@@ -47,9 +48,10 @@ public class CheckUserController extends HttpServlet {
             }
 
         } catch (Exception e) {
-            // TODO Auto-generated catch block
+            flag = false;
+            out.print("{\"isSuccess\":error}");
             e.printStackTrace();
-            //跳转到错误页
+            //跳转到错误页(由Login页提示)
         }
     }
 

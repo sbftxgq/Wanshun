@@ -174,14 +174,16 @@ public class SqlHelperNew {
         boolean flag = false;
         PreparedStatement ps = null;
         try {
-            ct.setAutoCommit(false);//首先禁止自动提交事务			
-            for (int i = 0; i < sql.length; i++) {
+            ct.setAutoCommit(false);//首先禁止自动提交事务
+            int sqlLen = sql.length;
+            for (int i = 0; i < sqlLen; i++) {
                 //挨着排地拿出每一条SQL语句，创建PreparedStatement对象
                 ps = ct.prepareStatement(sql[i]);	//第一条SQL语句			
                 //如果给出了参数，则进入参数处理，给?号赋值
                 if (parameters != null) {
+                    int len = parameters[i].length;
                     //parameters[i]代表了第i条SQL语句的参数值的集合（字符串数组），parameters[i]是个一维数组名，里面存放了j个？值（参数）
-                    for (int j = 0; j < parameters[i].length; j++) {
+                    for (int j = 0; j < len; j++) {
                         ps.setString(j + 1, parameters[i][j]);//给第i条SQL语句的j个参数（如果有的话）赋值
                     }
                 }
@@ -233,8 +235,9 @@ public class SqlHelperNew {
                     ps = ct.prepareStatement(sql[i]);	//i=0时为第一条SQL语句			
                     //如果给出了参数，则进入参数处理，给?号赋值
                     if (parameters != null) {
+                        int len = parameters[i].length;
                         //parameters[i]代表了第i条SQL语句的参数值的集合（字符串数组），parameters[i]是个一维数组名，里面存放了j个？值（参数）
-                        for (int j = 0; j < parameters[i].length; j++) {
+                        for (int j = 0; j < len; j++) {
                             ps.setString(j + 1, parameters[i][j]);//给第i条SQL语句的j个参数（如果有的话）赋值
                         }
                         if (0 == i) {
@@ -246,8 +249,9 @@ public class SqlHelperNew {
                 } else if (sql[i].startsWith("update")) {
                     ps = ct.prepareStatement(sql[i]);	//i=0时为第一条SQL语句	
                     if (parameters != null) {
+                        int len = parameters[i].length;
                         //i=0为第一个SQL语句的参数，j代表参数个数
-                        for (int j = 0; j < parameters[i].length; j++) {
+                        for (int j = 0; j < len; j++) {
 
                             if (0 == i) {
                                 //第一条SQL语句的第一个？为图片数据
@@ -398,7 +402,37 @@ public class SqlHelperNew {
         }
         return rs;
     }
-    
+
+    //封装一个统一的select语句，使用原生的Java库ResultSet的结果集。20181229新增分页参数（整数），LIMIT语句最后两个参数
+    //追加在SQL的LIMIT ?,?语句中两个问号为整数
+    public ResultSet executeQuerySQL(String sql, String[] parameters,int pageNow,int pageSize) throws Exception{
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        if (null != ct) {
+            try {
+                ps = ct.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                if (parameters != null) {
+                    int len = parameters.length;
+                    for (int i = 0; i < len; i++) {
+                        ps.setString(i + 1, parameters[i]);
+                    }
+                    //追加最后2个？，LIMIT ?,?
+                    ps.setInt(len+1,pageNow);
+                    ps.setInt(len+2,pageSize);
+                }else{
+                    //参数为空，则只有索引0,1两个代表分页
+                    ps.setInt(1,pageNow);
+                    ps.setInt(2,pageSize);
+                }
+                rs = ps.executeQuery();
+            } catch (Exception e) {
+                //e.printStackTrace();//20171221新增，往外抛异常
+                throw e;
+            }
+        }
+        return rs;
+    }
+
     //封装一个执行多个统一的select语句，使用原生的Java库ResultSet的结果集
     public boolean executeQuerySQLs(String[] sql, String[][] parameters) {
 

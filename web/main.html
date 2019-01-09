@@ -10,10 +10,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <link rel="stylesheet" href="css/sm.min.css">
-    <!--<link rel="stylesheet" href="css/table.css">-->
     <link rel="stylesheet" href="css/style.css">
-    <!--<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">-->
-    <!--<link rel="stylesheet" href="css/handsontable.full.min.css">-->
 
 </head>
 <body>
@@ -72,7 +69,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">进货单号</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="inBillNo" name="inBillNo" placeholder="系统自动生成" readonly>
+                                                    <input type="text" id="inBillNo" name="inBillNo"
+                                                           placeholder="系统自动生成" readonly>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,7 +83,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">进货日期</div>
                                                 <div class="item-input">
-                                                    <input type="date" id="inLibDate" name="inLibDate" />
+                                                    <input type="date" id="inLibDate" name="inLibDate"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -158,7 +156,8 @@
                                                                     <!--单位-->
                                                                     <td>
                                                                         <div class="item-input">
-                                                                            <select id="inunit" name="inunit" class="inUnitSelectedFlag">
+                                                                            <select id="inunit" name="inunit"
+                                                                                    class="inUnitSelectedFlag">
                                                                                 <option value="piece">片</option>
                                                                                 <option value="bunch5">把(5根/把)</option>
                                                                                 <option value="bunch4">把(4根/把)</option>
@@ -170,8 +169,10 @@
                                                                     <!--数量-->
                                                                     <td>
                                                                         <div class="item-input">
-                                                                            <input type="text" id="incounts" name="incounts"
-                                                                                   placeholder="输入" class="inCountsFousFlag">
+                                                                            <input type="text" id="incounts"
+                                                                                   name="incounts"
+                                                                                   placeholder="输入"
+                                                                                   class="inCountsFousFlag">
                                                                         </div>
                                                                     </td>
                                                                     <!--单价-->
@@ -179,14 +180,17 @@
                                                                         <div class="item-input">
                                                                             <input type="text" id="inunitprice"
                                                                                    name="inunitprice"
-                                                                                   placeholder="输入" class="inUpriceFousFlag">
+                                                                                   placeholder="输入"
+                                                                                   class="inUpriceFousFlag">
                                                                         </div>
                                                                     </td>
                                                                     <!--售价-->
                                                                     <td>
                                                                         <div class="item-input">
-                                                                            <input type="text" id="inprice" name="inprice"
-                                                                                   readonly class="inCaculateTotalPriceFlag"
+                                                                            <input type="text" id="inprice"
+                                                                                   name="inprice"
+                                                                                   readonly
+                                                                                   class="inCaculateTotalPriceFlag"
                                                                                    placeholder="自动算">
                                                                         </div>
                                                                     </td>
@@ -253,7 +257,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">运输费用</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="inTransitFare" name="inTransitFare" placeholder="输入运费，纯数字">
+                                                    <input type="text" id="inTransitFare" name="inTransitFare"
+                                                           placeholder="输入运费，纯数字">
                                                 </div>
                                             </div>
                                         </div>
@@ -280,7 +285,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">装卸费用</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="inShipFare" name="inShipFare" placeholder="输入装卸费，纯数字">
+                                                    <input type="text" id="inShipFare" name="inShipFare"
+                                                           placeholder="输入装卸费，纯数字">
                                                 </div>
                                             </div>
                                         </div>
@@ -291,25 +297,132 @@
                     </div>
                     <div class="row">
                         <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
-                        <div class="col-50"><a class="button button-big button-fill button-success" onclick="inLibOper()">入库</a>
+                        <div class="col-50"><a class="button button-big button-fill button-success"
+                                               onclick="inLibOper()">入库</a>
                         </div>
                     </div>
                 </div>
-                <!--进货单管理标签页-->
+                <!--进货单管理标签页，无限滚动-->
                 <div id="intab2" class="tab">
-                    <div class="content-block">
-                        <div class="content-padded grid-demo">
-                            <div class="row"><p>进货单据信息</p></div>
+                    <!--<div class="content-block">-->
+                    <div class="content-padded grid-demo">
+                        <div class="row">
+                            <div class="content-block-title">查询依据</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--检索关键字-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">选择字段</div>
+                                                <div class="item-input">
+                                                    <select id="inQueryWay" name="inQueryWay">
+                                                        <option value="DTR">进货日期</option>
+                                                        <option value="SID">商品规格</option>
+                                                        <option value="ALL">列出所有</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="forHide">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">起始日期</div>
+                                                <div class="item-input">
+                                                    <input type="date" id="inQryLibDateStrt" name="inQryLibDateStrt" class="forChange"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="forHide">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">结束日期</div>
+                                                <div class="item-input">
+                                                    <input type="date" id="inQryLibDateEnd" name="inQryLibDateEnd" class="forChange"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="inQrySpecItem">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">商品规格</div>
+                                                <div class="item-input">
+                                                    <select id="inQrySpecId" name="inQrySpecId" class="forChange">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="btnForHide">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <input type="button" id="inQryBtn"
+                                                       class="button button-fill button-success"
+                                                       value="点击查询"/>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content-block-title">结果列表(表格内单击某行可查看该单详情)</div>
+                            <!--infinite-scroll-bottom必须加上 -->
+                            <div class="list-block infinite-scroll infinite-scroll-bottom">
+                                <ul class="list-container">
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <span class="page-list" data-pagenum="" data-totalpage=""
+                                                      data-pagesize="">
+                                                    共有<span id="inQryBilltotaNum" style="color: blue;font-weight: bold">&nbsp;0&nbsp;</span>条数据：
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--结果显示表格-->
+                                    <li>
+                                        <div class="item-content">
+                                            <!--<div class="item-inner">-->
+                                            <!--<div class="table-two">-->
+                                            <!--结果表3列：单号、入库日期和成本（包含运费、装卸费）-->
+                                            <!--<div class="table-second">-->
+                                            <div class="singleTable">
+                                                <table id="inQryIncometbl">
+                                                    <tbody id="inQryIncometblbody">
+                                                    <!--后续行代码生成-->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 加载提示符 -->
+                            <div class="infinite-scroll-preloader">
+                                <div class="preloader"></div>
+                            </div>
                         </div>
                     </div>
+                    <!--</div>-->
                 </div>
                 <!--库存标签页-->
                 <div id="intab3" class="tab">
-                    <div class="content-block">
-                        <div class="content-padded grid-demo">
-                            <div class="row"><p>库存信息</p></div>
-                        </div>
-                    </div>
+                    <!--<div class="content-block">-->
+                    <!--<div class="content-padded grid-demo">-->
+                    <!--<div class="row"><p>库存信息</p></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -363,7 +476,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">销售单号</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="billNo" name="billNo" placeholder="系统自动生成" readonly/>
+                                                    <input type="text" id="billNo" name="billNo" placeholder="系统自动生成"
+                                                           readonly/>
                                                 </div>
                                             </div>
                                         </div>
@@ -375,7 +489,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">客户名称</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="guestName" name="guestName" placeholder="输入客户姓名或单位名称" />
+                                                    <input type="text" id="guestName" name="guestName"
+                                                           placeholder="输入客户姓名或单位名称"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -387,7 +502,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">销售地点</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="destLocation" name="destLocation" placeholder="输入送货地点" />
+                                                    <input type="text" id="destLocation" name="destLocation"
+                                                           placeholder="输入送货地点"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -399,7 +515,7 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">送货日期</div>
                                                 <div class="item-input">
-                                                    <input type="date" name="outLibDate" id="outLibDate" />
+                                                    <input type="date" name="outLibDate" id="outLibDate"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -411,7 +527,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">送货人</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="outLibMan" name="outLibMan" placeholder="输入送货人姓名" value="陈艳飞">
+                                                    <input type="text" id="outLibMan" name="outLibMan"
+                                                           placeholder="输入送货人姓名" value="陈艳飞">
                                                 </div>
                                             </div>
                                         </div>
@@ -486,7 +603,8 @@
                                                                     <!--单位-->
                                                                     <td>
                                                                         <div class="item-input">
-                                                                            <select id="unit" name="unit" class="unitSelectedFlag">
+                                                                            <select id="unit" name="unit"
+                                                                                    class="unitSelectedFlag">
                                                                                 <option value="piece">片</option>
                                                                                 <option value="bunch5">把(5根/把)</option>
                                                                                 <option value="bunch4">把(4根/把)</option>
@@ -499,7 +617,8 @@
                                                                     <td>
                                                                         <div class="item-input">
                                                                             <input type="text" id="counts" name="counts"
-                                                                                   placeholder="输入" class="countsFousFlag">
+                                                                                   placeholder="输入"
+                                                                                   class="countsFousFlag">
                                                                         </div>
                                                                     </td>
                                                                     <!--单价-->
@@ -507,14 +626,16 @@
                                                                         <div class="item-input">
                                                                             <input type="text" id="unitprice"
                                                                                    name="unitprice"
-                                                                                   placeholder="输入" class="uPriceFousFlag">
+                                                                                   placeholder="输入"
+                                                                                   class="uPriceFousFlag">
                                                                         </div>
                                                                     </td>
                                                                     <!--售价-->
                                                                     <td>
                                                                         <div class="item-input">
                                                                             <input type="text" id="price" name="price"
-                                                                                   readonly class="caculateTotalPriceFlag"
+                                                                                   readonly
+                                                                                   class="caculateTotalPriceFlag"
                                                                                    placeholder="自动算">
                                                                         </div>
                                                                     </td>
@@ -581,7 +702,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">运输费用</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="transitFare" name="transitFare" placeholder="输入运费，纯数字">
+                                                    <input type="text" id="transitFare" name="transitFare"
+                                                           placeholder="输入运费，纯数字">
                                                 </div>
                                             </div>
                                         </div>
@@ -593,7 +715,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">装卸费用</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="shipFare" name="shipFare" placeholder="无装卸费时请输入0">
+                                                    <input type="text" id="shipFare" name="shipFare"
+                                                           placeholder="无装卸费时请输入0">
                                                 </div>
                                             </div>
                                         </div>
@@ -637,7 +760,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">实付总额</div>
                                                 <div class="item-input">
-                                                    <input type="text" id="actualTotalPrice" name="actualTotalPrice" placeholder="输入实收总金额" />
+                                                    <input type="text" id="actualTotalPrice" name="actualTotalPrice"
+                                                           placeholder="输入实收总金额"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -649,7 +773,8 @@
                     <div class="row">
                         <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a>
                         </div>
-                        <div class="col-50"><a class="button button-big button-fill button-success" onclick="outLibOper()">出库</a>
+                        <div class="col-50"><a class="button button-big button-fill button-success"
+                                               onclick="outLibOper()">出库</a>
                         </div>
                     </div>
                 </div>
@@ -748,11 +873,12 @@
 <script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>
 <!--<script type='text/javascript' src='js/sm.js' charset='utf-8'></script>-->
 
-<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
-<script>$.init()</script>
 <script type='text/javascript' src='js/decimal.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/underscore.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/utils.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/initialAndDataBind.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/communicateToServer.js' charset='utf-8'></script>
+<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
+<script>$.init()</script>
 </body>
 </html>
