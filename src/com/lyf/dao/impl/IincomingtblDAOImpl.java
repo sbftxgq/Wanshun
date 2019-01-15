@@ -2,6 +2,7 @@ package com.lyf.dao.impl;
 
 import com.lyf.dao.IincomingtblDAO;
 import com.lyf.util.SqlHelperNew;
+import com.lyf.vo.IncomeViewVo;
 import com.lyf.vo.Incomedetails;
 import com.lyf.vo.Incomingtbl;
 
@@ -239,6 +240,49 @@ public class IincomingtblDAOImpl implements IincomingtblDAO {
             results = null;
             throw e;
         } finally {
+            if (null != rs) {
+                rs.close();
+                rs = null;
+            }
+        }
+        return results;
+    }
+
+    @Override
+    public List<IncomeViewVo> getBillDetailsByBillNo(String billNo) throws Exception {
+
+        List<IncomeViewVo> results = null;
+        ResultSet rs = null;
+        IncomeViewVo curRecord = null;
+
+        String qrySQL = "SELECT billNo,totalPrice,inLibDate,inLibWay,transitFare,shipFare,specificationName,manufacturerName," +
+                "measurements,counts,unitPrice,price FROM incomedetailsView WHERE billNo=?";
+
+        String[] pars = {billNo};
+
+        try {
+            rs = this.sqlTool.executeQuerySQL(qrySQL,pars);
+            results = new ArrayList<IncomeViewVo>();
+            while (rs.next()){
+                curRecord = new IncomeViewVo();
+                curRecord.setBillNo(rs.getString(1));//订单
+                curRecord.setTotalPrice(rs.getString(2));//该订单商品总价（不含装卸和运费）
+                curRecord.setInLibDate(rs.getString(3));//入库日期
+                curRecord.setInLibWay(rs.getString(4));//装卸方式
+                curRecord.setTransitFare(rs.getString(5));//运费
+                curRecord.setShipFare(rs.getString(6));//装卸费
+                curRecord.setSpecificationName(rs.getString(7));//规格名
+                curRecord.setManufacturerName(rs.getString(8));//厂家名
+                curRecord.setMeasurements(rs.getString(9));//计量单位
+                curRecord.setCounts(rs.getString(10));//该规格数量
+                curRecord.setUnitPrice(rs.getString(11));//该规格单价
+                curRecord.setPrice(rs.getString(12));//该规格成本
+                results.add(curRecord);
+            }
+        }catch (Exception e){
+            results = null;
+            throw e;
+        }finally {
             if (null != rs) {
                 rs.close();
                 rs = null;

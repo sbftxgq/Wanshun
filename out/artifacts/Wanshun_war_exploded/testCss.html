@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    /*body,div,p,img{
+        margin: 0px;
+        padding: 0px;
+    }*/
+    .news{
+        background-color: gray;
+        border:solid 1px black;
+        /*height: 600px;*/
+    }
+
+    .news img{
+       float: left;
+    }
+
+    .news p{
+        /*float: right;*/
+        /*clear: right;*/
+    }
+
+    .empty{
+        border: 1px solid red;
+        /*clear: left;*/
+    }
+
+    #div1{
+        background-color: red;
+        width: 200px;
+        height: 200px;
+        /*float: left;*/
+    }
+    #div2{
+        background-color: green;
+        width: 210px;
+        height: 10px;
+        /*float: left;*/
+    }
+    #div3{
+        background-color: blue;
+        width: 220px;
+        height: 200px;
+        /*float: left;*/
+    }
+
+</style>
+<body>
+    <div class="news">
+        <img src="./img/img.jpg" width="320" height="240">
+        <p> ①掉电保护：
+            “文件-选项-保存”，右侧的“保存自动恢复信息时间间隔”把默认10分钟修改为最小值1分钟；
+            ②增加撤销次数：
+            “文件-选项-高级”，右侧的“最多可取消操作数”进行修改即可，默认20次，可以修改为最高 150 次。
+            ③嵌入字体：
+            “文件-选项-保存”，右侧最下方找到“将字体嵌入文件(E)”复选框，勾选即可（仅限Word和PowerPoint）
+            ④增强版格式刷：
+            选中源格式对象，然后在“开始-剪贴板”找到“格式刷”图标双击，然后点击目标对象即可应用格式，而且可以连续多次应用选中的格式，退出则按键盘“ESC”键即可。
+            ⑤文件信息设置：
+            “文件-信息-属性”，在弹出的菜单中选中“高级属性”，在弹出的窗体中，找到“摘要”选项卡，可以修改标题、作者等信息；“统计”选项卡列出当前文档字数。
+            ⑥文件安全设置：
+            “文件-信息-权限”，点击权限左边的按钮，在弹出的菜单中找到“用密码进行加密（E）”，在弹出的对话框中输入密码，然后再次输入密码确定，最后勿忘点击“保存”按钮保存。关闭后再次打开时则需要输入密码。若要清除密码，只需要在打开后重复上述操作，只是在输入密码时不输入任何字符即可清除密码，然后保存。
+            ⑦巧用最近打开文档找到文件：
+            新开启任何一个Office文件，“文件-最近所用文件”，在右侧的列表中即可列出最近打开过的文件以及“最近的位置”，最上方列出的就是最近的文件，越往上越新。
+            ⑧插入屏幕截图：
+            “插入-插图/图像”，点击“屏幕截图”按钮，在弹出的窗口下方找到“屏幕剪辑”点击，系统会自动隐藏当前编辑文档，整个屏幕变灰色，鼠标变为“十”字光标，此时，按住鼠标左键拖动，即可在屏幕任何位置截图，松开鼠标左键完成截图，并把当前截图插入到当前编辑的文档中。
+            ⑨缩放视图：
+            按住键盘“Ctrl”键，然后滚动“鼠标中键”可以实现视图动态缩（小）放（大）。
+            ⑩获取帮助：
+            随时按“F1”键，输入关键字获取
+
+        </p>
+        <div id="div1"></div>
+        <div id="div2"></div>
+        <div id="div3"></div>
+        <div class="empty"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>主页</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="img/logo.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="css/sm.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+<div class="page-group">
+    <!-- 单个page ,第一个进货管理.page默认被展示-->
+    <div id="incomediv" class="page page-current">
+        <!-- 你的html代码 -->
+        <!-- 标题栏 -->
+        <header class="bar bar-nav">
+            <a class="icon icon-menu pull-left open-panel"></a>
+            <h1 class="title">万顺建材进销存管理系统</h1>
+        </header>
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab">
+            <a class="tab-item active" href="#">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">进货管理</span>
+            </a>
+            <a class="tab-item" href="#outcomediv">
+                <span class="icon icon-cart"></span>
+                <span class="tab-label">销售管理</span>
+            </a>
+            <a class="tab-item" href="#statisticsdiv">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">统计报表</span>
+            </a>
+            <a class="tab-item" href="#settingsdiv">
+                <span class="icon icon-settings"></span>
+                <span class="tab-label">系统设置</span>
+            </a>
+        </nav>
+        <!-- 这里是页面内容区 -->
+        <div class="content">
+            <!--<div class="content-block">这里是content</div>-->
+            <!--标签页-->
+            <!--buttons-fixed这个class属性用于固定标签-->
+            <div class="buttons-tab buttons-fixed">
+                <a href="#intab1" class="tab-link active button">入库操作</a>
+                <a href="#intab2" class="tab-link button">进货单管理</a>
+                <a href="#intab3" class="tab-link button">库存信息</a>
+            </div>
+            <div class="tabs">
+                <!--进货入库标签内容-->
+                <div id="intab1" class="tab active">
+                    <!--进货入库内容-->
+                    <div class="content-padded grid-demo">
+                        <div class="row">
+                            <div class="content-block-title">编辑订单</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--进货单号-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">进货单号</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="inBillNo" name="inBillNo"
+                                                           placeholder="系统自动生成" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!-- Text inputs 商品类别，Ajax获取，移到表格-->
+                                    <!-- Date 进货日期-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">进货日期</div>
+                                                <div class="item-input">
+                                                    <input type="date" id="inLibDate" name="inLibDate"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content-block-title">编辑明细</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--操作说明-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">操作说明</div>
+                                                <div class="item-text">
+                                                    在下表选择商品规格、厂家、单位，输入数量、单价（元）。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--表格-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="table-two">
+                                                    <!--左边第一列-->
+                                                    <div class="table-first">
+                                                        <table id="infirstcolumn">
+                                                            <tbody id="infirstcolumnbody">
+                                                            <tr>
+                                                                <th>商品规格</th>
+                                                            </tr>
+                                                            <!--该行HTML代码用于克隆，首行克隆-->
+                                                            <!--规格Ajax获取规格列表，动态生成DOM中的<option>-->
+                                                            <tr id="inspecrow">
+                                                                <td>
+                                                                    <div class="item-input">
+                                                                        <select id="inspeclst" name="inspeclst">
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="table-second">
+                                                        <div class="table-container">
+                                                            <table id="ingoodstbl">
+                                                                <tbody id="ingoodstblbody">
+                                                                <tr>
+                                                                    <!--<th width="30%">商品规格</th>-->
+                                                                    <th width="18%">厂家</th>
+                                                                    <th width="35%">计量单位</th>
+                                                                    <th width="20%">数量</th>
+                                                                    <th width="18%">单价</th>
+                                                                    <th width="24%">金额(元)</th>
+                                                                    <th width="17%">删除</th>
+                                                                </tr>
+                                                                <!--该行HTML代码用于克隆，首行克隆-->
+                                                                <tr id="indetailrow">
+                                                                    <!--厂商-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <select id="inmanuflst" name="inmanuflst">
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                    <!--单位-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <select id="inunit" name="inunit"
+                                                                                    class="inUnitSelectedFlag">
+                                                                                <option value="piece">片</option>
+                                                                                <option value="bunch5">把(5根/把)</option>
+                                                                                <option value="bunch4">把(4根/把)</option>
+                                                                                <option value="meter">米</option>
+                                                                                <option value="stere">立方米</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                    <!--数量-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <input type="text" id="incounts"
+                                                                                   name="incounts"
+                                                                                   placeholder="输入"
+                                                                                   class="inCountsFousFlag">
+                                                                        </div>
+                                                                    </td>
+                                                                    <!--单价-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <input type="text" id="inunitprice"
+                                                                                   name="inunitprice"
+                                                                                   placeholder="输入"
+                                                                                   class="inUpriceFousFlag">
+                                                                        </div>
+                                                                    </td>
+                                                                    <!--售价-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <input type="text" id="inprice"
+                                                                                   name="inprice"
+                                                                                   readonly
+                                                                                   class="inCaculateTotalPriceFlag"
+                                                                                   placeholder="自动算">
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="button"
+                                                                               class="button button-fill button-warning inDel"
+                                                                               value="删除"/>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="inmufunitdesc">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">单位说明</div>
+                                                <div class="item-text">
+                                                    木方单位为“把”时，数量为把、单价为元/米。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-media"></div>
+                                        <div class="item-inner">
+                                            <input type="button" id="inAddRowBtn"
+                                                   class="button button-fill button-success"
+                                                   value="添加商品规格"/>
+                                        </div>
+                                    </li>
+                                    <!--用程序生成，选择了商品类型后，规格自动更新为该类型下的规格-->
+                                    <!--生产厂家，读取后台数据库生成列表，2018-12-04修改为表格-->
+                                    <!--数量-->
+                                    <!--单价-->
+                                    <!--金额-->
+                                </ul>
+                            </div>
+                            <div class="content-block-title">编辑费用</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--进货总额-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">进货总额</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="inTotalPrice" name="inTotalPrice"
+                                                           readonly placeholder="不用输入，自动计算">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--运输费用-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">运输费用</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="inTransitFare" name="inTransitFare"
+                                                           placeholder="输入运费，纯数字">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--装卸方式-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">装卸方式</div>
+                                                <div class="item-input">
+                                                    <select id="inLibWay" name="inLibWay">
+                                                        <option value="叉车">叉车</option>
+                                                        <option value="人工">人工</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--装卸费用-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">装卸费用</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="inShipFare" name="inShipFare"
+                                                           placeholder="输入装卸费，纯数字">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a></div>
+                        <div class="col-50"><a class="button button-big button-fill button-success"
+                                               onclick="inLibOper()">入库</a>
+                        </div>
+                    </div>
+                </div>
+                <!--进货单管理标签页，无限滚动-->
+                <div id="intab2" class="tab infinite-scroll">
+                    <!--<div class="content-block">-->
+                    <div class="content-padded grid-demo">
+                        <div class="row">
+                            <div class="content-block-title">检索依据</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--检索关键字-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">检索字段</div>
+                                                <div class="item-input">
+                                                    <select id="inQueryWay" name="inQueryWay">
+                                                        <option value="inLibDate">进货日期</option>
+                                                        <option value="specification">商品规格</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">商品规格</div>
+                                                <div class="item-input">
+                                                    <select id="inspeclstQry" name="inspeclstQry">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">起始日期</div>
+                                                <div class="item-input">
+                                                    <input type="date" id="inLibDateStrt" name="inLibDateStrt"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">结束日期</div>
+                                                <div class="item-input">
+                                                    <input type="date" id="inLibDateEnd" name="inLibDateEnd"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content-block-title">查询结果</div>
+                            <!--<div class="infinite-scroll infinite-scroll-bottom" data-distance="100">-->
+                            <!--infinite-scroll-bottom必须加上 -->
+                            <div class="list-block">
+                                <ul class="list-container">
+                                    <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                    ....
+                                    <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                                </ul>
+                            </div>
+                            <!-- 加载提示符 -->
+                            <div class="infinite-scroll-preloader">
+                                <div class="preloader"></div>
+                            </div>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <!--</div>-->
+                </div>
+                <!--库存标签页-->
+                <div id="intab3" class="tab infinite-scroll">
+                    <!--<div class="content-block">-->
+                    <!--<div class="content-padded grid-demo">-->
+                    <!--<div class="row"><p>库存信息</p></div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <div class="list-block">
+                        <ul class="list-container">
+                            <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                            ....
+                            <li class="item-content"><div class="item-inner"><div class="item-title">条目</div></div></li>
+                        </ul>
+                    </div>
+                    <!-- 加载提示符 -->
+                    <div class="infinite-scroll-preloader">
+                        <div class="preloader">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 销售管理page内联页-->
+    <div id="outcomediv" class="page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav">
+            <a class="icon icon-menu pull-left open-panel"></a>
+            <h1 class="title">万顺建材进销存管理系统</h1>
+        </header>
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab">
+            <a class="tab-item" href="#incomediv">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">进货管理</span>
+            </a>
+            <a class="tab-item active" href="#">
+                <span class="icon icon-cart"></span>
+                <span class="tab-label">销售管理</span>
+            </a>
+            <a class="tab-item" href="#statisticsdiv">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">统计报表</span>
+            </a>
+            <a class="tab-item" href="#settingsdiv">
+                <span class="icon icon-settings"></span>
+                <span class="tab-label">系统设置</span>
+            </a>
+        </nav>
+        <!-- 这里是页面内容区 ，buttons-fixed固定标签-->
+        <div class="content">
+            <div class="buttons-tab buttons-fixed">
+                <a href="#outtab1" class="tab-link active button">出库操作</a>
+                <a href="#outtab2" class="tab-link button">销售单管理</a>
+                <a href="#outtab3" class="tab-link button">销售信息</a>
+            </div>
+            <div class="tabs">
+                <!--送货出库内容-->
+                <div id="outtab1" class="tab active">
+                    <div class="content-padded grid-demo">
+                        <div class="row">
+                            <!--订单编辑列表-->
+                            <div class="content-block-title">编辑订单</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--送货单号-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">销售单号</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="billNo" name="billNo" placeholder="系统自动生成"
+                                                           readonly/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--客户名称-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">客户名称</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="guestName" name="guestName"
+                                                           placeholder="输入客户姓名或单位名称"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--送货地点-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">销售地点</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="destLocation" name="destLocation"
+                                                           placeholder="输入送货地点"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--送货日期-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">送货日期</div>
+                                                <div class="item-input">
+                                                    <input type="date" name="outLibDate" id="outLibDate"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--送货人-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">送货人</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="outLibMan" name="outLibMan"
+                                                           placeholder="输入送货人姓名" value="陈艳飞">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--列表：明细编辑-->
+                            <div class="content-block-title">编辑明细</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--用程序生成，选择了商品类型后，规格自动更新为该类型下的规格-->
+                                    <!--产品-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">操作说明</div>
+                                                <div class="item-text">
+                                                    在下表选择商品规格、厂家、单位，输入数量、单价（元）。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--表格-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="table-two">
+                                                    <!--左边第一列-->
+                                                    <div class="table-first">
+                                                        <table id="firstcolumn">
+                                                            <tbody id="firstcolumnbody">
+                                                            <tr>
+                                                                <th>商品规格</th>
+                                                            </tr>
+                                                            <!--该行HTML代码用于克隆，首行克隆-->
+                                                            <!--规格Ajax获取规格列表，动态生成DOM中的<option>-->
+                                                            <tr id="specrow">
+                                                                <td>
+                                                                    <div class="item-input">
+                                                                        <select id="speclst" name="speclst">
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                    <div class="table-second">
+                                                        <div class="table-container">
+                                                            <table id="goodstbl">
+                                                                <tbody id="goodstblbody">
+                                                                <tr>
+                                                                    <!--<th width="30%">商品规格</th>-->
+                                                                    <th width="18%">厂家</th>
+                                                                    <th width="35%">计量单位</th>
+                                                                    <th width="20%">数量</th>
+                                                                    <th width="18%">单价</th>
+                                                                    <th width="24%">金额(元)</th>
+                                                                    <th width="17%">删除</th>
+                                                                </tr>
+                                                                <!--该行HTML代码用于克隆，首行克隆-->
+                                                                <tr id="detailrow">
+                                                                    <!--厂商-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <select id="manuflst" name="manuflst">
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                    <!--单位-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <select id="unit" name="unit"
+                                                                                    class="unitSelectedFlag">
+                                                                                <option value="piece">片</option>
+                                                                                <option value="bunch5">把(5根/把)</option>
+                                                                                <option value="bunch4">把(4根/把)</option>
+                                                                                <option value="meter">米</option>
+                                                                                <option value="stere">立方米</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </td>
+                                                                    <!--数量-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <input type="text" id="counts" name="counts"
+                                                                                   placeholder="输入"
+                                                                                   class="countsFousFlag">
+                                                                        </div>
+                                                                    </td>
+                                                                    <!--单价-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <input type="text" id="unitprice"
+                                                                                   name="unitprice"
+                                                                                   placeholder="输入"
+                                                                                   class="uPriceFousFlag">
+                                                                        </div>
+                                                                    </td>
+                                                                    <!--售价-->
+                                                                    <td>
+                                                                        <div class="item-input">
+                                                                            <input type="text" id="price" name="price"
+                                                                                   readonly
+                                                                                   class="caculateTotalPriceFlag"
+                                                                                   placeholder="自动算">
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>
+                                                                        <input type="button"
+                                                                               class="button button-fill button-warning del"
+                                                                               value="删除"/>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                    <li id="mufunitdesc">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">单位说明</div>
+                                                <div class="item-text">
+                                                    木方单位为“把”时，数量为把、单价为元/米。
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="item-content">
+                                        <div class="item-media"></div>
+                                        <div class="item-inner">
+                                            <input type="button" id="outAddRowBtn"
+                                                   class="button button-fill button-success"
+                                                   value="添加商品规格"/>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--列表：费用编辑-->
+                            <div class="content-block-title">编辑费用</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--送货方式-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">送货方式</div>
+                                                <div class="item-input">
+                                                    <select id="outLibWay" name="outLibWay">
+                                                        <option value="自送">自送</option>
+                                                        <option value="他送">他送</option>
+                                                        <option value="自提">自提</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--运输费用，他送方式下展示该项-->
+                                    <li id="transitItem">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">运输费用</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="transitFare" name="transitFare"
+                                                           placeholder="输入运费，纯数字">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--装卸费用，他送，模板叉车时展示该项-->
+                                    <li id="shipItem">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">装卸费用</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="shipFare" name="shipFare"
+                                                           placeholder="无装卸费时请输入0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--理论总额，只供显示-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">销售总额</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="totalPrice" name="totalPrice"
+                                                           readonly placeholder="不用输入，自动计算">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--开关打开时（已付），则下方显示每个规格的实付金额和实付总额项，该项开关标识订单状态：未付0/已付1-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">已付与否</div>
+                                                <div class="item-input">
+                                                    &nbsp;未付
+                                                    <label class="label-switch">
+                                                        <input id="isPayed" name="isPayed" type="checkbox">
+                                                        <div class="checkbox"></div>
+                                                    </label>
+                                                    已付
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--打开“已付”开关后，显示该单每个规格的实付金额，然后自动计算实付总额-->
+                                    <!--该项在上面的开关打开后方可显示，否则不显示，不显示时提交数据为0-->
+                                    <!--实付总额-->
+                                    <li id="actualTotalItem">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">实付总额</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="actualTotalPrice" name="actualTotalPrice"
+                                                           placeholder="输入实收总金额"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-50"><a href="#" class="button button-big button-fill button-danger">取消</a>
+                        </div>
+                        <div class="col-50"><a class="button button-big button-fill button-success"
+                                               onclick="outLibOper()">出库</a>
+                        </div>
+                    </div>
+                </div>
+                <!--销售单管理-->
+                <div id="outtab2" class="tab">
+                    <div class="content-inner">
+                        <div id="outtbl"></div>
+                    </div>
+                </div>
+                <!--销售信息-->
+                <div id="outtab3" class="tab">
+                    <div class="content-block">
+                        <p>This is tab 3 content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 统计报表单个page内联页 -->
+    <div id="statisticsdiv" class="page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav">
+            <a class="icon icon-menu pull-left open-panel"></a>
+            <h1 class="title">万顺建材进销存管理系统</h1>
+        </header>
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab">
+            <a class="tab-item" href="#incomediv">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">进货管理</span>
+            </a>
+            <a class="tab-item" href="#outcomediv">
+                <span class="icon icon-cart"></span>
+                <span class="tab-label">销售管理</span>
+            </a>
+            <a class="tab-item active" href="#">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">统计报表</span>
+            </a>
+            <a class="tab-item" href="#settingsdiv">
+                <span class="icon icon-settings"></span>
+                <span class="tab-label">系统设置</span>
+            </a>
+        </nav>
+        <!-- 这里是页面内容区 -->
+        <div class="content">
+            统计报表页
+        </div>
+    </div>
+    <!-- 系统设置单个page内联页 -->
+    <div id="settingsdiv" class="page">
+        <!-- 标题栏 -->
+        <header class="bar bar-nav">
+            <a class="icon icon-menu pull-left open-panel"></a>
+            <h1 class="title">万顺建材进销存管理系统</h1>
+        </header>
+        <!-- 工具栏 -->
+        <nav class="bar bar-tab">
+            <a class="tab-item" href="#incomediv">
+                <span class="icon icon-home"></span>
+                <span class="tab-label">进货管理</span>
+            </a>
+            <a class="tab-item" href="#outcomediv">
+                <span class="icon icon-cart"></span>
+                <span class="tab-label">销售管理</span>
+            </a>
+            <a class="tab-item" href="#statisticsdiv">
+                <span class="icon icon-star"></span>
+                <span class="tab-label">统计报表</span>
+            </a>
+            <a class="tab-item active" href="#">
+                <span class="icon icon-settings"></span>
+                <span class="tab-label">系统设置</span>
+            </a>
+        </nav>
+        <!-- 这里是页面内容区 -->
+        <div class="content">
+            设置页
+        </div>
+    </div>
+</div><!-- page集合的容器end -->
+
+<!-- popup, panel 等放在这里 -->
+<div class="panel-overlay"></div>
+<!-- Left Panel with Reveal effect -->
+<div class="panel panel-left panel-reveal">
+    <div class="content-block">
+        <p>当前用户</p>
+        <p>当前版本</p>
+        <!-- Click on link with "close-panel" class will close panel -->
+        <p><a href="#" class="close-panel">关闭</a></p>
+    </div>
+</div>
+
+<script type='text/javascript' src='js/zepto.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>
+<!--<script type='text/javascript' src='js/sm.js' charset='utf-8'></script>-->
+
+<script type='text/javascript' src='js/decimal.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/underscore.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/utils.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/initialAndDataBind.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/communicateToServer.js' charset='utf-8'></script>
+<script type='text/javascript' src='js/test.js' charset='utf-8'></script>
+<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
+<script>$.init()</script>
+</body>
+</html>

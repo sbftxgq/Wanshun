@@ -4,6 +4,7 @@ import com.lyf.dao.IincomingtblDAO;
 import com.lyf.dao.impl.IincomingtblDAOImpl;
 import com.lyf.dbc.DatabaseConnection;
 import com.lyf.util.SqlHelperNew;
+import com.lyf.vo.IncomeViewVo;
 import com.lyf.vo.Incomedetails;
 import com.lyf.vo.Incomingtbl;
 
@@ -69,6 +70,20 @@ public class IincomingtblDAOProxy implements IincomingtblDAO {
         List<Incomingtbl> results = null;
         try {
             results = this.dao.getBillsByField(qryWay,fieldValues);
+        } catch (Exception e) {
+            results = null;
+            throw e;
+        } finally {
+            this.dbc.close();
+        }
+        return results;
+    }
+
+    @Override
+    public List<IncomeViewVo> getBillDetailsByBillNo(String billNo) throws Exception {
+        List<IncomeViewVo> results = null;
+        try {
+            results = this.dao.getBillDetailsByBillNo(billNo);
         } catch (Exception e) {
             results = null;
             throw e;

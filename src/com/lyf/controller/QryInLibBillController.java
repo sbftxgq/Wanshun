@@ -53,7 +53,7 @@ public class QryInLibBillController extends HttpServlet {
                     String jsonResult = gson.toJson(results);
                     //返回的字符串格式：
                     jsonResult = "{\"total\":" + counts + ",\"data\":" + jsonResult + "}";
-                    System.out.println(jsonResult);
+                    //System.out.println(jsonResult);
                     //向客户端回送JSON格式数据
                     if (null != results && results.size() > 0) {
                         out.print(jsonResult);

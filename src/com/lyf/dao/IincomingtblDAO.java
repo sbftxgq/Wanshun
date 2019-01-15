@@ -1,5 +1,6 @@
 package com.lyf.dao;
 
+import com.lyf.vo.IncomeViewVo;
 import com.lyf.vo.Incomedetails;
 import com.lyf.vo.Incomingtbl;
 
@@ -22,6 +23,10 @@ public interface IincomingtblDAO {
 
     //查询操作，未分页
     public List<Incomingtbl> getBillsByField(String qryWay, String[] fieldValues) throws Exception;
+
+
+    //查询操作，根据订单号查明细
+    public List<IncomeViewVo> getBillDetailsByBillNo(String billNo) throws Exception;
 
     //查询操作，查询某个方式下的总记录数
     public String getCountsByField(String qryWay, String[] fieldValues) throws Exception;
