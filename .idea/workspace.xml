@@ -6,51 +6,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="73651a88-24b1-4cfb-83fc-80188216ee3f" name="Default" comment="第一版，出入库功能完成，并作为Android WebApp的服务端部署。">
-      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/CaculateTotalPriceController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/EdtBillStatusByBillNoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/QryOutDetailByBillNoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/QryOutLibBillController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/lyf/vo/OutcomeViewVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/js/zepto.js" afterDir="false" />
+    <list default="true" id="73651a88-24b1-4cfb-83fc-80188216ee3f" name="Default" comment="第二版，出入库功能完成，完成出、入库单详情检索，修改出库单以及出库单简单统计、查询功能完成！">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/QryInLibBillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/QryInLibBillController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/IOutcomingtblDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/IOutcomingtblDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/impl/IOutcomingtblDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/impl/IOutcomingtblDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/impl/IincomingtblDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/impl/IincomingtblDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/proxy/IOutcomingtblDAOProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/proxy/IOutcomingtblDAOProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/factory/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/factory/DAOFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/util/SqlHelperNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/util/SqlHelperNew.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/communicateToServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/communicateToServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/initialAndDataBind.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/initialAndDataBind.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/QryInLibBillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/QryInLibBillController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/IOutcomingtblDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/IOutcomingtblDAO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/impl/IOutcomingtblDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/impl/IOutcomingtblDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/impl/IincomingtblDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/impl/IincomingtblDAOImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/proxy/IOutcomingtblDAOProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/proxy/IOutcomingtblDAOProxy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/factory/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/factory/DAOFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/util/SqlHelperNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/util/SqlHelperNew.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/communicateToServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/communicateToServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/initialAndDataBind.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/initialAndDataBind.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/js/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/utils.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/web/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/CheckUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/CheckUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/GetLatestInLibBillNoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/GetLatestInLibBillNoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/GetLatestOutLibBillNoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/GetLatestOutLibBillNoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/QryDetailByBillNoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/QryDetailByBillNoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/IincomingtblDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/IincomingtblDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/proxy/IincomingtblDAOProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/proxy/IincomingtblDAOProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/CheckUserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/CheckUserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/GetLatestInLibBillNoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/GetLatestInLibBillNoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/GetLatestOutLibBillNoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/GetLatestOutLibBillNoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/QryDetailByBillNoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/QryDetailByBillNoController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/IincomingtblDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/IincomingtblDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/proxy/IincomingtblDAOProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/proxy/IincomingtblDAOProxy.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -198,7 +167,7 @@
           <entry key="JAVA" value="245" />
           <entry key="JSP" value="2" />
           <entry key="JavaScript" value="69" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="TypeScript" value="2" />
           <entry key="XML" value="3" />
         </counts>
@@ -218,7 +187,7 @@
           <entry key="HTML" value="15774" />
           <entry key="JAVA" value="15115" />
           <entry key="JavaScript" value="24282" />
-          <entry key="PLAIN_TEXT" value="136" />
+          <entry key="PLAIN_TEXT" value="171" />
           <entry key="XML" value="16" />
         </counts>
       </usages-collector>
@@ -231,10 +200,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
+            <state relative-caret-position="130">
               <caret line="1227" column="18" selection-start-line="1227" selection-start-column="18" selection-end-line="1227" selection-end-column="18" />
               <folding>
                 <element signature="e#142#8066#0" />
@@ -265,6 +234,15 @@
                 <element signature="e#43439#45999#0" />
                 <element signature="e#47517#49261#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GitDesc.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="63" column="40" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -547,7 +525,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/WebUI/Wanshun/src/com/lyf/dao/IincomingtblDAO.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551065869879" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551066210764" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -897,7 +875,7 @@
       <workItem from="1549178595137" duration="13265000" />
       <workItem from="1550365007591" duration="4638000" />
       <workItem from="1550406729378" duration="7768000" />
-      <workItem from="1551056628896" duration="9060000" />
+      <workItem from="1551056628896" duration="9438000" />
     </task>
     <task id="LOCAL-00001" summary="修改进货入库界面，增加明细表格。">
       <created>1543916242826</created>
@@ -927,11 +905,18 @@
       <option name="project" value="LOCAL" />
       <updated>1545702316268</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="第二版，出入库功能完成，完成出、入库单详情检索，修改出库单以及出库单简单统计、查询功能完成！">
+      <created>1551065985138</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1551065985138</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="820368000" />
+    <option name="totallyTimeSpent" value="820746000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -946,20 +931,20 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7380531" visible="true" weight="0.1689008" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.73671496" visible="true" weight="0.1689008" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.21954674" side_tool="true" weight="0.19369973" />
       <window_info id="Nl-Palette" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.26194692" side_tool="true" visible="true" weight="0.1689008" />
+      <window_info id="Web" order="7" sideWeight="0.263285" side_tool="true" visible="true" weight="0.1689008" />
       <window_info anchor="bottom" id="Extract Method" order="0" weight="0.37818697" />
       <window_info anchor="bottom" id="Thumbnails" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32561728" />
       <window_info anchor="bottom" id="Run" order="4" sideWeight="0.67426276" weight="0.11756374" />
-      <window_info active="true" anchor="bottom" id="Debug" order="5" sideWeight="0.6052279" visible="true" weight="0.19971672" />
+      <window_info anchor="bottom" id="Debug" order="5" sideWeight="0.6052279" weight="0.38101983" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32719547" />
@@ -967,7 +952,7 @@
       <window_info anchor="bottom" id="Java Enterprise" order="10" weight="0.32428357" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3243626" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.32573727" side_tool="true" weight="0.34419262" />
-      <window_info anchor="bottom" id="Version Control" order="13" weight="0.18838526" />
+      <window_info anchor="bottom" id="Version Control" order="13" visible="true" weight="0.41359773" />
       <window_info anchor="bottom" id="Messages" order="14" weight="0.19121814" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
@@ -1030,7 +1015,8 @@
     <MESSAGE value="入库单号自动增1，编写Ajax及其后台控制器。修改了数据库的表结构，入库和出库分别设置出/入库表和相应的明细表。" />
     <MESSAGE value="修改登录逻辑，使用Ajax完成登录和数据库入库；增加过滤器；完成入库前、后端代码。" />
     <MESSAGE value="第一版，出入库功能完成，并作为Android WebApp的服务端部署。" />
-    <option name="LAST_COMMIT_MESSAGE" value="第一版，出入库功能完成，并作为Android WebApp的服务端部署。" />
+    <MESSAGE value="第二版，出入库功能完成，完成出、入库单详情检索，修改出库单以及出库单简单统计、查询功能完成！" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二版，出入库功能完成，完成出、入库单详情检索，修改出库单以及出库单简单统计、查询功能完成！" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -1045,13 +1031,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://C:/WanshunApp/Wanshun/www/js/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
-          <caret line="23" column="45" selection-start-line="23" selection-start-column="45" selection-end-line="23" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/out/production/Wanshun/jdbcConnConfig.propertites">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1474,7 +1453,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/utils.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="130">
           <caret line="1227" column="18" selection-start-line="1227" selection-start-column="18" selection-end-line="1227" selection-end-column="18" />
           <folding>
             <element signature="e#142#8066#0" />
@@ -1505,6 +1484,13 @@
             <element signature="e#43439#45999#0" />
             <element signature="e#47517#49261#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GitDesc.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="63" column="40" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="41" />
         </state>
       </provider>
     </entry>
