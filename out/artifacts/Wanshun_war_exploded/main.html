@@ -30,7 +30,7 @@
                 <span class="icon icon-home"></span>
                 <span class="tab-label">进货管理</span>
             </a>
-            <a class="tab-item" href="#outcomediv">
+            <a class="tab-item forPageInit" href="#outcomediv">
                 <span class="icon icon-cart"></span>
                 <span class="tab-label">销售管理</span>
             </a>
@@ -51,7 +51,7 @@
             <div class="buttons-tab buttons-fixed">
                 <a href="#intab1" class="tab-link active button">入库操作</a>
                 <a href="#intab2" class="tab-link button">进货单管理</a>
-                <a href="#intab3" class="tab-link button">库存信息</a>
+                <a href="#intab3" class="tab-link button">入库信息</a>
             </div>
             <div class="tabs">
                 <!--进货入库标签内容-->
@@ -332,7 +332,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">起始日期</div>
                                                 <div class="item-input">
-                                                    <input type="date" id="inQryLibDateStrt" name="inQryLibDateStrt" class="forChange"/>
+                                                    <input type="date" id="inQryLibDateStrt" name="inQryLibDateStrt"
+                                                           class="forChange"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -343,7 +344,8 @@
                                             <div class="item-inner">
                                                 <div class="item-title label">结束日期</div>
                                                 <div class="item-input">
-                                                    <input type="date" id="inQryLibDateEnd" name="inQryLibDateEnd" class="forChange"/>
+                                                    <input type="date" id="inQryLibDateEnd" name="inQryLibDateEnd"
+                                                           class="forChange"/>
                                                 </div>
                                             </div>
                                         </div>
@@ -374,7 +376,7 @@
                             </div>
                             <div class="content-block-title">结果列表(表格内单击某行可查看该单详情)</div>
                             <!--infinite-scroll-bottom必须加上 -->
-                            <div class="list-block infinite-scroll infinite-scroll-bottom">
+                            <div id="inQryScrollContainer" class="list-block infinite-scroll infinite-scroll-bottom">
                                 <ul class="list-container">
                                     <li>
                                         <div class="item-content">
@@ -409,7 +411,7 @@
                                 </ul>
                             </div>
                             <!-- 加载提示符 -->
-                            <div class="infinite-scroll-preloader">
+                            <div id="inQryPreloader" class="infinite-scroll-preloader">
                                 <div class="preloader"></div>
                             </div>
                         </div>
@@ -420,7 +422,7 @@
                 <div id="intab3" class="tab">
                     <!--<div class="content-block">-->
                     <!--<div class="content-padded grid-demo">-->
-                    <!--<div class="row"><p>库存信息</p></div>-->
+                    <!--<div class="row"><p>入库信息</p></div>-->
                     <!--</div>-->
                     <!--</div>-->
                 </div>
@@ -440,7 +442,7 @@
                 <span class="icon icon-home"></span>
                 <span class="tab-label">进货管理</span>
             </a>
-            <a class="tab-item active" href="#">
+            <a class="tab-item active forPageInit" href="#">
                 <span class="icon icon-cart"></span>
                 <span class="tab-label">销售管理</span>
             </a>
@@ -520,15 +522,15 @@
                                             </div>
                                         </div>
                                     </li>
-                                    <!--送货人-->
+                                    <!--经手人-->
                                     <li>
                                         <div class="item-content">
                                             <div class="item-media"></div>
                                             <div class="item-inner">
-                                                <div class="item-title label">送货人</div>
+                                                <div class="item-title label">经手人</div>
                                                 <div class="item-input">
                                                     <input type="text" id="outLibMan" name="outLibMan"
-                                                           placeholder="输入送货人姓名" value="陈艳飞">
+                                                           placeholder="输入经手人姓名" value="陈艳飞">
                                                 </div>
                                             </div>
                                         </div>
@@ -753,12 +755,12 @@
                                     </li>
                                     <!--打开“已付”开关后，显示该单每个规格的实付金额，然后自动计算实付总额-->
                                     <!--该项在上面的开关打开后方可显示，否则不显示，不显示时提交数据为0-->
-                                    <!--实付总额-->
+                                    <!--实收总额-->
                                     <li id="actualTotalItem">
                                         <div class="item-content">
                                             <div class="item-media"></div>
                                             <div class="item-inner">
-                                                <div class="item-title label">实付总额</div>
+                                                <div class="item-title label">实收总额</div>
                                                 <div class="item-input">
                                                     <input type="text" id="actualTotalPrice" name="actualTotalPrice"
                                                            placeholder="输入实收总金额"/>
@@ -778,10 +780,146 @@
                         </div>
                     </div>
                 </div>
-                <!--销售单管理-->
+                <!--销售单管理标签页，无限滚动-->
                 <div id="outtab2" class="tab">
-                    <div class="content-inner">
-                        <div id="outtbl"></div>
+                    <!--<div class="content-inner">-->
+                    <!--<div id="outtbl"></div>-->
+                    <!--</div>-->
+                    <div class="content-padded grid-demo">
+                        <div class="row">
+                            <div class="content-block-title">查询依据</div>
+                            <div class="list-block">
+                                <ul>
+                                    <!--检索关键字-->
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">选择依据</div>
+                                                <div class="item-input">
+                                                    <select id="outQueryWay" name="outQueryWay">
+                                                        <option value="DTR">送货日期</option>
+                                                        <option value="GNM">客户名称</option>
+                                                        <!--<option value="DST">送货地点</option>-->
+                                                        <option value="SID">商品规格</option>
+                                                        <option value="DGNM">送货日期+客户名称</option>
+                                                        <option value="DSID">送货日期+商品规格</option>
+                                                        <option value="DNPY">送货日期+未付订单</option>
+                                                        <option value="GNPY">客户名称+未付订单</option>
+                                                        <option value="DGNPY">日期+客户+未付订单</option>
+                                                        <option value="NPY">列出所有未付订单</option>
+                                                        <option value="ALL">列出所有</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="outDateForHide">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">起始日期</div>
+                                                <div class="item-input">
+                                                    <input type="date" id="outQryLibDateStrt" name="outQryLibDateStrt"
+                                                           class="outForChange"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="outDateForHide">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">结束日期</div>
+                                                <div class="item-input">
+                                                    <input type="date" id="outQryLibDateEnd" name="outQryLibDateEnd"
+                                                           class="outForChange"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="outGstnameForHide">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">客户名称</div>
+                                                <div class="item-input">
+                                                    <input type="text" id="outGuestName" name="outGuestName"
+                                                           placeholder="输入部分或完整名称" class="outForChange"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="outQrySpecItem">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <div class="item-title label">商品规格</div>
+                                                <div class="item-input">
+                                                    <select id="outQrySpecId" name="outQrySpecId" class="outForChange">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li id="outBtnForHide">
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <input type="button" id="outQryBtn"
+                                                       class="button button-fill button-success"
+                                                       value="点击查询"/>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="content-block-title">结果列表(表格内单击某行可查看该单详情)</div>
+                            <!--infinite-scroll-bottom必须加上 -->
+                            <div class="list-block infinite-scroll infinite-scroll-bottom" id="outQryScrollContainer">
+                                <ul class="list-container">
+                                    <li>
+                                        <div class="item-content">
+                                            <div class="item-media"></div>
+                                            <div class="item-inner">
+                                                <span class="page-list" data-pagenum="" data-totalpage=""
+                                                      data-pagesize="">
+                                                    共有<span id="outQryBilltotaNum"
+                                                            style="color: blue;font-weight: bold">&nbsp;0&nbsp;</span>条数据：<br>
+                                                    <span id="noPayedMoney"
+                                                          style="color: red;font-weight: bold">待收款&nbsp;0&nbsp;元</span><br>
+                                                    <span id="payedMoney"
+                                                          style="color: green;font-weight: bold">已收款&nbsp;0&nbsp;元</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <!--结果显示表格-->
+                                    <li>
+                                        <div class="item-content">
+                                            <!--<div class="item-inner">-->
+                                            <!--<div class="table-two">-->
+                                            <!--结果表3列：单号、入库日期和成本（包含运费、装卸费）-->
+                                            <!--<div class="table-second">-->
+                                            <div class="singleOutTable">
+                                                <table id="outQryOutcometbl">
+                                                    <tbody id="outQryOutcometblbody">
+                                                    <!--后续行代码生成-->
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                            <!--</div>-->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- 出库单列表加载提示符 -->
+                            <div id="outQryPreloader" class="infinite-scroll-preloader">
+                                <div class="preloader"></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <!--销售信息-->
@@ -806,7 +944,7 @@
                 <span class="icon icon-home"></span>
                 <span class="tab-label">进货管理</span>
             </a>
-            <a class="tab-item" href="#outcomediv">
+            <a class="tab-item forPageInit" href="#outcomediv">
                 <span class="icon icon-cart"></span>
                 <span class="tab-label">销售管理</span>
             </a>
@@ -837,7 +975,7 @@
                 <span class="icon icon-home"></span>
                 <span class="tab-label">进货管理</span>
             </a>
-            <a class="tab-item" href="#outcomediv">
+            <a class="tab-item forPageInit" href="#outcomediv">
                 <span class="icon icon-cart"></span>
                 <span class="tab-label">销售管理</span>
             </a>
@@ -865,20 +1003,22 @@
         <p>当前用户</p>
         <p>当前版本</p>
         <!-- Click on link with "close-panel" class will close panel -->
-        <p><a href="#" class="close-panel">关闭</a></p>
+        <p><a href="#" class="close-panel" id="closeBtn">关闭</a></p>
     </div>
 </div>
 
-<script type='text/javascript' src='js/zepto.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>
-<!--<script type='text/javascript' src='js/sm.js' charset='utf-8'></script>-->
-
+<!--<script type='text/javascript' src='js/zepto.min.js' charset='utf-8'></script>-->
+<script type='text/javascript' src='js/zepto.js' charset='utf-8'></script>
+<!--<script type='text/javascript' src='js/sm.min.js' charset='utf-8'></script>-->
+<script type='text/javascript' src='js/sm.js' charset='utf-8'></script>
+<script>
+    $.init();
+</script>
+<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
 <script type='text/javascript' src='js/decimal.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/underscore.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/utils.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/initialAndDataBind.js' charset='utf-8'></script>
 <script type='text/javascript' src='js/communicateToServer.js' charset='utf-8'></script>
-<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
-<script>$.init()</script>
 </body>
 </html>

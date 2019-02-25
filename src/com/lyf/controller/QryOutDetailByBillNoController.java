@@ -2,7 +2,7 @@ package com.lyf.controller;
 
 import com.google.gson.Gson;
 import com.lyf.factory.DAOFactory;
-import com.lyf.vo.IncomeViewVo;
+import com.lyf.vo.OutcomeViewVO;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,9 +13,11 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "QryDetailByBillNoController", urlPatterns = {"/QryDetailController"})
-public class QryDetailByBillNoController extends HttpServlet {
+@WebServlet(name = "QryOutDetailByBillNoController",urlPatterns = {"/QryOutDetailController"})
+public class QryOutDetailByBillNoController extends HttpServlet {
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         //回传JSON数据给main.html页面
         response.setContentType("application/json;charset=utf-8");
         PrintWriter out = response.getWriter();
@@ -27,9 +29,9 @@ public class QryDetailByBillNoController extends HttpServlet {
         //取得订单号
         String billNo = request.getParameter("billNo");
         //取得数据库数据并转换为JSON
-        List<IncomeViewVo> results = null;
+        List<OutcomeViewVO> results = null;
         try {
-            results = DAOFactory.getIincomingtblDAOInstance().getBillDetailsByBillNo(billNo);
+            results = DAOFactory.getIOutcomingtblDAOInstance().getOutBillDetailsByBillNo(billNo);
             if (null != results && results.size() > 0) {
                 //转换为JSON写出到客户端
                 Gson gson = new Gson();
@@ -49,6 +51,6 @@ public class QryDetailByBillNoController extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        this.doPost(request, response);
+        this.doPost(request,response);
     }
 }

@@ -7,13 +7,45 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="73651a88-24b1-4cfb-83fc-80188216ee3f" name="Default" comment="第一版，出入库功能完成，并作为Android WebApp的服务端部署。">
+      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/CaculateTotalPriceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/EdtBillStatusByBillNoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/QryOutDetailByBillNoController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lyf/controller/QryOutLibBillController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/lyf/vo/OutcomeViewVO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/js/zepto.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/QryInLibBillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/controller/QryInLibBillController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/IOutcomingtblDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/IOutcomingtblDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/impl/IOutcomingtblDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/impl/IOutcomingtblDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/impl/IincomingtblDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/impl/IincomingtblDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/proxy/IOutcomingtblDAOProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/dao/proxy/IOutcomingtblDAOProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/factory/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/factory/DAOFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/util/SqlHelperNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/WEB-INF/classes/com/lyf/util/SqlHelperNew.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/communicateToServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/communicateToServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/initialAndDataBind.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/initialAndDataBind.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/utils.js" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/js/utils.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/Wanshun_war_exploded/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/QryInLibBillController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/controller/QryInLibBillController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/IOutcomingtblDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/IOutcomingtblDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/impl/IOutcomingtblDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/impl/IOutcomingtblDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/impl/IincomingtblDAOImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/impl/IincomingtblDAOImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/proxy/IOutcomingtblDAOProxy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/dao/proxy/IOutcomingtblDAOProxy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/factory/DAOFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/factory/DAOFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/util/SqlHelperNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Wanshun/com/lyf/util/SqlHelperNew.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/lyf/vo/IncomeViewVo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/vo/IncomeViewVo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/web/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/js/communicateToServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/communicateToServer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/web/js/initialAndDataBind.js" beforeDir="false" afterPath="$PROJECT_DIR$/web/js/initialAndDataBind.js" afterDir="false" />
@@ -49,33 +81,56 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/web/main.html">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="-8520">
-                    <caret line="140" column="88" selection-start-line="140" selection-start-column="84" selection-end-line="140" selection-end-column="88" />
+                  <state relative-caret-position="203">
+                    <caret line="1019" column="40" lean-forward="true" selection-start-line="1019" selection-start-column="40" selection-end-line="1019" selection-end-column="40" />
                     <folding>
                       <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#2;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#style#0;n#span#0;n#span#0;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                      <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#header#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#nav#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#2;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#3;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#0;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#1;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#2;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#li#3;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#style#0;n#span#0;n#span#0;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                      <element signature="n#style#0;n#span#1;n#span#0;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                      <element signature="n#style#0;n#span#2;n#span#0;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                       <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#header#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
                       <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
-                      <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#header#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
+                      <element signature="n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
                     </folding>
                   </state>
                 </provider>
@@ -94,7 +149,7 @@
     <session id="-891586271">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="33" />
+          <entry key="project.closed" value="43" />
           <entry key="project.open.time.21" value="1" />
           <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.23" value="4" />
@@ -102,17 +157,22 @@
           <entry key="project.open.time.25" value="3" />
           <entry key="project.open.time.26" value="2" />
           <entry key="project.open.time.27" value="4" />
-          <entry key="project.open.time.28" value="3" />
-          <entry key="project.open.time.29" value="6" />
-          <entry key="project.open.time.30" value="3" />
+          <entry key="project.open.time.28" value="5" />
+          <entry key="project.open.time.29" value="7" />
+          <entry key="project.open.time.30" value="4" />
+          <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.33" value="3" />
-          <entry key="project.open.time.35" value="3" />
-          <entry key="project.open.time.36" value="3" />
-          <entry key="project.open.time.37" value="1" />
-          <entry key="project.open.time.40" value="1" />
+          <entry key="project.open.time.34" value="2" />
+          <entry key="project.open.time.35" value="4" />
+          <entry key="project.open.time.36" value="4" />
+          <entry key="project.open.time.37" value="2" />
+          <entry key="project.open.time.39" value="1" />
+          <entry key="project.open.time.40" value="2" />
           <entry key="project.open.time.41" value="1" />
+          <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.46" value="1" />
-          <entry key="project.opened" value="42" />
+          <entry key="project.open.time.50" value="1" />
+          <entry key="project.opened" value="56" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -132,14 +192,14 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="CSS" value="26" />
-          <entry key="HTML" value="39" />
+          <entry key="CSS" value="30" />
+          <entry key="HTML" value="42" />
           <entry key="Image" value="11" />
-          <entry key="JAVA" value="165" />
+          <entry key="JAVA" value="245" />
           <entry key="JSP" value="2" />
-          <entry key="JavaScript" value="45" />
+          <entry key="JavaScript" value="69" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="TypeScript" value="1" />
+          <entry key="TypeScript" value="2" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
@@ -154,10 +214,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="1084" />
-          <entry key="HTML" value="15068" />
-          <entry key="JAVA" value="10523" />
-          <entry key="JavaScript" value="17540" />
+          <entry key="CSS" value="1165" />
+          <entry key="HTML" value="15774" />
+          <entry key="JAVA" value="15115" />
+          <entry key="JavaScript" value="24282" />
           <entry key="PLAIN_TEXT" value="136" />
           <entry key="XML" value="16" />
         </counts>
@@ -172,138 +232,75 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/web/js/communicateToServer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="94">
-              <caret line="265" column="6" lean-forward="true" selection-start-line="265" selection-start-column="6" selection-end-line="265" selection-end-column="6" />
-              <folding>
-                <element signature="n#!!block;n#inLibOper#0" />
-                <element signature="n#!!block;n#outLibOper#0" />
-                <element signature="n#!!block;n#getTableData#0" />
-                <element signature="n#!!block;n#inLibInputDataCheck#0" />
-                <element signature="n#!!block;n#outLibInputDataCheck#0" />
-                <element signature="n#!!block;n#dateSequenceCheck#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/IncomeViewVo.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="111" column="27" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="27" />
-              <folding>
-                <element signature="e#80#81#0" expanded="true" />
-                <element signature="e#109#110#0" expanded="true" />
-                <element signature="e#153#154#0" expanded="true" />
-                <element signature="e#189#190#0" expanded="true" />
-                <element signature="e#226#227#0" expanded="true" />
-                <element signature="e#259#260#0" expanded="true" />
-                <element signature="e#311#312#0" expanded="true" />
-                <element signature="e#355#356#0" expanded="true" />
-                <element signature="e#391#392#0" expanded="true" />
-                <element signature="e#423#424#0" expanded="true" />
-                <element signature="e#473#474#0" expanded="true" />
-                <element signature="e#515#516#0" expanded="true" />
-                <element signature="e#550#551#0" expanded="true" />
-                <element signature="e#581#582#0" expanded="true" />
-                <element signature="e#629#630#0" expanded="true" />
-                <element signature="e#669#670#0" expanded="true" />
-                <element signature="e#707#708#0" expanded="true" />
-                <element signature="e#741#742#0" expanded="true" />
-                <element signature="e#795#796#0" expanded="true" />
-                <element signature="e#841#842#0" expanded="true" />
-                <element signature="e#876#877#0" expanded="true" />
-                <element signature="e#907#908#0" expanded="true" />
-                <element signature="e#955#956#0" expanded="true" />
-                <element signature="e#995#996#0" expanded="true" />
-                <element signature="e#1039#1040#0" expanded="true" />
-                <element signature="e#1079#1080#0" expanded="true" />
-                <element signature="e#1145#1146#0" expanded="true" />
-                <element signature="e#1203#1204#0" expanded="true" />
-                <element signature="e#1246#1247#0" expanded="true" />
-                <element signature="e#1285#1286#0" expanded="true" />
-                <element signature="e#1349#1350#0" expanded="true" />
-                <element signature="e#1405#1406#0" expanded="true" />
-                <element signature="e#1444#1445#0" expanded="true" />
-                <element signature="e#1479#1480#0" expanded="true" />
-                <element signature="e#1535#1536#0" expanded="true" />
-                <element signature="e#1583#1584#0" expanded="true" />
-                <element signature="e#1616#1617#0" expanded="true" />
-                <element signature="e#1645#1646#0" expanded="true" />
-                <element signature="e#1689#1690#0" expanded="true" />
-                <element signature="e#1725#1726#0" expanded="true" />
-                <element signature="e#1761#1762#0" expanded="true" />
-                <element signature="e#1793#1794#0" expanded="true" />
-                <element signature="e#1843#1844#0" expanded="true" />
-                <element signature="e#1885#1886#0" expanded="true" />
-                <element signature="e#1917#1918#0" expanded="true" />
-                <element signature="e#1945#1946#0" expanded="true" />
-                <element signature="e#1987#1988#0" expanded="true" />
-                <element signature="e#2021#2022#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-80">
-              <caret line="66" column="40" lean-forward="true" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/utils.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-371">
-              <caret line="477" column="9" selection-start-line="477" selection-start-column="9" selection-end-line="477" selection-end-column="9" />
+            <state relative-caret-position="405">
+              <caret line="1227" column="18" selection-start-line="1227" selection-start-column="18" selection-end-line="1227" selection-end-column="18" />
               <folding>
+                <element signature="e#142#8066#0" />
+                <element signature="e#14148#14555#0" />
+                <element signature="e#14896#15886#0" />
+                <element signature="e#16284#18742#0" />
+                <element signature="e#19058#26301#0" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#1;n#tr#1;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#2;n#tr#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#0;n#tr#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#1;n#!!top" expanded="true" />
+                <element signature="e#26923#27125#0" />
+                <element signature="e#29882#29922#0" />
+                <element signature="e#29985#31339#0" />
+                <element signature="e#32882#33351#0" />
+                <element signature="e#33901#35129#0" />
+                <element signature="e#35271#35635#0" />
+                <element signature="e#35680#35959#0" />
+                <element signature="e#36000#36121#0" />
+                <element signature="e#38028#40897#0" />
+                <element signature="e#40981#41907#0" />
+                <element signature="e#41955#43337#0" />
+                <element signature="e#43439#45999#0" />
+                <element signature="e#47517#49261#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java">
+        <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="392">
+              <caret line="31" column="73" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="73" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/web/css/table.css">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java">
+        <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+            <state relative-caret-position="252">
+              <caret line="25" column="104" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="104" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="104">
+              <caret line="31" column="67" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
             </state>
           </provider>
         </entry>
@@ -311,8 +308,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/web/js/initialAndDataBind.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4396">
-              <caret line="181" column="21" lean-forward="true" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="21" />
+            <state relative-caret-position="140">
+              <caret line="455" column="37" selection-start-line="455" selection-start-column="37" selection-end-line="455" selection-end-column="37" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -332,36 +332,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>DST</find>
+      <find>outQryOutcometblbody</find>
+      <find>outQryBtn</find>
+      <find>measurementsMapping</find>
+      <find>#outQryScrollContainer</find>
+      <find>WHERE</find>
       <find>caculatePrice</find>
-      <find>updatePriceValue</find>
-      <find>main.html</find>
-      <find>inBillNo</find>
-      <find>test</find>
-      <find>getLatestInLibBillNo</find>
-      <find>len</find>
+      <find>OUT_CURRENT_NOPAY_TOTAL</find>
+      <find>html</find>
+      <find>totalPriceDataFormat</find>
+      <find>noPayedMoney</find>
+      <find>System</find>
+      <find>scroller(</find>
+      <find>scroller</find>
+      <find>/*</find>
+      <find>infinite-scroll</find>
+      <find>handleInfiniteScroll</find>
+      <find>init</find>
+      <find>initInfiniteScroll</find>
+      <find>pageInit</find>
+      <find>initPage</find>
+      <find>attachInfiniteScroll</find>
+      <find>page-current</find>
+      <find>Android</find>
+      <find>detachInfiniteScroll</find>
+      <find>queryOutDetail</find>
+      <find>edtOutBill</find>
+      <find>$.alert</find>
+      <find>System.out</find>
       <find>getLatestBillNo</find>
-      <find>入库</find>
-      <find>出库</find>
-      <find>getTableData</find>
-      <find>table</find>
-      <find>单位说明</find>
-      <find>src</find>
-      <find>maxItems</find>
-      <find>page</find>
-      <find>infinite</find>
-      <find>list-container</find>
-      <find>number</find>
-      <find>addItems</find>
-      <find>style.css</find>
-      <find>pageNow</find>
-      <find>addTableRows</find>
-      <find>queryInLibBill</find>
-      <find>CURRENT_TOTAL</find>
-      <find>CURRENT_PAGE</find>
-      <find>inQryBtn</find>
-      <find>queryDetail</find>
-      <find>把</find>
-      <find>计量单位</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -369,6 +369,7 @@
       <replace>getDomObj</replace>
       <replace>(len-1)</replace>
       <replace>focus</replace>
+      <replace>AND</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -381,11 +382,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/web/css/table.css" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/ICategorytblDAO.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/ICategorytblDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/ICategorytblDAOProxy.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/controller/GetcategoryList.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/GetCategoryList.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/GetSpecListByCategoryID.java" />
         <option value="$PROJECT_DIR$/web/mainnew.html" />
@@ -400,15 +396,9 @@
         <option value="$PROJECT_DIR$/src/com/lyf/dbc/DatabaseConnection.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNo.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" />
         <option value="$PROJECT_DIR$/web/js/regvalidcheck.js" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/OutLibCOntroller.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/InlibController.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/OutLibController.java" />
         <option value="$PROJECT_DIR$/web/css/logincenter.css" />
@@ -417,21 +407,32 @@
         <option value="$PROJECT_DIR$/web/main--.html" />
         <option value="$PROJECT_DIR$/web/js/test.js" />
         <option value="$PROJECT_DIR$/src/com/lyf/controller/GetSpecList.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" />
         <option value="$PROJECT_DIR$/web/login.html" />
-        <option value="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" />
-        <option value="$PROJECT_DIR$/web/js/initialAndDataBind.js" />
         <option value="$PROJECT_DIR$/src/com/lyf/vo/Incomingtbl.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/vo/IncomeViewVo.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java" />
+        <option value="$PROJECT_DIR$/web/css/style.css" />
+        <option value="$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/CaculateTotalPriceController.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/QryOutLibBillController.java" />
+        <option value="$PROJECT_DIR$/web/main.html" />
+        <option value="$PROJECT_DIR$/src/com/lyf/vo/OutcomeViewVO.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/EdtBillStatusByBillNoController.java" />
+        <option value="$PROJECT_DIR$/web/js/communicateToServer.js" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/QryOutDetailByBillNoController.java" />
+        <option value="$PROJECT_DIR$/web/js/initialAndDataBind.js" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java" />
-        <option value="$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java" />
-        <option value="$PROJECT_DIR$/web/main.html" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java" />
+        <option value="$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java" />
         <option value="$PROJECT_DIR$/web/js/utils.js" />
-        <option value="$PROJECT_DIR$/web/css/style.css" />
-        <option value="$PROJECT_DIR$/web/js/communicateToServer.js" />
       </list>
     </option>
   </component>
@@ -455,10 +456,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="1" />
-    <option name="width" value="1038" />
-    <option name="height" value="724" />
+    <option name="x" value="20" />
+    <option name="y" value="95" />
+    <option name="width" value="1865" />
+    <option name="height" value="939" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -467,7 +468,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -536,6 +536,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -546,7 +547,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/WebUI/Wanshun/src/com/lyf/dao/IincomingtblDAO.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1547514937201" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1551065869879" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
@@ -556,23 +557,23 @@
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="D:\WebUI\Wanshun\web" />
-      <recent name="D:\WebUI\Wanshun\web\js" />
-      <recent name="D:\WebUI\Wanshun\web\img" />
+      <recent name="D:\WebUI\Wanshun\web\html" />
       <recent name="D:\WebUI\Wanshun\web\css" />
-      <recent name="D:\WebUI\Wanshun\web\WEB-INF" />
+      <recent name="D:\WebUI\Wanshun" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.lyf.controller" />
       <recent name="com.lyf.dao.proxy" />
       <recent name="com.lyf.dao.impl" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\WebUI\Wanshun\web\js" />
       <recent name="D:\WebUI\Wanshun\web" />
-      <recent name="D:\WebUI\Wanshun\web\html" />
+      <recent name="D:\WebUI\Wanshun\web\img" />
       <recent name="D:\WebUI\Wanshun\web\css" />
-      <recent name="D:\WebUI\Wanshun" />
+      <recent name="D:\WebUI\Wanshun\web\WEB-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -882,7 +883,21 @@
       <workItem from="1545959507270" duration="63627000" />
       <workItem from="1547030622817" duration="3624000" />
       <workItem from="1547167912911" duration="7322000" />
-      <workItem from="1547191065901" duration="21939000" />
+      <workItem from="1547191065901" duration="61214000" />
+      <workItem from="1547950032709" duration="5407000" />
+      <workItem from="1548227581382" duration="4552000" />
+      <workItem from="1548237264898" duration="16601000" />
+      <workItem from="1548422955928" duration="18265000" />
+      <workItem from="1548647626223" duration="6086000" />
+      <workItem from="1548724812312" duration="17940000" />
+      <workItem from="1548899553760" duration="14952000" />
+      <workItem from="1548993901521" duration="14200000" />
+      <workItem from="1549023192200" duration="12411000" />
+      <workItem from="1549072228642" duration="9305000" />
+      <workItem from="1549178595137" duration="13265000" />
+      <workItem from="1550365007591" duration="4638000" />
+      <workItem from="1550406729378" duration="7768000" />
+      <workItem from="1551056628896" duration="9060000" />
     </task>
     <task id="LOCAL-00001" summary="修改进货入库界面，增加明细表格。">
       <created>1543916242826</created>
@@ -916,7 +931,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="626643000" />
+    <option name="totallyTimeSpent" value="820368000" />
   </component>
   <component name="TodoView" selected-index="4">
     <todo-panel id="selected-file">
@@ -931,20 +946,20 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.75373137" visible="true" weight="0.23726542" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7380531" visible="true" weight="0.1689008" />
       <window_info id="Designer" order="1" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" sideWeight="0.21954674" side_tool="true" weight="0.19369973" />
       <window_info id="Nl-Palette" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.24626866" side_tool="true" weight="0.23726542" />
+      <window_info id="Web" order="7" sideWeight="0.26194692" side_tool="true" visible="true" weight="0.1689008" />
       <window_info anchor="bottom" id="Extract Method" order="0" weight="0.37818697" />
       <window_info anchor="bottom" id="Thumbnails" order="1" weight="0.3286119" />
       <window_info anchor="bottom" id="Message" order="2" />
       <window_info anchor="bottom" id="Find" order="3" weight="0.32561728" />
-      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.67426276" weight="0.3569405" />
-      <window_info active="true" anchor="bottom" id="Debug" order="5" sideWeight="0.6052279" visible="true" weight="0.24504249" />
+      <window_info anchor="bottom" id="Run" order="4" sideWeight="0.67426276" weight="0.11756374" />
+      <window_info active="true" anchor="bottom" id="Debug" order="5" sideWeight="0.6052279" visible="true" weight="0.19971672" />
       <window_info anchor="bottom" id="Cvs" order="6" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="7" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="8" weight="0.32719547" />
@@ -953,16 +968,16 @@
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3243626" />
       <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.32573727" side_tool="true" weight="0.34419262" />
       <window_info anchor="bottom" id="Version Control" order="13" weight="0.18838526" />
-      <window_info anchor="bottom" id="Messages" order="14" weight="0.54011464" />
+      <window_info anchor="bottom" id="Messages" order="14" weight="0.19121814" />
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="1" weight="0.107238606" />
       <window_info anchor="right" id="Palette" order="2" />
       <window_info anchor="right" id="Properties" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Structure" order="5" weight="0.12656641" />
+      <window_info anchor="right" id="Structure" order="5" visible="true" weight="0.15683647" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
-      <window_info anchor="right" id="Database" order="7" weight="0.3297587" />
+      <window_info anchor="right" id="Database" order="7" weight="0.28150135" />
       <window_info anchor="right" id="Maven Projects" order="8" side_tool="true" weight="0.32932073" />
       <window_info anchor="right" id="Palette&#9;" order="9" />
       <window_info anchor="right" id="Theme Preview" order="10" />
@@ -1030,135 +1045,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$PROJECT_DIR$/web/WEB-INF/lib/gson-2.8.5.jar!/com/google/gson/JsonArray.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="13" column="19" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dbc/DatabaseConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="119" column="2" selection-start-line="119" selection-start-column="2" selection-end-line="119" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utilsbak.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="37" column="62" selection-start-line="37" selection-start-column="35" selection-end-line="37" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="12" column="89" selection-start-line="12" selection-start-column="70" selection-end-line="12" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10164" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/regvalidcheck.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="29" selection-start-line="5" selection-start-column="19" selection-end-line="5" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="121">
-          <caret line="37" column="114" selection-start-line="37" selection-start-column="114" selection-end-line="37" selection-end-column="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="14" column="19" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1097">
-          <caret line="44" column="96" selection-start-line="44" selection-start-column="82" selection-end-line="44" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/OutLibController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2296">
-          <caret line="98" column="6" selection-start-line="98" selection-start-column="6" selection-end-line="98" selection-end-column="6" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/InlibController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2632">
-          <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/img/error.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/img/img.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/img/info.gif">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/img/logo.ico">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/sm.min.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="5" column="77531" selection-start-line="5" selection-start-column="77531" selection-end-line="5" selection-end-column="77531" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/logincenter.css" />
-    <entry file="file://C:/WanshunApp/Wanshun/www/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="11" column="71" selection-start-line="11" selection-start-column="71" selection-end-line="11" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/WanshunApp/Wanshun/www/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-377">
@@ -1169,42 +1055,10 @@
     <entry file="file://$PROJECT_DIR$/out/production/Wanshun/jdbcConnConfig.propertites">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/sm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="5990" column="4" selection-start-line="5990" selection-start-column="4" selection-end-line="5990" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/underscore.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/web/mainscrollBak.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="56">
           <caret line="852" column="58" selection-start-line="852" selection-start-column="58" selection-end-line="852" selection-end-column="58" />
-          <folding>
-            <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#nav#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1219,34 +1073,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="143">
           <caret line="8" column="46" lean-forward="true" selection-start-line="8" selection-start-column="46" selection-end-line="8" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetSpecList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="49" column="26" lean-forward="true" selection-start-line="49" selection-start-column="26" selection-end-line="49" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="38" column="47" lean-forward="true" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="101" column="21" lean-forward="true" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="52" column="6" selection-start-line="52" selection-start-column="6" selection-end-line="52" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1285,195 +1111,399 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Incomedetails.java">
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/factory/DAOFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="17" column="25" lean-forward="true" selection-start-line="10" selection-start-column="4" selection-end-line="17" selection-end-column="25" />
-          <folding>
-            <element signature="e#433#434#0" expanded="true" />
-            <element signature="e#462#463#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="407" column="21" selection-start-line="407" selection-start-column="21" selection-end-line="407" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1927">
-          <caret line="290" column="19" lean-forward="true" selection-start-line="290" selection-start-column="19" selection-end-line="290" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="85" column="60" selection-start-line="85" selection-start-column="60" selection-end-line="85" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/initialAndDataBind.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4396">
-          <caret line="181" column="21" lean-forward="true" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/IncomeViewVo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="111" column="27" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="27" />
-          <folding>
-            <element signature="e#80#81#0" expanded="true" />
-            <element signature="e#109#110#0" expanded="true" />
-            <element signature="e#153#154#0" expanded="true" />
-            <element signature="e#189#190#0" expanded="true" />
-            <element signature="e#226#227#0" expanded="true" />
-            <element signature="e#259#260#0" expanded="true" />
-            <element signature="e#311#312#0" expanded="true" />
-            <element signature="e#355#356#0" expanded="true" />
-            <element signature="e#391#392#0" expanded="true" />
-            <element signature="e#423#424#0" expanded="true" />
-            <element signature="e#473#474#0" expanded="true" />
-            <element signature="e#515#516#0" expanded="true" />
-            <element signature="e#550#551#0" expanded="true" />
-            <element signature="e#581#582#0" expanded="true" />
-            <element signature="e#629#630#0" expanded="true" />
-            <element signature="e#669#670#0" expanded="true" />
-            <element signature="e#707#708#0" expanded="true" />
-            <element signature="e#741#742#0" expanded="true" />
-            <element signature="e#795#796#0" expanded="true" />
-            <element signature="e#841#842#0" expanded="true" />
-            <element signature="e#876#877#0" expanded="true" />
-            <element signature="e#907#908#0" expanded="true" />
-            <element signature="e#955#956#0" expanded="true" />
-            <element signature="e#995#996#0" expanded="true" />
-            <element signature="e#1039#1040#0" expanded="true" />
-            <element signature="e#1079#1080#0" expanded="true" />
-            <element signature="e#1145#1146#0" expanded="true" />
-            <element signature="e#1203#1204#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-            <element signature="e#1349#1350#0" expanded="true" />
-            <element signature="e#1405#1406#0" expanded="true" />
-            <element signature="e#1444#1445#0" expanded="true" />
-            <element signature="e#1479#1480#0" expanded="true" />
-            <element signature="e#1535#1536#0" expanded="true" />
-            <element signature="e#1583#1584#0" expanded="true" />
-            <element signature="e#1616#1617#0" expanded="true" />
-            <element signature="e#1645#1646#0" expanded="true" />
-            <element signature="e#1689#1690#0" expanded="true" />
-            <element signature="e#1725#1726#0" expanded="true" />
-            <element signature="e#1761#1762#0" expanded="true" />
-            <element signature="e#1793#1794#0" expanded="true" />
-            <element signature="e#1843#1844#0" expanded="true" />
-            <element signature="e#1885#1886#0" expanded="true" />
-            <element signature="e#1917#1918#0" expanded="true" />
-            <element signature="e#1945#1946#0" expanded="true" />
-            <element signature="e#1987#1988#0" expanded="true" />
-            <element signature="e#2021#2022#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="66" column="40" lean-forward="true" selection-start-line="66" selection-start-column="20" selection-end-line="66" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="36" column="40" selection-start-line="36" selection-start-column="40" selection-end-line="36" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="504">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/css/table.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/js/utils.js">
+    <entry file="file://$PROJECT_DIR$/web/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-371">
-          <caret line="477" column="9" selection-start-line="477" selection-start-column="9" selection-end-line="477" selection-end-column="9" />
+        <state relative-caret-position="2352">
+          <caret line="84" column="23" selection-start-line="84" selection-start-column="16" selection-end-line="84" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/decimal.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="2" column="39" selection-start-line="2" selection-start-column="39" selection-end-line="2" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="397">
+          <caret line="9400" column="4" selection-start-line="9400" selection-start-column="4" selection-end-line="9400" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/underscore.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="28">
+          <caret line="4" column="17854" selection-start-line="4" selection-start-column="17854" selection-end-line="4" selection-end-column="17854" />
           <folding>
-            <element signature="n#style#0;n#td#0;n#tr#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#!!doc" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/css/style.css">
+    <entry file="file://$PROJECT_DIR$/web/js/zepto.min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="82" column="24" lean-forward="true" selection-start-line="82" selection-start-column="24" selection-end-line="82" selection-end-column="24" />
+        <state relative-caret-position="28">
+          <caret line="1" column="17685" selection-start-line="1" selection-start-column="17685" selection-end-line="1" selection-end-column="17685" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/zepto.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-27">
+          <caret line="1121" column="2" selection-start-line="1121" selection-start-column="2" selection-end-line="1121" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1540">
+          <caret line="55" column="41" lean-forward="true" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/sm.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="396" column="8" selection-start-line="396" selection-start-column="7" selection-end-line="396" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Outcomingtbl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" selection-start-line="4" selection-end-line="14" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Outcomedetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="17" column="25" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/Incomedetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="5" column="23" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/IncomeViewVo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="115" column="36" lean-forward="true" selection-start-line="112" selection-start-column="4" selection-end-line="115" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/vo/OutcomeViewVO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/util/SqlHelperNew.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-244">
+          <caret line="26" column="19" selection-start-line="26" selection-start-column="19" selection-end-line="26" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/js/communicateToServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="265" column="6" lean-forward="true" selection-start-line="265" selection-start-column="6" selection-end-line="265" selection-end-column="6" />
+        <state relative-caret-position="139">
+          <caret line="174" column="6" selection-start-line="174" selection-start-column="6" selection-end-line="174" selection-end-column="6" />
           <folding>
-            <element signature="n#!!block;n#inLibOper#0" />
-            <element signature="n#!!block;n#outLibOper#0" />
-            <element signature="n#!!block;n#getTableData#0" />
-            <element signature="n#!!block;n#inLibInputDataCheck#0" />
-            <element signature="n#!!block;n#outLibInputDataCheck#0" />
-            <element signature="n#!!block;n#dateSequenceCheck#0" />
+            <element signature="e#640#646#0" expanded="true" />
+            <element signature="e#829#835#0" expanded="true" />
+            <element signature="e#1200#1206#0" expanded="true" />
+            <element signature="e#1293#1299#0" expanded="true" />
+            <element signature="e#1565#1571#0" expanded="true" />
+            <element signature="e#2370#2376#0" expanded="true" />
+            <element signature="e#2853#2859#0" expanded="true" />
+            <element signature="n#style#0;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/CaculateTotalPriceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="37" column="20" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/CheckUserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="10" selection-end-line="19" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/EdtBillStatusByBillNoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="876">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetCategoryList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="48" column="20" selection-start-line="48" selection-start-column="10" selection-end-line="48" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetManufactureLst.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetSpecList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="43" column="24" selection-start-line="43" selection-start-column="14" selection-end-line="43" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetSpecListByCategoryID.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/InlibController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="81" column="20" selection-start-line="81" selection-start-column="10" selection-end-line="81" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/QryDetailByBillNoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="36" column="28" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/QryInLibBillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="44" column="24" selection-start-line="44" selection-start-column="14" selection-end-line="44" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/QryOutDetailByBillNoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="38" column="28" selection-start-line="38" selection-start-column="18" selection-end-line="38" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/QryOutLibBillController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="53" column="24" selection-start-line="53" selection-start-column="14" selection-end-line="53" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/web/main.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-8520">
-          <caret line="140" column="88" selection-start-line="140" selection-start-column="84" selection-end-line="140" selection-end-column="88" />
+        <state relative-caret-position="203">
+          <caret line="1019" column="40" lean-forward="true" selection-start-line="1019" selection-start-column="40" selection-end-line="1019" selection-end-column="40" />
           <folding>
             <element signature="n#header#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#nav#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#2;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#style#0;n#span#0;n#span#0;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#2;n#div#1;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#header#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#nav#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#1;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#2;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#3;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#0;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#1;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#2;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#li#3;n#ul#0;n#div#5;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#0;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#1;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#2;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#3;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#li#4;n#ul#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#style#0;n#span#0;n#span#0;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#1;n#span#0;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#2;n#span#0;n#div#1;n#div#0;n#li#0;n#ul#0;n#div#3;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#header#0;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" />
             <element signature="n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
-            <element signature="n#div#2;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#header#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
+            <element signature="n#div#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/OutLibController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5">
+          <caret line="57" column="14" lean-forward="true" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/initialAndDataBind.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="455" column="37" selection-start-line="455" selection-start-column="37" selection-end-line="455" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/proxy/IincomingtblDAOProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="29" column="50" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IincomingtblDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IincomingtblDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-230">
+          <caret line="21" column="18" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/proxy/IOutcomingtblDAOProxy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="27" column="50" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestInLibBillNoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="31" column="67" selection-start-line="31" selection-start-column="67" selection-end-line="31" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/controller/GetLatestOutLibBillNoController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="31" column="73" selection-start-line="31" selection-start-column="73" selection-end-line="31" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/IOutcomingtblDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/lyf/dao/impl/IOutcomingtblDAOImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="25" column="104" lean-forward="true" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="104" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/js/utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="1227" column="18" selection-start-line="1227" selection-start-column="18" selection-end-line="1227" selection-end-column="18" />
+          <folding>
+            <element signature="e#142#8066#0" />
+            <element signature="e#14148#14555#0" />
+            <element signature="e#14896#15886#0" />
+            <element signature="e#16284#18742#0" />
+            <element signature="e#19058#26301#0" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#1;n#!!top" expanded="true" />
+            <element signature="e#26923#27125#0" />
+            <element signature="e#29882#29922#0" />
+            <element signature="e#29985#31339#0" />
+            <element signature="e#32882#33351#0" />
+            <element signature="e#33901#35129#0" />
+            <element signature="e#35271#35635#0" />
+            <element signature="e#35680#35959#0" />
+            <element signature="e#36000#36121#0" />
+            <element signature="e#38028#40897#0" />
+            <element signature="e#40981#41907#0" />
+            <element signature="e#41955#43337#0" />
+            <element signature="e#43439#45999#0" />
+            <element signature="e#47517#49261#0" />
           </folding>
         </state>
       </provider>

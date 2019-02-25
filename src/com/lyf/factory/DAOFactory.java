@@ -18,7 +18,6 @@ public class DAOFactory {
 		return new ISpecificationtblDAOProxy();
 	}
 
-
 	//返回接口表，厂商列表
 	public static IManufacturerstblDAO getIManufacturerstblDAOInstance(){
 		return new IManufacturerstblDAOProxy();
@@ -33,7 +32,6 @@ public class DAOFactory {
 	public static IincomingtblDAO getIincomingtblDAOInstance(){
 		return new IincomingtblDAOProxy();
 	}
-
 	//返回接口实例，出库表
 	public static IOutcomingtblDAO getIOutcomingtblDAOInstance(){
 		return new IOutcomingtblDAOProxy();

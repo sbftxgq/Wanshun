@@ -2,7 +2,7 @@ package com.lyf.controller;
 
 import com.google.gson.Gson;
 import com.lyf.factory.DAOFactory;
-import com.lyf.vo.Incomingtbl;
+import com.lyf.vo.Outcomingtbl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,13 +13,16 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
-@WebServlet(name = "QryInLibBillController", urlPatterns = {"/QryInLibBillController"})
-public class QryInLibBillController extends HttpServlet {
+@WebServlet(name = "QryOutLibBillController", urlPatterns = {"/QryOutLibBillController"})
+public class QryOutLibBillController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //请求参数字符集设置
+        request.setCharacterEncoding("utf-8");
         //回传JSON数据给main.html页面
         response.setContentType("application/json;charset=utf-8");
         PrintWriter out = response.getWriter();
@@ -29,26 +32,30 @@ public class QryInLibBillController extends HttpServlet {
         response.setHeader("pragma", "no-cache");
 
         //取得客户端发送过来的数据
-        String qryWay = request.getParameter("inQueryWay");
+        String qryWay = request.getParameter("outQueryWay");//查询方式
         String pageNow = request.getParameter("pageNow");
         String pageSize = request.getParameter("pageSize");
-        String startDate = request.getParameter("inQryLibDateStrt");
-        String endDate = request.getParameter("inQryLibDateEnd");
-        String specID = request.getParameter("inQrySpecId");
-        String[] paramValues = {startDate, endDate, specID};
+        String startDate = request.getParameter("outQryLibDateStrt");
+        String endDate = request.getParameter("outQryLibDateEnd");
+        String specID = request.getParameter("outQrySpecId");
+        String guestName = request.getParameter("guestName");
+        //String destName = request.getParameter("destName");
+        //String billStatus = request.getParameter("billStatus");//SQL语句中，参数写死为0
+        //参数顺序：起始、结束日期、商品规格、客户姓名
+        String[] paramValues = {startDate, endDate, specID, guestName};
         //取得数据库数据并转换为JSON
-        List<Incomingtbl> results = null;
+        List<Outcomingtbl> results = null;
         String counts = null;
         try {
-            counts = DAOFactory.getIincomingtblDAOInstance().getCountsByField(qryWay, paramValues);
+            counts = DAOFactory.getIOutcomingtblDAOInstance().getOutCountsByField(qryWay, paramValues);
+            //查询方式
+            //System.out.println(qryWay);
             //有了数量，才继续往下查
-            //System.out.println("记录数：" + counts);
-            //System.out.println("当前页："+pageNow+"，每页条数："+pageSize);
+            //System.out.println("出库记录数：" + counts);
+            //System.out.println("当前页：" + pageNow + "，每页条数：" + pageSize);
             if (null != counts && !("0".equals(counts))) {
                 try {
-                    //拿到所有的商品规格数据（未分页）
-                    //System.out.println(qryWay);
-                    results = DAOFactory.getIincomingtblDAOInstance().getBillsByField(qryWay, paramValues, Integer.parseInt(pageNow), Integer.parseInt(pageSize));
+                    results = DAOFactory.getIOutcomingtblDAOInstance().getOutBillsByField(qryWay, paramValues, Integer.parseInt(pageNow), Integer.parseInt(pageSize));
                     Gson gson = new Gson();
                     String jsonResult = gson.toJson(results);
                     //返回的字符串格式：

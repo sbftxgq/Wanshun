@@ -28,7 +28,7 @@ public class CheckUserController extends HttpServlet {
         String userName = request.getParameter("userName");
         String pwd = request.getParameter("pwd");
 
-        System.out.println("用户名："+userName+"，密码："+pwd);
+        //System.out.println("用户名："+userName+"，密码："+pwd);
         //构造Users对象
         Users user = new Users();
         user.setUserName(userName);

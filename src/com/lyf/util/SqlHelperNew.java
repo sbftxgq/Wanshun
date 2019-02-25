@@ -495,6 +495,69 @@ public class SqlHelperNew {
         return flag;
     }
 
+    //封装一个执行多个统一的select语句，使用原生的Java库ResultSet的结果集，每一SQL语句取得唯一
+    // 一行一列的结果存入字符串数组返回
+    public String[] executeQuerySQLsForSingleResult(String[] sql, String[][] parameters) throws Exception{
+
+        //几个SQL语句就有几个结果，一个语句返回一个结果，按顺序存入数组
+        int sqlLen = sql.length;
+        String[] results = new String[sqlLen];
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        if (null != ct) {
+
+            try {
+                ct.setAutoCommit(false);//首先禁止自动提交事务
+                for (int i = 0; i < sqlLen; i++) {
+
+                    ps = ct.prepareStatement(sql[i], ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                    if (parameters != null) {
+                        //parameters[i]代表了第i条SQL语句的参数值的集合（字符串数组），parameters[i]是个一维数组名，里面存放了j个？值（参数）
+                        for (int j = 0; j < parameters[i].length; j++) {
+                            ps.setString(j + 1, parameters[i][j]);//给第i条SQL语句的j个参数（如果有的话）赋值
+                        }
+                    }
+                    rs = ps.executeQuery();
+                    //只取首行记录结果，第一行第一列（columnIndex从1开始，1标识第1列）
+                    if(rs.next()){
+                        results[i] = rs.getString(1);//
+                    }
+                }
+                //提交事务，放在循环体外，最后提交。也可以放在第一层循环体内最后，每次循环完毕，提交一次，但是这样效率低一些
+                ct.commit();
+            } catch (Exception e) {
+                try {
+                    ct.rollback();//回滚事务，取消SQL语句组执行的操作
+                } catch (SQLException e1) {
+                    e1.printStackTrace();
+                }
+                e.printStackTrace();
+                throw new RuntimeException(e.getMessage());
+            } finally {
+                //释放资源
+                if (null != ps) {
+                    try {
+                        ps.close();
+                        ps = null;
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+                //释放资源，由于rs的数据保存到文件，故暂时此处关闭rs
+                if (null != rs) {
+                    try {
+                        rs.close();
+                        rs = null;
+                    } catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        }
+        return results;
+    }
+
     //封装一个统一的select语句，使用自定义的继承自Java库ResultSet的带分页功能的ResultSet，即IPageableResultSetImpl
     public IPageableResultSet executePageQuerySQL(String sql, String[] parameters) {
         PreparedStatement ps = null;

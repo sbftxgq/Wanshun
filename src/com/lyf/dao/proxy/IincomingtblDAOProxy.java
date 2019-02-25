@@ -23,11 +23,11 @@ public class IincomingtblDAOProxy implements IincomingtblDAO {
     }
 
     @Override
-    public String getLatestBillNO() throws Exception {
+    public String getLatestBillNO(String year) throws Exception {
 
         String billNo = null;
         try {
-            billNo = this.dao.getLatestBillNO();
+            billNo = this.dao.getLatestBillNO(year);
         } catch (Exception e) {
             billNo = null;
             throw e;

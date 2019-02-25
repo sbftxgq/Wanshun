@@ -19,14 +19,15 @@ public class IincomingtblDAOImpl implements IincomingtblDAO {
     }
 
     @Override
-    public String getLatestBillNO() throws Exception {
+    public String getLatestBillNO(String year) throws Exception {
 
         String billNo = null;
         //选择最大的billNO，降序排列，取出第一条
-        String sql = "SELECT billNo FROM incomingtbl ORDER BY billNo+0 desc LIMIT 1";
+        String sql = "SELECT billNo FROM incomingtbl WHERE billNo LIKE ? ORDER BY billNo+0 desc LIMIT 1";
+        String[] pars = {year+"%"};
         ResultSet rs = null;
         try {
-            rs = this.sqlTool.executeQuerySQL(sql, null);
+            rs = this.sqlTool.executeQuerySQL(sql, pars);
             if (rs.next()) {
                 billNo = rs.getString(1);
             }
@@ -159,7 +160,7 @@ public class IincomingtblDAOImpl implements IincomingtblDAO {
             default:
                 qrySQL = qryAllByPageSQL;
         }
-        System.out.println(qrySQL);
+        //System.out.println(qrySQL);
         //System.out.println("两个参数，参数1：" + pars[0] + "参数2：" + pars[1]);
         //执行SQL语句并封装
         try {

@@ -78,6 +78,7 @@ table tr td, table tr th {
     table-layout: fixed;
 }
 
+/*大部分表格，入库单明细*/
 .singleTable table tr th{
     /*首行不换行*/
     white-space: nowrap;
@@ -93,6 +94,36 @@ table tr td, table tr th {
     padding: .4em .2em; /*上下0.4em,左右0.2*/
 }
 
+/*出库单明细*/
+.singleOutTable {
+    padding-top: .5rem;
+    padding-right: .4rem;
+    padding-bottom:  .5rem;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.singleOutTable table tr th{
+    /*首行前3列不换行，最后一列换行*/
+    white-space: nowrap;
+    background: #F4F4F4;/*增加灰底色*/
+}
+
+.singleOutTable table tr th:last-child{
+    /*首行前3列不换行，最后一列换行*/
+    white-space: normal;
+    word-break:break-all;/*其它行字符串自动换行*/
+    word-wrap:break-word;
+}
+
+.singleOutTable table tr td {
+    /*表格内换行*/
+    white-space: normal;
+    word-break:break-all;/*其它行字符串自动换行*/
+    word-wrap:break-word;
+    text-align: left;
+    padding: .4em .2em; /*上下0.4em,左右0.2*/
+}
 
 /*IOS滚动条*/
 .table-container::-webkit-scrollbar {

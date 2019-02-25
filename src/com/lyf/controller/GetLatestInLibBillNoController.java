@@ -25,10 +25,11 @@ public class GetLatestInLibBillNoController extends HttpServlet {
         response.setDateHeader("Expires", -1);
         response.setHeader("cache-control", "no-cache");
         response.setHeader("pragma", "no-cache");
-        //拿到最大年号，卷案号数据
+        String year = request.getParameter("year");
+        //拿到当年流水号最大的数据
         String billNo = null;
         try {
-            billNo = DAOFactory.getIincomingtblDAOInstance().getLatestBillNO();
+            billNo = DAOFactory.getIincomingtblDAOInstance().getLatestBillNO(year);
         } catch (Exception e) {
             e.printStackTrace();
         }

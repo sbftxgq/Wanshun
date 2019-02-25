@@ -146,7 +146,7 @@ function outLibOper() {
 //查询结果表格项单击事件,发送Ajax请求，获取该单数据明细
 function queryDetail(obj) {
     //打印出billNo的值,传递参数this代表当前行<tr>对象，此处为obj，接收实参this
-    $.alert(obj.cells[0].innerText);
+    //$.alert(obj.cells[0].innerText);
     //取得当前行订单号
     var billNo = obj.cells[0].innerText;
     //发送Ajax请求的配置
@@ -159,6 +159,31 @@ function queryDetail(obj) {
         type: "POST",
         success: function (dataFromServer) {
             createInLibDetailsPopup(dataFromServer);
+        },
+        error: function () {
+            $.alert("服务器未响应，查询明细失败！");
+        }
+    };
+    //发送请求
+    $.ajax(ajaxQryConfig);
+}
+
+//查询出库单明细（表格单击事件），发送Ajax请求，获取该出库单数据明细
+//obj代表当前行的DOM对象，调用时传递的this就是obj
+function queryOutDetail(obj) {
+    //打印出billNo的值,传递参数this代表当前行<tr>对象，此处为obj，接收实参this
+    //$.alert(obj.cells[0].innerText);
+    var billNo = obj.cells[0].innerText;
+    //发送Ajax请求的配置
+    var ajaxQryConfig = {
+        url: "QryOutDetailController",    //请求的url地址
+        timeout: 5000,//请求时间
+        dataType: "json",   //返回格式为json
+        async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+        data:{"billNo":billNo},
+        type: "POST",
+        success: function (dataFromServer) {
+            createOutLibDetailsPopup(dataFromServer);
         },
         error: function () {
             $.alert("服务器未响应，查询明细失败！");
@@ -193,14 +218,14 @@ function createInLibDetailsPopup(dataFromServer) {
         '<div class="item-media"><i class="icon icon-f7"></i></div>'+
         '<div class="item-inner">'+
         '<div class="item-title">进货总额</div>'+
-        '<div class="item-after">'+dataFromServer[0].totalPrice+'</div>'+
+        '<div class="item-after">'+dataFromServer[0].totalPrice+'&nbsp;元</div>'+
         '</div>'+
         '</li>'+
         '<li class="item-content">'+
         '<div class="item-media"><i class="icon icon-f7"></i></div>'+
         '<div class="item-inner">'+
         '<div class="item-title">运输费用</div>'+
-        '<div class="item-after">'+dataFromServer[0].transitFare+'</div>'+
+        '<div class="item-after">'+dataFromServer[0].transitFare+'&nbsp;元</div>'+
         '</div>'+
         '</li>'+
         '<li class="item-content">'+
@@ -214,12 +239,12 @@ function createInLibDetailsPopup(dataFromServer) {
         '<div class="item-media"><i class="icon icon-f7"></i></div>'+
         '<div class="item-inner">'+
         '<div class="item-title">装卸费用</div>'+
-        '<div class="item-after">'+dataFromServer[0].shipFare+'</div>'+
+        '<div class="item-after">'+dataFromServer[0].shipFare+'&nbsp;元</div>'+
         '</div>'+
         '</li>'+
         '</ul>'+
         '</div>'+
-        '<div class="content-block-title">商品详情</div>'+
+        '<div class="content-block-title">商品详情（货币单位：元）</div>'+
         '<div class="list-block">'+
         '<ul>'+
         '<li>'+
@@ -239,16 +264,14 @@ function createInLibDetailsPopup(dataFromServer) {
         '<li class="item-content">'+
         '<div class="item-media"><i class="icon icon-f7"></i></div>'+
         '<div class="item-inner">'+
-        '<p><a href="#" class="close-popup">关闭</a></p>'+
+        '<p><a href="#" class="close-popup button button-fill">关闭</a></p>'+
         '</div>'+
         '</li>'+
         '</ul>'+
         '</div>'+
         '</div>'+
         '</div>';
-
-    createTableDetails(dataFromServer);
-
+    //createTableDetails(dataFromServer);
     $.popup(popupHTML);
 }
 
@@ -263,250 +286,246 @@ function createTableDetails(data) {
     return tbl_row;
 }
 
-function measurementsMapping(measurements) {
-    switch (measurements) {
-        case "piece":
-            return "片";
-        case "bunch5":
-            return "把(5根)";
-        case "bunch4":
-            return "把(4根)";
-        case "meter":
-            return "米";
-        case "stere":
-            return "立方米";
+function createOutLibDetailsPopup(dataFromServer) {
+    var popupHTML = '<div class="popup popup-detail">' +
+        '    <div class="content">' +
+        '<div class="content-block-title">订单详情</div>' +
+        '  <div class="list-block">' +
+        '    <ul>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">送货单号</div>' +
+        '          <div class="item-after">'+dataFromServer[0].billNo+'</div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">送货日期</div>' +
+        '          <div class="item-after">'+dataFromServer[0].outLibDate+'</div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">客户名称</div>' +
+        '          <div class="item-after">'+dataFromServer[0].guestName+'</div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">销售地点</div>' +
+        '          <div class="item-after">'+dataFromServer[0].destLocation+'</div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">销售总额</div>' +
+        '          <div class="item-after">'+dataFromServer[0].totalPrice+'&nbsp;元</div>' +
+        '        </div>' +
+        '      </li>' +
+        setLiItemBackgroundColor(dataFromServer[0].billStatus)+
+        // '      <li style="background-color: lightpink">' +
+        '         <div class="item-content">' +
+        '             <div class="item-media"></div>' +
+        '             <div class="item-inner">' +
+        '                 <div class="item-title label">订单状态</div>' +
+        '                 <div class="item-input">' +
+        '                     &nbsp;未付' +
+        '                     <label class="label-switch">' +
+                                      showCheckBoxIsPayedDetail(dataFromServer[0].billStatus)+
+        // '                         <input id="edtIsPayed" name="edtIsPayed" type="checkbox">' +
+        '                         <div class="checkbox"></div>' +
+        '                     </label>' +
+        '                     已付' +
+        '                 </div>' +
+        '             </div>' +
+        '         </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title label">实收总额</div>' +
+        '          <div class="item-input">' +
+        '                 <input type="text" readonly id="edtActualTotalPrice" name="edtActualTotalPrice" value="'+dataFromServer[0].actualTotalPrice+'&nbsp;元"/>' +
+        '          </div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">运输费用</div>' +
+        '          <div class="item-after">'+dataFromServer[0].transitFare+'&nbsp;元</div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">送货方式</div>' +
+        '          <div class="item-after">'+dataFromServer[0].outLibWay+'</div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">装卸费用</div>' +
+        '          <div class="item-after">'+dataFromServer[0].shipFare+'&nbsp;元</div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li class="item-content">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>' +
+        '        <div class="item-inner">' +
+        '          <div class="item-title">经手人</div>' +
+        '          <div class="item-after">'+dataFromServer[0].outLibMan+'</div>' +
+        '        </div>' +
+        '      </li>' +
+        '    </ul>' +
+        '  </div>' +
+        '<div class="content-block-title">销售详情（货币单位：元）</div>' +
+        '<div class="list-block">' +
+        '    <ul>' +
+        '      <li>' +
+        '        <div class="item-content">' +
+        '<div class="singleTable">' +
+        '                   <table id="outQryDetailstbl">' +
+        '                              <tbody id="outQryDetailsbody">' +
+        '                                          <!--后续行代码生成-->' +
+        // '<tr><th>商品规格</th><th>厂家</th><th>计量单位</th><th>数量</th><th>单价</th><th>金额</th></tr>' +
+        // '<tr><td>****</td><td>****</td><td>***</td><td>****</td><td>***</td><td>****</td></tr>' +
+                                        createTableDetails(dataFromServer)+
+        '                               </tbody>' +
+        '                    </table>' +
+        '                </div>' +
+        '        </div>' +
+        '      </li>' +
+        '      <li style="padding-bottom: .5em">' +
+        '        <div class="item-media"><i class="icon icon-f7"></i></div>'+
+        '        <div class="row" style="padding-left: 1em;padding-right: .4em">' +
+        '             <div class="col-50"><a class="button button-fill button-success" onclick="edtOutBill('+dataFromServer[0].billNo+')">修改</a></div>' +
+        '             <div class="col-50"><a href="#" class="close-popup button button-fill">关闭</a></div>' +
+        '         </div>' +
+        '      </li>    '+
+        '     </ul>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    $.popup(popupHTML);
+    regoutBillEdtEvent(dataFromServer[0].actualTotalPrice);//注册check选项事件，注册已付/未付单击事件
+}
+
+function setLiItemBackgroundColor(billStatus) {
+    var  noPayStyle = '<li id="edtLiItem" style="background-color: lightpink">';
+    var payStyle =  '<li id="edtLiItem">';
+    if ("0" == billStatus) {
+        return noPayStyle;
+    }else{
+        return payStyle;
     }
 }
 
-//获取明细表中的数据，参数1：单号，参数2：明细表格ID，参数3：出/入库标志，false标识入库
-function getTableData(billNo, tableIDStr, isOut) {
-    //返回数组格式数据：[{"name":value,...,"key":value},{},...{}]
-    //例如：[{},{},{}]，{}内为表格的一行数据，即记录，除了表头首行标题行外均为数据
-    //表格所有行(除去前2行：标题行和首行)，后续行ID后面自增1，例如入库
-    var dataRows = $(tableIDStr).find("tr").length - 2;
-    //每次提交清空数据
-    var dataArray = [];
-    //如果是出库
-    if (isOut) {
-        //首行数据
-        var outFirstRowData = {
-            "billNo": billNo,//送货单号
-            "specificationId": $("#speclst").val(),//规格
-            "manufacturerId": $("#manuflst").val(),//厂家
-            "measurements": $("#unit").val(),//计量单位
-            "counts": $("#counts").val(),//数量
-            "unitPrice": $("#unitprice").val(),//单价
-            "price": $("#price").val() //进价;
-        };
-        dataArray.push(outFirstRowData);
-        //后续每行数据
-        var outRowData = null;
-        for (var outRowIndex = 1; outRowIndex <= dataRows; outRowIndex++) {
-            outRowData = {
-                "billNo": billNo,//送货单号
-                "specificationId": $("#speclst" + outRowIndex).val(),//规格
-                "manufacturerId": $("#manuflst" + outRowIndex).val(),//厂家
-                "measurements": $("#unit" + outRowIndex).val(),//计量单位
-                "counts": $("#counts" + outRowIndex).val(),//数量
-                "unitPrice": $("#unitprice" + outRowIndex).val(),//单价
-                "price": $("#price" + outRowIndex).val() //进价;
-            };
-            dataArray.push(outRowData);
-        }
-    } else {
-        //否则是入库，首行数据
-        var inFirstRowData = {
-            "billNo": billNo,//进货单号
-            "specificationId": $("#inspeclst").val(),//规格
-            "manufacturerId": $("#inmanuflst").val(),//厂家
-            "measurements": $("#inunit").val(),//计量单位
-            "counts": $("#incounts").val(),//数量
-            "unitPrice": $("#inunitprice").val(),//单价
-            "price": $("#inprice").val() //进价;
-        };
-        dataArray.push(inFirstRowData);
-        //后续每行数据
-        var inRowData = null;
-        for (var inRowIndex = 1; inRowIndex <= dataRows; inRowIndex++) {
-            inRowData = {
-                "billNo": billNo,//进货单号
-                "specificationId": $("#inspeclst" + inRowIndex).val(),//规格
-                "manufacturerId": $("#inmanuflst" + inRowIndex).val(),//厂家
-                "measurements": $("#inunit" + inRowIndex).val(),//计量单位
-                "counts": $("#incounts" + inRowIndex).val(),//数量
-                "unitPrice": $("#inunitprice" + inRowIndex).val(),//单价
-                "price": $("#inprice" + inRowIndex).val() //进价;
-            };
-            dataArray.push(inRowData);
-        }
+function showCheckBoxIsPayedDetail(billStatus) {
+    switch (billStatus) {
+        //未付
+        case "0":
+            return '<input id="edtIsPayed" name="edtIsPayed" type="checkbox">';
+        //已付
+        case "1":
+            return '<input id="edtIsPayed" name="edtIsPayed" type="checkbox" checked disabled>';
     }
-    return dataArray;
 }
 
-//入库数据输入正则验证
-function inLibInputDataCheck() {
-    //var isPassed = false;
-    //表格所有行(除去前2行：标题行和首行)，后续行ID后面自增1
-    var dataRows = $("#infirstcolumn").find("tr").length - 2;
-    var counts = $("#incounts").val();
-    var unitPrice = $("#inunitprice").val();
-    var isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
-    var isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
-    if (!isCountsInputPassed) {
-        $.toast("数量必须输入且只能输入数字！");
-        $("#incounts").focus();//获得焦点
-        return false;
-    }
-
-    if (!isUnitPriceInputPassed) {
-        $.toast("单价必须输入且只能输入数字！")
-        $("#inunitprice").focus();//获得焦点
-        return false;
-    }
-
-    for (var index = 1; index <= dataRows; index++) {
-        counts = $("#incounts" + index).val();
-        unitPrice = $("#inunitprice" + index).val();
-        isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
-        isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
-        if (!isCountsInputPassed) {
-            $.toast("数量必须输入且只能输入数字！");
-            $("#incounts" + index).focus();//获得焦点
-            return false;
+//修改出库单，出库单修改按钮事件
+function edtOutBill(billNo) {
+    //首先数据校验，看是否输入为数字，校验通过后再执行Ajax操作，后台修改该单状态和金额
+    //console.log("billNo:"+billNo);
+    var actualTotalPrice = $("#edtActualTotalPrice").val();
+    var isPayedChecked = $("#edtIsPayed").attr("checked");
+    //console.log(isPayedChecked);
+    if (isPayedChecked) {
+        if (REGEXPR_DBDECIMAL_NUM.test(actualTotalPrice)){
+            //console.log("billNo:"+billNo);
+            //校验通过，发送Ajax请求，触发SQL语句完成订单状态修改和实收金额输入
+            doEditOper(billNo,actualTotalPrice);
+        }else {
+            $.toast("实收金额必须输入且只能输入数字！");
+            $("#edtActualTotalPrice").focus();
         }
-        if (!isUnitPriceInputPassed) {
-            $.toast("单价必须输入且只能输入数字！");
-            $("#inunitprice" + index).focus();//获得焦点
-            return false;
-        }
+    }else {
+        $.toast("请先将订单状态改为“已付”！");
+        $("#edtIsPayed").focus();
     }
 
-    //运费验证
-    var inTransitFare = $("#inTransitFare").val();
-    if (!REGEXPR_INTEGER.test(inTransitFare)) {
-        $.toast("运费必须输入且只能输入数字！");
-        $("#inTransitFare").focus();
-        return false;
-    }
-
-    //装卸费验证
-    var inShipFare = $("#inShipFare").val();
-    if (!REGEXPR_INTEGER.test(inShipFare)) {
-        $.toast("装卸费必须输入且只能输入数字！");
-        $("#inShipFare").focus();
-        return false;
-    }
-    return true;
 }
 
-//出库数据输入正则验证
-function outLibInputDataCheck() {
-    var guestName = $("#guestName").val();//客户名称
-    var destLocation = $("#destLocation").val();//销售地点
-    var outLibMan = $("#outLibMan").val();//送货人
-    //表格所有行(除去前2行：标题行和首行)，后续行ID后面自增1
-    var dataRows = $("#firstcolumn").find("tr").length - 2;
-    var counts = $("#counts").val();
-    var unitPrice = $("#unitprice").val();
-    var isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
-    var isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
-    //客户名称正则验证
-    if ("" == guestName) {
-        $.toast("客户名称必须输入！");
-        $("#guestName").focus();//获得焦点
-        return false;
-    }
-    //送货地点正则验证
-    if ("" == destLocation) {
-        $.toast("送货地点必须输入！");
-        $("#destLocation").focus();//获得焦点
-        return false;
-    }
-    //送货人验证
-    if ("" == outLibMan) {
-        $.toast("送货人必须输入！");
-        $("#outLibMan").focus();//获得焦点
-        return false;
-    }
-    //数据首行数量输入验证
-    if (!isCountsInputPassed) {
-        $.toast("数量必须输入且只能输入数字！");
-        $("#counts").focus();//获得焦点
-        return false;
-    }
-    //数据首行单价输入验证
-    if (!isUnitPriceInputPassed) {
-        $.toast("单价必须输入且只能输入数字！")
-        $("#unitprice").focus();//获得焦点
-        return false;
-    }
-    //表格数据其它行的数量和单价输入验证
-    for (var index = 1; index <= dataRows; index++) {
-        counts = $("#counts" + index).val();
-        unitPrice = $("#unitprice" + index).val();
-        isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
-        isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
-        if (!isCountsInputPassed) {
-            $.toast("数量必须输入且只能输入数字！");
-            $("#counts" + index).focus();//获得焦点
-            return false;
+function doEditOper(billNo, actualTotalPrice) {
+    //发送数据到服务器（Tomcat）
+    $.ajax({
+        url: "EdtBillStatusController",    //请求的url地址
+        timeout: 5000,
+        dataType: "json",   //返回格式为json
+        async: true,//请求是否异步，默认为异步，这也是ajax重要特性
+
+        beforeSend: function () {
+            //显示预加载进度条
+            $.showPreloader('修改中...');
+            //800毫秒钟后消失
+            setTimeout(function () {
+                $.hidePreloader();
+            }, 800);
+        },
+        //请求参数值（发送的数据位于请求对象request中，这些值就是请求参数值，又叫发送的数据）
+        data: {
+            "billNo": billNo,
+            "actualTotalPrice": actualTotalPrice
+        },
+        type: "POST",   //发送数据的请求方式（POST提交数据）
+        success: function (data) {
+            //请求成功时处理
+            if ("true" == data.edtResult) {
+                //console.log(data.insertResult);
+                setTimeout(function () {
+                    $.toast("修改成功！");
+                }, 1000);
+                //修改成功完成后，关闭popup页
+                //2秒后关闭该Popup
+                //window.location.reload(true);
+                setTimeout(function (){
+                    $.closeModal(".popup-detail");
+                },2000);
+
+                setTimeout(function () {
+                    //2秒后刷新表格
+                    reDoQueryOutBill();
+                },2000);
+
+            } else {
+                $.toast("服务器返回异常，修改失败！");
+            }
+        },
+        error: function () {
+            $.alert("服务器未响应，修改失败！");
         }
-        if (!isUnitPriceInputPassed) {
-            $.toast("单价必须输入且只能输入数字！");
-            $("#unitprice" + index).focus();//获得焦点
-            return false;
-        }
-    }
-    //这两项费用验证前提是“送货方式选择了‘他送’”
-    if (IS_TASONG) {
-        //运费验证
-        var transitFare = $("#transitFare").val();
-        if (!REGEXPR_INTEGER.test(transitFare)) {
-            $.toast("运费必须输入且只能输入数字！");
-            $("#transitFare").focus();
-            return false;
-        }
-        //装卸费验证
-        var shipFare = $("#shipFare").val();
-        if (!REGEXPR_INTEGER.test(shipFare)) {
-            $.toast("装卸费必须输入且只能输入数字！");
-            $("#shipFare").focus();
-            return false;
-        }
-    }
-    //如果已付，则还需要对实付金额进行验证
-    if (IS_PAYED) {
-        //获取实收总额
-        var actualTotalPrice = $("#actualTotalPrice").val();
-        if (!(REGEXPR_DBDECIMAL_NUM.test(actualTotalPrice) || REGEXPR_INTEGER.test(actualTotalPrice))) {
-            $.toast("实付总额必须输入且只能输入数字！");
-            $("#actualTotalPrice").focus();
-            return false;
-        }
-    }
-    //所有数据输入验证通过，返回true
-    return true;
+    });
 }
 
-//起始结束日期顺序验证
-function dateSequenceCheck() {
-    //日期字符串中的“-”替换成“/”目的是为了兼容IE11
-    var startDate = $("#inQryLibDateStrt").val();
-    var endDate = $("#inQryLibDateEnd").val();
-    //$.alert(startDate+"--"+endDate);
-    startDate = startDate.replace("-", "/").replace("-", "/");
-    endDate = endDate.replace("-", "/").replace("-", "/");
-    //$.alert(startDate+"--"+endDate);
-    if (Date.parse(startDate) > Date.parse(endDate)) {
-        $.toast("起始日期不能在结束日期后面！");
-        $("#inQryLibDateStrt").focus();
-        return false;
-    }
-    //日期顺序校验通过
-    return true;
+function regoutBillEdtEvent(actualTotalPrice){
+    //修改状态标识触发修改实收金额可用
+    $("#edtIsPayed").on("click",function () {
+        if (this.checked) {
+            $.toast("输入实收金额后点击‘修改’按钮");
+            $("#edtActualTotalPrice").removeAttr("readonly");
+            $("#edtActualTotalPrice").val("");//清空
+            $("#edtActualTotalPrice").focus();
+            $("#edtLiItem").css("background-color","white");
+        }else {
+            $("#edtActualTotalPrice").attr("readonly","readonly")//将input元素设置为readonly
+            $("#edtActualTotalPrice").val(actualTotalPrice + " 元");
+            $("#edtLiItem").css("background-color","lightpink");
+        }
+    });
 }
 
 
-//页面初始化执行，在main.html最后执行了一句$.init()，下面的滚动代码才生效！
-//即以下自定义的代码必须都放在$.init()前面执行滚动才有效，监听滚动的容器是page
-$.toast("pageInit");//页面加载一次（刷新一次），就执行一次
