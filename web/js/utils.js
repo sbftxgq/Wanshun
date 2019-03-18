@@ -173,8 +173,8 @@ function addRow(delBtnClassStr, lftTblIdStr, rgtTblIdStr, leftTblFstRowIdStr, ri
 
     var len = getDomObj(rgtTblIdStr).rows.length; //右边表格table取到所有的行
     //console.log("新增行前的表格行数："+len);//初始为2，因为已经有表头和样本数据2行，故len=2
-    if (len >= 6) {
-        $.alert("最多为5个商品规格！");
+    if (len >= 11) {
+        $.alert("最多为10个商品规格！");
         return;
     }
     //第一，克隆对象保存（第二个表的首行被复制）
@@ -228,6 +228,8 @@ function addRow(delBtnClassStr, lftTblIdStr, rgtTblIdStr, leftTblFstRowIdStr, ri
         updatePriceValue((len - 1), isOut);
         caculateTotalPrice(isOut);//计算总额事件注册
     });
+    //清空厂商列表
+    clearManufacturer(isOut,(len - 1));
     //新增按钮后，清零各输入框，更新总价
     clearPrice((len - 1), isOut);
     caculateTotalPrice(isOut);//计算总价
@@ -543,6 +545,7 @@ function addTableRows(pageNow, pageData, isOut) {
                 $("#payedMoney").html("已收款&nbsp;0&nbsp;元");
 
                 //没有数据则移除滚动监听
+                //如果是首次加载，没有滚动，无需注销加载事件
                 // 注销无限加载事件，以防不必要的加载
                 $.detachInfiniteScroll($("#outQryScrollContainer"));
                 // 隐藏加载提示符
@@ -885,6 +888,15 @@ function clearPrice(eleIndex, isOut) {
     }
 }
 
+function clearManufacturer(isOut,eleIndex) {
+    if(isOut){
+        $("#manuflst"+eleIndex).val("");
+    }else{
+        //入库时
+        $("#inmanuflst"+eleIndex).val("");
+    }
+}
+
 function measurementsMapping(measurements) {
     switch (measurements) {
         case "piece":
@@ -914,27 +926,41 @@ function inLibInputDataCheck() {
     //var isPassed = false;
     //表格所有行(除去前2行：标题行和首行)，后续行ID后面自增1
     var dataRows = $("#infirstcolumn").find("tr").length - 2;
-    var counts = $("#incounts").val();
-    var unitPrice = $("#inunitprice").val();
+    var manufacturerID = $("#inmanuflst").val();//厂商ID
+    var counts = $("#incounts").val();//输入的数量
+    var unitPrice = $("#inunitprice").val();//输入的单价
+    var isSelectedManuID = REGEXPR_NEEDINPUT.test(manufacturerID);
     var isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
     var isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
+    //首行
+    if (!isSelectedManuID) {
+        $.toast("模板厂家必须选择！");
+        $("#inmanuflst").focus();//获得焦点
+        return false;
+    }
     if (!isCountsInputPassed) {
         $.toast("数量必须输入且只能输入数字！");
         $("#incounts").focus();//获得焦点
         return false;
     }
-
     if (!isUnitPriceInputPassed) {
         $.toast("单价必须输入且只能输入数字！")
         $("#inunitprice").focus();//获得焦点
         return false;
     }
-
+    //后续新增的行
     for (var index = 1; index <= dataRows; index++) {
+        manufacturerID = $("#inmanuflst"+index).val();//厂商ID
         counts = $("#incounts" + index).val();
         unitPrice = $("#inunitprice" + index).val();
+        isSelectedManuID = REGEXPR_NEEDINPUT.test(manufacturerID);
         isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
         isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
+        if (!isSelectedManuID) {
+            $.toast("模板厂家必须选择！");
+            $("#inmanuflst"+index).focus();//获得焦点
+            return false;
+        }
         if (!isCountsInputPassed) {
             $.toast("数量必须输入且只能输入数字！");
             $("#incounts" + index).focus();//获得焦点
@@ -946,7 +972,6 @@ function inLibInputDataCheck() {
             return false;
         }
     }
-
     //运费验证
     var inTransitFare = $("#inTransitFare").val();
     if (!REGEXPR_INTEGER.test(inTransitFare)) {
@@ -972,8 +997,10 @@ function outLibInputDataCheck() {
     var outLibMan = $("#outLibMan").val();//送货人
     //表格所有行(除去前2行：标题行和首行)，后续行ID后面自增1
     var dataRows = $("#firstcolumn").find("tr").length - 2;
+    var manufacturerID = $("#manuflst").val();//出库列表的厂商ID
     var counts = $("#counts").val();
     var unitPrice = $("#unitprice").val();
+    var isSelectedManuID = REGEXPR_NEEDINPUT.test(manufacturerID);
     var isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
     var isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
     //客户名称正则验证
@@ -994,6 +1021,12 @@ function outLibInputDataCheck() {
         $("#outLibMan").focus();//获得焦点
         return false;
     }
+    //数据首行厂商选择验证
+    if (!isSelectedManuID) {
+        $.toast("模板厂家必须选择！");
+        $("#manuflst").focus();//获得焦点
+        return false;
+    }
     //数据首行数量输入验证
     if (!isCountsInputPassed) {
         $.toast("数量必须输入且只能输入数字！");
@@ -1008,10 +1041,17 @@ function outLibInputDataCheck() {
     }
     //表格数据其它行的数量和单价输入验证
     for (var index = 1; index <= dataRows; index++) {
+        manufacturerID = $("#manuflst"+index).val();//出库列表的厂商ID
         counts = $("#counts" + index).val();
         unitPrice = $("#unitprice" + index).val();
+        isSelectedManuID = REGEXPR_NEEDINPUT.test(manufacturerID);
         isCountsInputPassed = REGEXPR_DBDECIMAL_NUM.test(counts) || REGEXPR_INTEGER.test(counts);
         isUnitPriceInputPassed = REGEXPR_DBDECIMAL_NUM.test(unitPrice) || REGEXPR_INTEGER.test(unitPrice);
+        if (!isSelectedManuID) {
+            $.toast("模板厂家必须选择！");
+            $("#manuflst"+index).focus();//获得焦点
+            return false;
+        }
         if (!isCountsInputPassed) {
             $.toast("数量必须输入且只能输入数字！");
             $("#counts" + index).focus();//获得焦点
@@ -1266,6 +1306,19 @@ function regProductChangeEvent(unitIdStr, mufUnitdescIdStr, eleIndex, isOut) {
             } else {
                 $(mufUnitdescIdStr).hide();//隐藏单位说明
             }
+            //只要不是木方，厂家自动清空
+            //出库时
+            if(isOut){
+                //$("#manuflst"+eleIndex).find("option[value='baixinmb']").prop("selected", "selected");
+                $("#manuflst"+eleIndex).val("");
+                //显示库存
+                showInventory(productType,null,null,eleIndex);
+            }else{
+                //入库时
+                //$("#inmanuflst"+eleIndex).find("option[value='baixinmb']").prop("selected", "selected");
+                $("#inmanuflst"+eleIndex).val("");
+            }
+            clearManufacturer(isOut,eleIndex);
             break;
         //木方
         case "01":
@@ -1279,12 +1332,39 @@ function regProductChangeEvent(unitIdStr, mufUnitdescIdStr, eleIndex, isOut) {
             }
             //显示单位说明
             $(mufUnitdescIdStr).show();//显示单位说明
+            //只要是木方，厂家自动选择未知（进货）
+            //出库时
+            if(isOut){
+                $("#manuflst"+eleIndex).find("option[value='nodata']").prop("selected", "selected");
+                //显示库存
+                showInventory(productType,null,null,eleIndex);
+                //$("#manuflst"+eleIndex).val("");
+            }else{
+                //入库时
+                $("#inmanuflst"+eleIndex).find("option[value='nodata']").prop("selected", "selected");
+                //$("#inmanuflst"+eleIndex).val("");
+            }
     }
     //不论模板还是木方，改变就清空价格（要传递index索引）
     clearPrice(eleIndex, isOut);
     caculateTotalPrice(isOut);//计算总价
     //$.alert($unitSelectedObj.val());
 }
+
+//显示当前选择的库存量，产品下拉列表和厂商下拉列表改变事件触发后执行该函数，在指定行输入框显示库存量
+//根据specificationId | manufacturerId来查询库存。模板则是二者组合查，木方则只需要按照specificationId查
+//参数1：productType产品类型，参数2：specificationId ，参数3：manufacturerId
+function showInventory(productType,specificationId,specificationId,eleIndex){
+    //alert("***");
+    if(eleIndex>0){
+        $("#counts"+eleIndex).attr("placeholder","库存量："+(100+eleIndex));
+    }else{
+        //alert("yyy");
+        //首行
+        $("#counts").attr("placeholder","库存量："+100);
+    }
+}
+
 
 //注册单位选择change事件
 function regUnitChangeEvent(speclstIdStr, mufUnitdescIdStr, eleIndex, isOut) {
