@@ -37,5 +37,8 @@ public class DAOFactory {
 		return new IOutcomingtblDAOProxy();
 	}
 
+	//返回接口实例，库存表
+	public static ITbGoodsDAO getITbGoodsDAOInstance(){return new ITbGoodsDAOProxy();}
+
 
 }

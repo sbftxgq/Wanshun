@@ -1,23 +1,18 @@
 //正则表达式常量
 //两位小数
 var REGEXPR_DBDECIMAL_NUM = /^-?\d+\.?\d{0,2}$/;
-
 //必须输入
 var REGEXPR_NEEDINPUT = /^\S+$/;
-
 //正整数
 var REGEXPR_INTEGER = /^\d+$/;
 //是否是他送
 var IS_TASONG = false;
 //是否已付
 var IS_PAYED = false;
-
 //入库单查询方式
 var IN_QUERY_WAY = "ALL";//默认检索全部入库单,单击查询按钮首次加载时为日期范围“DTR”
-
 //出库单查询方式
 var OUT_QUERY_WAY = "ALL";//默认检索全部出库单,单击查询按钮首次加载时为日期范围“DTR”
-
 // 入库单加载flag
 var IN_QUERY_LOADING = false;
 //出库单加载flag
@@ -54,6 +49,7 @@ $("#inQryLibDateEnd").val(getNowFormatDate("-"));
 //出库单查询日期控件初始填写
 $("#outQryLibDateStrt").val(getNowFormatDate("-"));
 $("#outQryLibDateEnd").val(getNowFormatDate("-"));
+
 
 $("#transitItem").hide();
 $("#shipItem").hide();
@@ -450,6 +446,13 @@ function reDoQueryOutBill() {
 
 //页面加载后注册按钮监听
 onload = function () {
+
+    //重新初始化页面，取得当前页，注册滚动事件加载监听
+    //$.initPage();//$.init()中调用了$.initPage()方法，使用$.init()更全面
+    //$.toast("page init...");
+    $.init();//用于首次页面加载完成或者F5刷新时，重新初始化当前页信息
+    //debugger;
+
     //取得最新的入库单号和出库单号
     //参数1：请求的URL地址，参数2：界面显示控件的ID字符串
     getLatestBillNo("GetLatestInLibBillNo", "#inBillNo");//入库
@@ -463,16 +466,10 @@ onload = function () {
     doOperator(".inDel", "#infirstcolumn", "#ingoodstbl", "#inspeclst", "#inunit", "#inmufunitdesc", false);
 
     //入库单列表，参数1：查询方式，参数2：PAGENOW，初始为0（SQL语句LIMIT 0,PAGE_SIZE）参数3：PAGE_SIZE
-    queryInLibBill(IN_QUERY_WAY, 0, PAGE_SIZE);//初始加载所有ALL，前PAGE_SIZE页,PAGE_SIZE决定初始显示项数
+    //queryInLibBill(IN_QUERY_WAY, 0, PAGE_SIZE);//初始加载所有ALL，前PAGE_SIZE页,PAGE_SIZE决定初始显示项数
 
     //出库单列表，参数1：查询方式，参数2：PAGENOW，初始为0（SQL语句LIMIT 0,PAGE_SIZE）参数3：PAGE_SIZE
-    queryOutLibBill(OUT_QUERY_WAY, 0, PAGE_SIZE);
-
-    //重新初始化页面，取得当前页，注册滚动事件加载监听
-    //$.initPage();//$.init()中调用了$.initPage()方法，使用$.init()更全面
-    //$.toast("page init...");
-    $.init();//用于首次页面加载完成或者F5刷新时，重新初始化当前页信息
-    //debugger;
+    //queryOutLibBill(OUT_QUERY_WAY, 0, PAGE_SIZE);
 }
 
 //Ajax请求，动态构商品规格建选择列表，进货和销售的规格列表均使用此函数获取
@@ -521,7 +518,14 @@ $.ajax({
         $("#inmanuflst").append(optionStr);
         //销售管理表格中的option
         $("#manuflst").append(optionStr);
+        //把他们的值清空
+        $("#inmanuflst").val("");
+        $("#manuflst").val("");
     }
+});
+//出库操作，厂家下拉列表改变事件
+$("#manuflst").on("change",function () {
+    regManufactureChangeEvent.call(this,"");//首行注册
 });
 
 //console.log(prefixInteger(4,4));//string

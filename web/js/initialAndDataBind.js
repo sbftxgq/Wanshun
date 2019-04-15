@@ -523,6 +523,10 @@ $.ajax({
         $("#manuflst").val("");
     }
 });
+//出库操作，厂家下拉列表改变事件
+$("#manuflst").on("change",function () {
+    regManufactureChangeEvent.call(this,"");//首行注册
+});
 
 //console.log(prefixInteger(4,4));//string
 //销售管理商品规格下拉列表事件（改变类型，自动改变计量单位），true标识出库
